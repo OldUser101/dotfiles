@@ -8,6 +8,10 @@
     enableCompletion = true;
     autocd = true;
 
+    setOptions = [
+      "PATH_DIRS"
+    ];
+
     shellAliases = {
       c = "clear";
       rebuild = "home-manager build switch";
