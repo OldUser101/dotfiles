@@ -1,0 +1,14 @@
+{ config, pkgs, ... }:
+
+{
+  # OldUser101 wlsunset configuration sample
+  # Write to `wlsunset.nix`!
+
+  services.wlsunset = {
+    enable = true;
+
+    # Put your actual location here
+    latitude = "51.5287398";
+    longitude = "-0.2664017";
+  };
+}
