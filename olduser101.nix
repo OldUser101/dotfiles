@@ -7,6 +7,7 @@
     ./dunst/dunst.nix
     ./kitty/kitty.nix
     ./sway/sway.nix
+    ./swaylock/swaylock.nix
     ./oh-my-zsh/oh-my-zsh.nix
     ./wlsunset/wlsunset.nix
     ./zsh/zsh.nix
