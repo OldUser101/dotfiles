@@ -58,7 +58,7 @@
       };
 
       keybindings = 
-      let 
+      let
         mod = config.wayland.windowManager.sway.config.modifier;
         src = ./.;
         homeDir = config.home.homeDirectory;
@@ -76,7 +76,7 @@
         "${mod}+r" = "mode resize";
         "${mod}+m" = "mode move_float";
 
-        "${mod}+F4" = "kill";
+        "Mod1+F4" = "kill";
         "${mod}+Q" = "kill";
 
         "${mod}+Shift+h" = "move left";
