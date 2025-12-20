@@ -5,6 +5,7 @@
 
   imports = [
     ./dunst/dunst.nix
+    ./kak/kak.nix
     ./kitty/kitty.nix
     ./sway/sway.nix
     ./swaylock/swaylock.nix
