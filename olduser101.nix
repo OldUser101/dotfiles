@@ -9,6 +9,7 @@
     ./sway/sway.nix
     ./swaylock/swaylock.nix
     ./oh-my-zsh/oh-my-zsh.nix
+    ./waybar/waybar.nix
     ./wlsunset/wlsunset.nix
     ./zsh/zsh.nix
   ];

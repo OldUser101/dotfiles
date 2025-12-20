@@ -18,6 +18,7 @@
 
       startup = [
         { command = "kitty"; }
+        { command = "waybar"; }
       ];
 
       input = {
