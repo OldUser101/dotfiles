@@ -1,0 +1,16 @@
+{ config, pkgs, ... }:
+
+{
+  # OldUser101 sway output sample, modify as required
+  # Write to `outputs.nix` to use!
+
+  wayland.windowManager.sway.config.output = {
+    # The following are samples, define your own outputs here!
+    eDP-1 = {
+      position = "0 0";
+    };
+    HDM1-A-1 = {
+      position = "1920 0";
+    };
+  };
+}
