@@ -1,2 +1,3 @@
-# Sway outputs may be different
 sway/outputs.nix
+sway/bg/*
+!sway/bg/default.jpg
