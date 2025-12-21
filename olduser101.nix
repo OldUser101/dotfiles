@@ -14,6 +14,7 @@
     ./oh-my-zsh/oh-my-zsh.nix
     ./waybar/waybar.nix
     ./wlsunset/wlsunset.nix
+    ./wofi/wofi.nix
     ./zsh/zsh.nix
   ];
 }
