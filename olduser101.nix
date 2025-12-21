@@ -12,6 +12,7 @@
     ./sway/sway.nix
     ./swaylock/swaylock.nix
     ./oh-my-zsh/oh-my-zsh.nix
+    ./pkgs.nix
     ./waybar/waybar.nix
     ./wlsunset/wlsunset.nix
     ./wofi/wofi.nix
