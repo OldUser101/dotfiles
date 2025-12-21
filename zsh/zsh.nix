@@ -28,6 +28,8 @@ maildir_count() {
 }
 
 PROMPT='$(maildir_count)'\"$PROMPT\"
+
+ssh-add > /dev/null 2>&1
 ";
   };
 }
