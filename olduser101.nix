@@ -5,6 +5,7 @@
 
   imports = [
     ./dunst/dunst.nix
+    ./email/email.nix
     ./htop/htop.nix
     ./kak/kak.nix
     ./kitty/kitty.nix

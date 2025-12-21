@@ -1,3 +1,5 @@
+isync/mbsyncrc
+msmtp/msmtp.nix
 sway/outputs.nix
 sway/bg/*
 !sway/bg/default.jpg
