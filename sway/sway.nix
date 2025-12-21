@@ -92,6 +92,8 @@
         "Print" = "exec grim - | wl-copy";
         "Shift+Print" = "exec grim -g \"$(slurp)\" - | wl-copy";
         "${mod}+Print" = "exec grim -g \"$(slurp)\" ${screenshot}";
+
+        "${mod}+space" = "exec wofi --show drun";
       };
 
       modes = {

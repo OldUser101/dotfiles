@@ -56,6 +56,8 @@
       tab_bar_edge = "top";
       tab_bar_style = "powerline";
 
+      allow_remote_control = "yes";
+
       # Layouts
       enabled_layouts = "splits";
     };

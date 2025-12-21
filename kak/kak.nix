@@ -114,6 +114,12 @@
           key = "P";
           effect = ":wl-clipboard-paste<ret>P";
         }
+        {
+          mode = "normal";
+          key = "<c-e>";
+          docstring = "Open sidetree";
+          effect = ":connect kitty-terminal-window sh -c sidetree<ret>";
+        }
       ];
     };
   };
