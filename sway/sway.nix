@@ -84,7 +84,7 @@
         "${mod}+Shift+k" = "move up";
         "${mod}+Shift+l" = "move right";
 
-        "${mod}+L" = "exec swaylock";
+        "${mod}+L" = "exec nlock";
 
         "${mod}+F11" = "fullscreen toggle";
         "${mod}+Shift+F" = "floating toggle";
