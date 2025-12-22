@@ -78,13 +78,13 @@
               "source ${src}/colorschemes/catppuccin";
         };
 
-        passwordCommand = "${pkgs.neomutt}/share/neomutt/oauth2/mutt_oauth2.py ${config.home.homeDirectory}/.config/mutt/outlooktoken --encryption-pipe cat --decryption-pipe cat";
+        passwordCommand = "${pkgs.python3}/bin/python3 ${pkgs.neomutt}/share/neomutt/oauth2/mutt_oauth2.py ${config.home.homeDirectory}/.config/mutt/outlooktoken --encryption-pipe cat --decryption-pipe cat";
       };
     };
   };
 
   home.packages = with pkgs; [
-    python313
+    python3
     cyrus-sasl-xoauth2
     
     (pkgs.runCommand "mail-wrapper" { } ''
@@ -96,4 +96,9 @@
   home.sessionVariables = {
     SASL_PATH = "${pkgs.cyrus-sasl-xoauth2}/lib/sasl2";
   };
+
+  systemd.user.services.mbsync.Service.Environment = [
+    "SASL_PATH=${pkgs.cyrus-sasl-xoauth2}/lib/sasl2"
+    "PATH=/run/current-system/sw/bin"
+  ];
 }
