@@ -12,9 +12,12 @@
     # Misc
     discord
     firefoxpwa
+    fnm
+    jujutsu
 
     # Python
     python3
+    uv
 
     # Rust
     cargo
@@ -25,7 +28,5 @@
     brightnessctl
     pavucontrol
 
-    # VCS
-    jujutsu
   ];
 }
