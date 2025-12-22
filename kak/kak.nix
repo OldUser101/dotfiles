@@ -62,6 +62,7 @@
           name = "BufCreate";
           option = "/.*";
           commands = "
+          expandtab
           hook buffer NormalIdle .* %{
             try %{
               eval %sh{ [ \"$kak_modified\" = false ] && printf 'fail' }
@@ -74,6 +75,7 @@
           name = "WinSetOption";
           option = "filetype=(nix|css)";
           commands = "
+          expandtab
           set buffer indentwidth 2
           set buffer tabstop 2
           set buffer softtabstop 2
