@@ -41,5 +41,6 @@
   };
 
   home.file.".irssi/catppuccin.theme".source = ./themes/catppuccin.theme;
+  home.file.".irssi/scripts/autorun/mouse.pl".source = ./scripts/mouse.pl;
   home.file.".irssi/scripts/autorun/winnum.pl".source = ./scripts/winnum.pl;
 }
