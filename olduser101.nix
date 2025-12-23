@@ -9,6 +9,7 @@
     ./htop/htop.nix
     ./kak/kak.nix
     ./kitty/kitty.nix
+    ./irssi/irssi.nix
     ./nlock/nlock.nix
     ./sway/sway.nix
     ./swaylock/swaylock.nix
