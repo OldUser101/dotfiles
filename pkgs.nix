@@ -10,6 +10,7 @@
     gnumake
 
     # Misc
+    calibre
     discord
     firefoxpwa
     fnm
