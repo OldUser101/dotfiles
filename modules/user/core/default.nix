@@ -9,7 +9,7 @@
     ./shells
     #./sway
     ./swaylock
-    #./waybar
+    ./waybar
     ./wlsunset
     ./wofi
   ];

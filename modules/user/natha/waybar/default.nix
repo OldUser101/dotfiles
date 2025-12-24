@@ -2,17 +2,17 @@
 
 with lib;
 let
-  cfg = config.olduser101.natha.wofi;
+  cfg = config.olduser101.natha.waybar;
 in {
-  options.olduser101.natha.wofi = {
+  options.olduser101.natha.waybar = {
     enableStyles = mkOption {
       type = types.bool;
       default = false;
-      description = "Enable optional wofi styles";
+      description = "Enable optional waybar styles";
     };
   };
 
   config = mkIf cfg.enableStyles {
-    programs.wofi.style = ./style.css;
+    programs.waybar.style = ./style.css;
   };
 }

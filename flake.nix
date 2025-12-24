@@ -36,6 +36,7 @@
           dunst.enable = true;
           fonts.enable = true;
           htop.enable = true;
+          waybar.enable = true;
           wlsunset.enable = true;
           wofi.enable = true;
 
@@ -48,6 +49,7 @@
 
           natha = {
             packages.enable = true;
+            waybar.enableStyles = true;
             wofi.enableStyles = true;
           };
         };
