@@ -7,7 +7,7 @@
     ./htop
     #./kitty
     #./sway
-    #./swaylock
+    ./swaylock
     #./waybar
     ./wlsunset
     #./wofi
