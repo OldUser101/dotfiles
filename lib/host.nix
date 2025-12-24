@@ -23,10 +23,6 @@ with builtins;
 
         olduser101 = systemConfig;
 
-        environment.etc = {
-          "hmsystemdata.json".text = toJSON userCfg;
-        };
-
         networking.hostName = "${name}";
         networking.interfaces = networkCfg;
         networking.wireless.interfaces = wifi;

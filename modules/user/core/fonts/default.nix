@@ -19,11 +19,13 @@ in {
   };
 
   config = mkIf cfg.enable {
-    fonts.packages = with pkgs; [
+    fonts.fontconfig.enable = true;
+    
+    home.packages = with pkgs; [
       noto-fonts
       nerd-fonts.fira-code
       fira-code
       fira-code-symbols
-    ] // cfg.extraFonts;
+    ] ++ cfg.extraFonts;
   };
 }

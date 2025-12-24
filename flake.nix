@@ -36,7 +36,7 @@
           fonts.enable = true;
 
           natha = {
-            core.enable = true;
+            packages.enable = true;
           };
         };
         stateVersion = "25.11";
