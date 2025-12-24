@@ -9,5 +9,6 @@
     #./nlock
     #./oh-my-zsh
     ./packages
+    ./wofi
   ];
 }

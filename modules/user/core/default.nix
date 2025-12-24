@@ -11,6 +11,6 @@
     ./swaylock
     #./waybar
     ./wlsunset
-    #./wofi
+    ./wofi
   ];
 }
