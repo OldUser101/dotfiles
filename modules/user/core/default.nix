@@ -5,7 +5,7 @@
     ./dunst
     ./fonts
     ./htop
-    #./kitty
+    ./kitty
     ./shells
     #./sway
     ./swaylock

@@ -11,7 +11,7 @@ in {
       description = "Enable waybar";
     };
 
-    sway_workspaces = mkOption {
+    swayWorkspaces = mkOption {
       type = types.bool;
       default = true;
       description = "Enable sway workspace module";
@@ -19,7 +19,7 @@ in {
 
     style = mkOption {
       type = types.nullOr types.pathWith;
-      default = null;
+      default = ./style.css;
       description = "CSS file for waybar styling";
     };
   };
@@ -31,7 +31,7 @@ in {
       settings = {
         mainBar = {
           layer = "top";
-          modules-left = optional cfg.sway_workspaces [ "sway/workspaces" ];
+          modules-left = optional cfg.swayWorkspaces [ "sway/workspaces" ];
           modules-center = [ "clock" ];
           modules-right = [ "network" "battery" ];
 
@@ -51,7 +51,7 @@ in {
             format-icons = [ "" "" "" "" "" ];
             tooltip = false;
           };
-        } // mkIf cfg.sway_workspaces {
+        } // mkIf cfg.swayWorkspaces {
           "sway/workspaces" = {
             disable-scroll = true;
           };

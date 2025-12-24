@@ -40,6 +40,11 @@
           wlsunset.enable = true;
           wofi.enable = true;
 
+          kitty = {
+            enable = true;
+            enableRemoteControl = true;
+          };
+
           shells.zsh = {
             enable = true;
             shellAliases = {
@@ -49,8 +54,6 @@
 
           natha = {
             packages.enable = true;
-            waybar.enableStyles = true;
-            wofi.enableStyles = true;
           };
         };
         stateVersion = "25.11";

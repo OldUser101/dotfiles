@@ -13,7 +13,7 @@ in {
 
     style = mkOption {
       type = types.nullOr types.pathWith;
-      default = null;
+      default = ./style;
       description = "CSS stylesheet for wofi";
     };
   };
