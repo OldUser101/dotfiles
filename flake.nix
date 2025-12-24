@@ -33,7 +33,9 @@
       natha = user.mkHMUser {
         username = "natha";
         userConfig = {
+          dunst.enable = true;
           fonts.enable = true;
+          htop.enable = true;
 
           natha = {
             packages.enable = true;
