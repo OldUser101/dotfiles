@@ -9,7 +9,7 @@
     #./sway
     #./swaylock
     #./waybar
-    #./wlsunset
+    ./wlsunset
     #./wofi
     #./zsh
   ];

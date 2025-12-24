@@ -36,6 +36,7 @@
           dunst.enable = true;
           fonts.enable = true;
           htop.enable = true;
+          wlsunset.enable = true;
 
           natha = {
             packages.enable = true;
