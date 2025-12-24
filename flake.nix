@@ -66,6 +66,7 @@
           sddm.enable = true;
           security.pam.services = [ "swaylock" "nlock" ];
           shells.zsh.enable = true;
+          sway.enable = true;
         };
         users = [
           {

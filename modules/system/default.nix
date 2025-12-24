@@ -10,5 +10,6 @@
     ./sddm
     ./security
     ./shells
+    ./sway
   ];
 }
