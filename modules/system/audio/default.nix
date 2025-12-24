@@ -28,5 +28,5 @@ in {
         pulse.enable = true;
       };
     })
-  ];);
+  ]);
 }
