@@ -6,11 +6,11 @@
     ./fonts
     ./htop
     #./kitty
+    ./shells
     #./sway
     ./swaylock
     #./waybar
     ./wlsunset
     #./wofi
-    #./zsh
   ];
 }

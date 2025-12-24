@@ -36,6 +36,12 @@
           dunst.enable = true;
           fonts.enable = true;
           htop.enable = true;
+          shells.zsh = {
+            enable = true;
+            shellAliases = {
+              rebuild = "home-manager rebuild switch";
+            };
+          };
           wlsunset.enable = true;
 
           natha = {
