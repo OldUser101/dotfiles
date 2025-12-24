@@ -34,6 +34,10 @@
         username = "natha";
         userConfig = {
           fonts.enable = true;
+
+          natha = {
+            core.enable = true;
+          };
         };
         stateVersion = "25.11";
       };

@@ -30,7 +30,12 @@ with builtins;
           home.username = username;
           home.homeDirectory = "/home/${username}";
 
-          imports = [ ../modules/users machineModule ];
+          imports = [
+            ../modules/user/core
+            machineModule
+          ] ++ lib.optional (fileExists ../modules/user/${username}) [
+            ../modules/user/${username}
+          ];
         };
       homeDirectory = "/home/${username}";
     };
