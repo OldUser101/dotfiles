@@ -48,6 +48,7 @@
         kernelMods = [ "kvm-intel" ];
         kernelParams = [];
         systemConfig = {
+          audio.enable = true;
           boot.type = "efi";
           core.enable = true;
           fs = {
