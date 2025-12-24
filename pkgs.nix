@@ -11,6 +11,7 @@
 
     # Misc
     calibre
+    delta
     discord
     firefoxpwa
     fnm

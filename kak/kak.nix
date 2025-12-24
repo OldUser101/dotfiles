@@ -20,10 +20,22 @@
           };
           meta.homepage = "https://github.com/OldUser101/kak-wl-clipboard";
         };
+        kak-jj = pkgs.kakouneUtils.buildKakounePluginFrom2Nix {
+          pname = "kak-jj";
+          version = "2025-12-24";
+          src = pkgs.fetchFromGitHub {
+            owner = "OldUser101";
+            repo = "kak-jj";
+            rev = "fb334a0a955be231269ee17d75005104e295ab14";
+            sha256 = "0j4wffh5fi4lgcxz69w12bbwjsncb83mfpk788aw024p9709gyf2";
+          };
+          meta.homepage = "https://github.com/OldUser101/kak-jj";
+        };
       in
         with pkgs.kakounePlugins; [
           auto-pairs-kak
           kak-ansi
+          kak-jj
           kakoune-lsp
           smarttab-kak
           wl-clipboard-kak
