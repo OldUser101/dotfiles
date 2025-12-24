@@ -83,6 +83,7 @@
         cpuCores = 8;
         hostPlatform = "x86_64-linux";
         stateVersion = "25.11";
+        wifi = [ "wlp0s20f3" ];
       };
     };
   };
