@@ -28,10 +28,10 @@ in {
             options = [ "fmask=0077" "dmask=0077" ];
           };
 
-          fileSystems."/home/natha" = {
+          fileSystems."/home" = {
             device = "/dev/disk/by-partlabel/DATA";
             fsType = "btrfs";
-            options = [ "subvol=home/natha" "compress=zstd:1" "noatime" ];
+            options = [ "subvol=home" "compress=zstd:1" "noatime" ];
           };
         })
       ];
