@@ -1,4 +1,4 @@
-final: prev: {
+self: system: final: prev: {
   kak-jj =
     prev.kakouneUtils.buildKakounePluginFrom2Nix {
       pname = "kak-jj";

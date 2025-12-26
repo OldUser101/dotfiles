@@ -1,4 +1,4 @@
-final: prev: {
+self: system: final: prev: {
   sidetree =
     prev.naersk.buildPackage {
       pname = "sidetree";

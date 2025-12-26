@@ -13,24 +13,20 @@
       url = "github:nix-community/naersk";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    nlock = {
+      url = "github:OldUser101/nlock";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = inputs @ { self, nixpkgs, home-manager, naersk }:
+  outputs = inputs @ { self, nixpkgs, home-manager, naersk, ... }:
   let
     system = "x86_64-linux";
     lib = nixpkgs.lib;
 
-    naerskOverlay = final: prev: {
-      naersk = naersk.lib.${system};
-    };
-
-    overlays = [
-      naerskOverlay
-    ] ++ (with import ./overlays; [
-      kak-jj
-      sidetree
-      wl-clipboard-kak
-    ]);
+    overlayFuncs = import ./overlays;
+    overlays = map (f: f self system) overlayFuncs;
 
     pkgs = import nixpkgs {
       inherit system overlays;

@@ -6,6 +6,7 @@
     ./fonts
     ./htop
     ./kitty
+    ./nlock
     ./oh-my-zsh
     ./packages
     ./sidetree

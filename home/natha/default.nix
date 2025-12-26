@@ -1,4 +1,4 @@
-{ config, lib, ... }:
+{ pkgs, config, lib, ... }:
 
 {
   imports = [ ./modules ];
@@ -18,9 +18,11 @@
     dunst.enable = true;
     fonts.enable = true;
     htop.enable = true;
+    nlock.enable = true;
     oh-my-zsh.enable = true;
     packages.enable = true;
     sidetree.enable = true;
+    swaylock.enable = true;
     waybar.enable = true;
     wlsunset.enable = true;
     wofi.enable = true;
@@ -38,6 +40,7 @@
     sway = {
       enable = true;
       autoStart = [ "kitty" "waybar" ];
+      screenLocker = "${pkgs.nlock}/bin/nlock";
       outputs =
         let
           bg = "${config.home.homeDirectory}/pictures/wallpapers/default.png";

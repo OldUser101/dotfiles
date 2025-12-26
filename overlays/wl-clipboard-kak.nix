@@ -1,4 +1,4 @@
-final: prev: {
+self: system: final: prev: {
   wl-clipboard-kak =
     prev.kakouneUtils.buildKakounePluginFRom2Nix {
       pname = "wl-clipboard-kak";

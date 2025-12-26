@@ -1,5 +1,9 @@
-{
-  kak-jj = import ./kak-jj.nix;
-  sidetree = import ./sidetree.nix;
-  wl-clipboard-kak = import ./wl-clipboard-kak.nix;
-}
+[
+  # Needed by other overlays, should be first
+  (import ./naersk.nix)
+
+  (import ./kak-jj.nix)
+  (import ./wl-clipboard-kak.nix)
+  (import ./sidetree.nix)
+  (import ./nlock.nix)
+]
