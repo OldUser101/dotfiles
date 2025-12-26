@@ -52,7 +52,16 @@
             };
           };
 
+          sway = {
+            enable = true;
+            autoStart = [
+              "kitty"
+              "waybar"
+            ];
+          };
+
           natha = {
+            core.enable = true;
             packages.enable = true;
           };
         };

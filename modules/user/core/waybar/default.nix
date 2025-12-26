@@ -11,12 +11,6 @@ in {
       description = "Enable waybar";
     };
 
-    swayWorkspaces = mkOption {
-      type = types.bool;
-      default = true;
-      description = "Enable sway workspace module";
-    };
-
     style = mkOption {
       type = types.nullOr types.pathWith;
       default = ./style.css;

@@ -7,7 +7,7 @@
     ./htop
     ./kitty
     ./shells
-    #./sway
+    ./sway
     ./swaylock
     ./waybar
     ./wlsunset

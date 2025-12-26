@@ -10,12 +10,6 @@ in {
       default = false;
       description = "Enable dunst";
     };
-
-    font = mkOption {
-      type = types.str;
-      default = "Fira Code 10";
-      description = "Notification font";
-    };
   };
 
   config = mkIf cfg.enable {
@@ -23,7 +17,7 @@ in {
       enable = true;
       settings = {
         global = {
-          font = cfg.font;
+          font = "Fira Code 10";
           padding = 10;
           frame_width = 2;
           transparency = 15;

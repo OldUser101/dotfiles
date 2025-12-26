@@ -11,12 +11,6 @@ in {
       description = "Enable kitty";
     };
 
-    font = mkOption {
-      type = types.nullOr types.str;
-      default = "FiraCode Nerd Font";
-      description = "Terminal font face";
-    };
-
     enableRemoteControl = mkOption {
       type = types.bool;
       default = false;
@@ -70,6 +64,7 @@ in {
         color15 = "#a6adc8";
 
         # Misc. styles
+        font_family = "Fira Code Nerd Font";
         font_size = "12.0";
 
         window_padding_width = "10";
@@ -81,8 +76,6 @@ in {
 
         # Layouts
         enabled_layouts = "splits";
-      } // mkIf (cfg.font != null) {
-        font_family = cfg.font;
       };
 
       keybindings = {
