@@ -23,6 +23,12 @@ in {
       description = "Commands to run on startup";
     };
 
+    screenshotDirectory = mkOption {
+      type = types.externalPath;
+      default = "${config.home.homeDirectory}/pictures";
+      description = "Screenshot directory";
+    };
+
     outputs = mkOption {
       type = types.attrs;
       default = {};
@@ -95,8 +101,7 @@ in {
           let
             mod = config.wayland.windowManager.sway.config.modifier;
             src = ./.;
-            homeDir = config.home.homeDirectory;
-            screenshot = "${config.home.homeDirectory}/pictures/Screenshot_$(date +%F_%T).png";
+            screenshot = "${cfg.screenshotDirectory}/Screenshot_$(date +%F_%T).png";
           in {
             "${mod}+Shift+e" = "exit";
             "${mod}+Return" = "exec kitty";
