@@ -23,6 +23,12 @@ in {
       description = "Commands to run on startup";
     };
 
+    outputs = mkOption {
+      type = types.attrs;
+      default = {};
+      description = "Display output properties";
+    };
+
     extraInput = mkOption {
       type = types.attrs;
       default = {};
@@ -82,6 +88,8 @@ in {
             }
           ];
         };
+
+        output = cfg.outputs;
 
         keybindings = 
           let

@@ -1,4 +1,4 @@
-{ lib, ... }:
+{ config, lib, ... }:
 
 {
   imports = [ ./modules ];
@@ -36,6 +36,19 @@
     sway = {
       enable = true;
       autoStart = [ "kitty" "waybar" ];
+      outputs =
+        let
+          bg = "${config.home.homeDirectory}/pictures/wallpapers/default.png";
+        in {
+        eDP-1 = {
+          position = "0 0";
+          bg = "${bg} fill";
+        };
+        HDMI-A-1 = {
+          position = "1920 0";
+          bg = "${bg} fill";
+        };
+      };
     };
   };
 }
