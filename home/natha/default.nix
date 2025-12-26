@@ -18,6 +18,7 @@
     dunst.enable = true;
     fonts.enable = true;
     htop.enable = true;
+    oh-my-zsh.enable = true;
     packages.enable = true;
     waybar.enable = true;
     wlsunset.enable = true;

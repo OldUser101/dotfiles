@@ -6,6 +6,7 @@
     ./fonts
     ./htop
     ./kitty
+    ./oh-my-zsh
     ./packages
     ./shells
     ./sway
