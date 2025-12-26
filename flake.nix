@@ -8,15 +8,32 @@
       url = github:nix-community/home-manager;
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    naersk = {
+      url = "github:nix-community/naersk";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = inputs @ { self, nixpkgs, home-manager }:
+  outputs = inputs @ { self, nixpkgs, home-manager, naersk }:
   let
     system = "x86_64-linux";
     lib = nixpkgs.lib;
 
+    naerskOverlay = final: prev: {
+      naersk = naersk.lib.${system};
+    };
+
+    overlays = [
+      naerskOverlay
+    ] ++ (with import ./overlays; [
+      kak-jj
+      sidetree
+      wl-clipboard-kak
+    ]);
+
     pkgs = import nixpkgs {
-      inherit system;
+      inherit system overlays;
       config.allowUnfree = true;
     };
 

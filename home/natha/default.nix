@@ -20,6 +20,7 @@
     htop.enable = true;
     oh-my-zsh.enable = true;
     packages.enable = true;
+    sidetree.enable = true;
     waybar.enable = true;
     wlsunset.enable = true;
     wofi.enable = true;

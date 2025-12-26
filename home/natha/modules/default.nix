@@ -8,6 +8,7 @@
     ./kitty
     ./oh-my-zsh
     ./packages
+    ./sidetree
     ./shells
     ./sway
     ./swaylock
