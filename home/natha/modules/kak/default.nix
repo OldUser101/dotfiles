@@ -149,13 +149,15 @@ in {
             docstring = "Open sidetree";
             effect = ":connect kitty-terminal-window sh -c '${pkgs.sidetree}/bin/sidetree'<ret>";
           }
-        ];
+        ] ++ cfg.extraKeyMappings;
+
+        extraConfig = cfg.extraConfig;
       };
     };
 
     home.packages = with pkgs; [
       kakoune-cr
       sidetree
-    ];
+    ] ++ cfg.extraPackages;
   };
 }
