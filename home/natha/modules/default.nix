@@ -5,6 +5,7 @@
     ./dunst
     ./fonts
     ./htop
+    ./irssi
     ./kitty
     ./nlock
     ./oh-my-zsh
