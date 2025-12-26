@@ -24,7 +24,7 @@ in {
     };
   };
 
-  config = {
+  config = mkIf cfg.enable {
     programs.zsh.oh-my-zsh = {
       enable = true;
       plugins = [ "git" ] ++ cfg.extraPlugins;
