@@ -2,9 +2,9 @@
 
 with lib;
 let
-  cfg = config.olduser101.natha.packages;
+  cfg = config.olduser101.packages;
 in {
-  options.olduser101.natha.packages = {
+  options.olduser101.packages = {
     enable = mkOption {
       type = types.bool;
       default = false;

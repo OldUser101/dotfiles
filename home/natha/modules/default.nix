@@ -1,4 +1,4 @@
-{ pkgs, config, lib, ... }:
+{ ... }:
 
 {
   imports = [
@@ -6,6 +6,7 @@
     ./fonts
     ./htop
     ./kitty
+    ./packages
     ./shells
     ./sway
     ./swaylock

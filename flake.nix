@@ -12,63 +12,20 @@
 
   outputs = inputs @ { self, nixpkgs, home-manager }:
   let
-    inherit (nixpkgs) lib;
-
-    util = import ./lib {
-      inherit system pkgs home-manager lib; overlays = (pkgs.overlays);
-    };
-
-    inherit (util) user;
-    inherit (util) host;
+    system = "x86_64-linux";
+    lib = nixpkgs.lib;
 
     pkgs = import nixpkgs {
       inherit system;
       config.allowUnfree = true;
-      overlays = [];
     };
 
-    system = "x86_64-linux";
+    util = import ./lib {
+      inherit system pkgs home-manager lib;
+    };
+
+    inherit (util) user host;
   in {
-    homeManagerConfigurations = {
-      natha = user.mkHMUser {
-        username = "natha";
-        userConfig = {
-          dunst.enable = true;
-          fonts.enable = true;
-          htop.enable = true;
-          waybar.enable = true;
-          wlsunset.enable = true;
-          wofi.enable = true;
-
-          kitty = {
-            enable = true;
-            enableRemoteControl = true;
-          };
-
-          shells.zsh = {
-            enable = true;
-            shellAliases = {
-              rebuild = "home-manager rebuild switch";
-            };
-          };
-
-          sway = {
-            enable = true;
-            autoStart = [
-              "kitty"
-              "waybar"
-            ];
-          };
-
-          natha = {
-            core.enable = true;
-            packages.enable = true;
-          };
-        };
-        stateVersion = "25.11";
-      };
-    };
-
     nixosConfigurations = {
       natha-nixos0 = host.mkHost {
         name = "natha-nixos0";
@@ -107,7 +64,6 @@
           }
         ];
         cpuCores = 8;
-        hostPlatform = "x86_64-linux";
         stateVersion = "25.11";
         wifi = [ "wlp0s20f3" ];
       };

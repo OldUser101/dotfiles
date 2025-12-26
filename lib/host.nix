@@ -3,26 +3,24 @@
 with builtins;
 {
   mkHost = { name, NICs, initrdMods, kernelMods, kernelParams, kernelPackage,
-    systemConfig, users, hostPlatform, cpuCores, wifi ? [], stateVersion }:
+    systemConfig, users, cpuCores, wifi ? [], stateVersion,
+    hostMeta ? {}}:
   let
     networkCfg = listToAttrs (map (n: {
-      name = "${n}"; value = { useDHCP = true; };
+      name = n; value = { useDHCP = true; };
     }) NICs);
-
-    userCfg = {
-      inherit name NICs systemConfig cpuCores;
-    };
 
     sysUsers = (map (u: user.mkSystemUser u) users);
   in lib.nixosSystem {
     inherit system;
 
+    specialArgs = { inherit hostMeta; };
+
     modules = [
+      ../system
+    ] ++ sysUsers
+    ++ [
       {
-        imports = [ ../modules/system ] ++ sysUsers;
-
-        olduser101 = systemConfig;
-
         networking.hostName = "${name}";
         networking.interfaces = networkCfg;
         networking.wireless.interfaces = wifi;
@@ -39,6 +37,21 @@ with builtins;
         nix.settings.max-jobs = lib.mkDefault cpuCores;
 
         system.stateVersion = stateVersion;
+
+        olduser101 = systemConfig;
+      }
+
+      home-manager.nixosModules.home-manager
+      {
+        home-manager.useGlobalPkgs = true;
+        home-manager.useUserPackages = true;
+
+        home-manager.extraSpecialArgs = { inherit hostMeta; };
+
+        home-manager.users = listToAttrs (map (u: {
+          name = u.name;
+          value = import ../home/${u.name};
+        }) users);
       }
     ];
   };
