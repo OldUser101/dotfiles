@@ -32,7 +32,6 @@ in {
       firefoxpwa
       fnm
       jujutsu
-      sidetree
 
       # Python
       python3
