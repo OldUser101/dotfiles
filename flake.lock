@@ -90,11 +90,11 @@
         "utils": "utils"
       },
       "locked": {
-        "lastModified": 1766788757,
-        "narHash": "sha256-hxU9DajBzlL+O1rieQcsgqE6dA8CAhbD5Mk4WO2J52c=",
+        "lastModified": 1766878105,
+        "narHash": "sha256-MHqoZ39CYlkaPizVyNzG2IHKp4QCeBL+yFJ3pr5Vs3Y=",
         "owner": "OldUser101",
         "repo": "nlock",
-        "rev": "fe72c9a19936c5ffaf01db1b8ccbb6db289ff06e",
+        "rev": "940926a31e5fa2be2042074f96d283473176ab2b",
         "type": "github"
       },
       "original": {
