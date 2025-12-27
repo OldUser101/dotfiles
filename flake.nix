@@ -26,8 +26,7 @@
     system = "x86_64-linux";
     lib = nixpkgs.lib;
 
-    overlayFuncs = import ./overlays;
-    overlays = map (f: f self system) overlayFuncs;
+    overlays = import ./overlays { inherit system inputs; };
 
     pkgs = import nixpkgs {
       inherit system overlays;

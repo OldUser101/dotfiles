@@ -47,7 +47,7 @@ in {
       enable = true;
       colorSchemePackage = pkgs.kakounePlugins.kakoune-catppuccin;
 
-      plugins = with pkgs; [
+      plugins = with pkgs.kakounePlugins; [
         auto-pairs-kak
         kak-ansi
         kak-jj
@@ -150,9 +150,9 @@ in {
             effect = ":connect kitty-terminal-window sh -c '${pkgs.sidetree}/bin/sidetree'<ret>";
           }
         ] ++ cfg.extraKeyMappings;
-
-        extraConfig = cfg.extraConfig;
       };
+
+      extraConfig = cfg.extraConfig;
     };
 
     home.packages = with pkgs; [
