@@ -68,6 +68,10 @@
           shells.zsh.enable = true;
           sway.enable = true;
         };
+        hostMeta = {
+          dotfiles = "/home/natha/.config/olduser101";
+          hostname = "natha-nixos0";
+        };
         users = [
           {
             name = "natha";

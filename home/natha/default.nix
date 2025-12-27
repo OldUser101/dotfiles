@@ -1,4 +1,4 @@
-{ pkgs, config, lib, ... }:
+{ pkgs, config, lib, hostMeta, ... }:
 
 {
   imports = [ ./modules ];
@@ -13,7 +13,11 @@
 
   programs.firefox.enable = true;
   services.gnome-keyring.enable = true;
-    
+
+  home.sessionVariables = {
+    EDITOR = "kak";
+  };
+
   olduser101 = {
     dunst.enable = true;
     fonts.enable = true;
@@ -41,8 +45,12 @@
 
     shells.zsh = {
       enable = true;
-      shellAliases.rebuild = "home-manager switch";
       autoSshAdd = true;
+
+      shellAliases = {
+        icat = "kitten icat";
+        rebuild = "nixos-rebuild switch --flake ${hostMeta.dotfiles}#${hostMeta.hostname}";
+      };
     };
 
     sway = {
