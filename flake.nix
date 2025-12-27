@@ -58,6 +58,7 @@
             };
           };
           hardware.bluetooth.enable = true;
+          hardware.firmware.enable = true;
           hardware.graphics = {
             enable = true;
             type = "intel";

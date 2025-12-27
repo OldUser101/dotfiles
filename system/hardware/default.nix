@@ -3,6 +3,7 @@
 {
   imports = [
     ./bluetooth
+    ./firmware
     ./graphics
   ];
 }
