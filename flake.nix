@@ -43,7 +43,6 @@
     nixosConfigurations = {
       natha-nixos0 = host.mkHost {
         name = "natha-nixos0";
-        NICs = [ "wlp0s20f3" ];
         kernelPackage = pkgs.linuxPackages_latest;
         initrdMods = [ "xhci_pci" "nvme" "usbhid" "usb_storage" "sd_mod" "sdhci_pci" ];
         kernelMods = [ "kvm-intel" ];
@@ -79,7 +78,6 @@
         ];
         cpuCores = 8;
         stateVersion = "25.11";
-        wifi = [ "wlp0s20f3" ];
       };
     };
   };

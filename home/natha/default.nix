@@ -18,6 +18,7 @@
     dunst.enable = true;
     fonts.enable = true;
     htop.enable = true;
+    kak.enable = true;
     irssi.enable = true;
     nlock.enable = true;
     oh-my-zsh.enable = true;

@@ -2,14 +2,10 @@
 
 with builtins;
 {
-  mkHost = { name, NICs, initrdMods, kernelMods, kernelParams, kernelPackage,
-    systemConfig, users, cpuCores, wifi ? [], stateVersion,
+  mkHost = { name, initrdMods, kernelMods, kernelParams, kernelPackage,
+    systemConfig, users, cpuCores, stateVersion,
     hostMeta ? {}}:
   let
-    networkCfg = listToAttrs (map (n: {
-      name = n; value = { useDHCP = true; };
-    }) NICs);
-
     sysUsers = (map (u: user.mkSystemUser u) users);
   in lib.nixosSystem {
     inherit system;
@@ -22,11 +18,7 @@ with builtins;
     ++ [
       {
         networking.hostName = "${name}";
-        networking.interfaces = networkCfg;
-        networking.wireless.interfaces = wifi;
-
         networking.networkmanager.enable = true;
-        networking.useDHCP = false;
 
         boot.initrd.availableKernelModules = initrdMods;
         boot.kernelModules = kernelMods;

@@ -7,6 +7,7 @@
     ./fonts
     ./htop
     ./irssi
+    ./kak
     ./kitty
     ./nlock
     ./oh-my-zsh
