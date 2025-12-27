@@ -28,6 +28,11 @@
     wlsunset.enable = true;
     wofi.enable = true;
 
+    email = {
+      enable = true;
+      enableZsh = true;
+    };
+
     kitty = {
       enable = true;
       enableRemoteControl = true;
@@ -36,6 +41,7 @@
     shells.zsh = {
       enable = true;
       shellAliases.rebuild = "home-manager switch";
+      autoSshAdd = true;
     };
 
     sway = {

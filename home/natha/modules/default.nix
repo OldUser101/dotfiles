@@ -3,6 +3,7 @@
 {
   imports = [
     ./dunst
+    ./email
     ./fonts
     ./htop
     ./irssi

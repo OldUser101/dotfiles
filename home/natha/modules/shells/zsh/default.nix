@@ -28,6 +28,12 @@ in {
       default = "";
       description = "Additional content for zshrc";
     };
+
+    autoSshAdd = mkOption {
+      type = types.bool;
+      default = false;
+      description = "Automatically load SSH keys";
+    };
   };
 
   config = mkIf cfg.enable {
@@ -45,7 +51,10 @@ in {
         c = "clear";
       } // cfg.shellAliases;
 
-      initContent = cfg.extraContent;
+      initContent = cfg.extraContent +
+        optionalString cfg.autoSshAdd ''
+          ssh-add > /dev/null 2>&1
+        '';
     };
   };
 }
