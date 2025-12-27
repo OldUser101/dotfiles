@@ -11,6 +11,12 @@ in {
       description = "Enable optional extra packages";
     };
 
+    enableGames = mkOption {
+      type = types.bool;
+      default = false;
+      description = "Enable optional games";
+    };
+
     extraPackages = mkOption {
       type = types.listOf types.package;
       default = [ ];
@@ -41,6 +47,10 @@ in {
       cargo
       rust-analyzer
       rustc
+    ]
+    ++ optionals cfg.enableGames [
+      gzdoom
+      prismlauncher
     ]
     ++ cfg.extraPackages;
   };

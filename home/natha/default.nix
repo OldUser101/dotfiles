@@ -26,12 +26,16 @@
     irssi.enable = true;
     nlock.enable = true;
     oh-my-zsh.enable = true;
-    packages.enable = true;
     sidetree.enable = true;
     swaylock.enable = true;
     waybar.enable = true;
     wlsunset.enable = true;
     wofi.enable = true;
+
+    packages = {
+      enable = true;
+      enableGames = (hostMeta.hostname == "natha-nixos0");
+    };
 
     email = {
       enable = true;
