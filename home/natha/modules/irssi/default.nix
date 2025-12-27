@@ -26,6 +26,8 @@ in {
 
   config = mkIf cfg.enable {
     programs.irssi = {
+      enable = true;
+
       networks = {
         liberachat = {
           nick = "olduser101";
