@@ -54,5 +54,10 @@ in {
     } // mkIf (cfg.style != null) {
       style = cfg.style;
     };
+
+    # The above doesn't seem to install the waybar binary
+    home.packages = with pkgs; [
+      waybar
+    ];
   };
 }

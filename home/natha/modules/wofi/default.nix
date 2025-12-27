@@ -24,5 +24,9 @@ in {
     } // mkIf (cfg.style != null) {
       style = cfg.style;
     };
+
+    home.packages = with pkgs; [
+      wofi
+    ];
   };
 }

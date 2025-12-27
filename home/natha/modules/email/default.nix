@@ -100,12 +100,7 @@ in {
                 "source ${src}/colorschemes/catppuccin";
           };
 
-          passwordCommand = ''
-            ${pkgs.python3}/bin/python3 \
-            ${pkgs.neomutt}/share/neomutt/oauth2/mutt_oauth2.py \
-            ${config.home.homeDirectory}/.config/mutt/outlooktoken \
-            --encryption-pipe cat --decryption-pipe cat
-          '';
+          passwordCommand = "${pkgs.python3}/bin/python3 ${pkgs.neomutt}/share/neomutt/oauth2/mutt_oauth2.py ${config.home.homeDirectory}/.config/mutt/outlooktoken --encryption-pipe cat --decryption-pipe cat";
         };
       };
     };
