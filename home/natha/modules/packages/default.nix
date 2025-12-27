@@ -47,6 +47,10 @@ in {
       cargo
       rust-analyzer
       rustc
+
+      # Util
+      brightnessctl
+      pavucontrol
     ]
     ++ optionals cfg.enableGames [
       gzdoom
