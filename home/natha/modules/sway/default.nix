@@ -168,7 +168,11 @@ in {
           "bindgesture swipe:left exec ${src}/helpers/next-workspace.sh\n
            bindgesture swipe:right exec ${src}/helpers/prev-workspace.sh";
     };
-    
+
+    # May depend on external files not present when building,
+    # don't validate config.
+    wayland.windowManager.sway.checkConfig = false;
+
     home.packages = with pkgs; [
       grim
       jq
