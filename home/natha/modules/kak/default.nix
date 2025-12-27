@@ -147,7 +147,7 @@ in {
             mode = "normal";
             key = "<c-e>";
             docstring = "Open sidetree";
-            effect = ":connect kitty-terminal-window sh -c '${pkgs.sidetree}/bin/sidetree'<ret>";
+            effect = ":connect kitty-terminal-window sh -c \"${pkgs.sidetree}/bin/sidetree\"<ret>";
           }
         ] ++ cfg.extraKeyMappings;
       };
