@@ -25,6 +25,7 @@ in {
 
       [font]
       size = 72.0
+      useDpiScaling = true
       family = "monospace"
       slant = "normal"
       weight = "bold"
