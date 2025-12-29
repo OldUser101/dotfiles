@@ -38,6 +38,7 @@ in {
       firefoxpwa
       fnm
       jujutsu
+      tars
 
       # Python
       python3

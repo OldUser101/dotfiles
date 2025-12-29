@@ -8,4 +8,5 @@
   (import ./wl-clipboard-kak.nix)
   (import ./sidetree.nix)
   (import ./nlock.nix { inherit system inputs; })
+  (import ./tars.nix { inherit system inputs; })
 ]
