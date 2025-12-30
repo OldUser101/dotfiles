@@ -96,8 +96,10 @@ in {
             extraConfig =
               let
                 src = ./.;
-              in
-                "source ${src}/colorschemes/catppuccin";
+              in ''
+                source ${src}/colorschemes/catppuccin
+                bind index <return> display-message
+              '';
           };
 
           passwordCommand = "${pkgs.python3}/bin/python3 ${pkgs.neomutt}/share/neomutt/oauth2/mutt_oauth2.py ${config.home.homeDirectory}/.config/mutt/outlooktoken --encryption-pipe cat --decryption-pipe cat";
