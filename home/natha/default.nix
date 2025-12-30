@@ -57,6 +57,11 @@
       };
     };
 
+    swayidle = {
+      enable = true;
+      screenLocker = "${pkgs.nlock}/bin/nlock";
+    };
+
     sway = {
       enable = true;
       autoStart = [ "kitty" "waybar" ];

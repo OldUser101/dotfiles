@@ -15,6 +15,7 @@
     ./sidetree
     ./shells
     ./sway
+    ./swayidle
     ./swaylock
     ./waybar
     ./wlsunset
