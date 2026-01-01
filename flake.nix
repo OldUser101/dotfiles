@@ -19,12 +19,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.naersk.follows = "naersk";
     };
-
-    tars = {
-      url = "github:OldUser101/tars";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.naersk.follows = "naersk";
-    };
   };
 
   outputs = inputs @ { self, nixpkgs, home-manager, naersk, ... }:
