@@ -19,6 +19,7 @@
   };
 
   olduser101 = {
+    direnv.enable = true;
     dunst.enable = true;
     fonts.enable = true;
     htop.enable = true;
