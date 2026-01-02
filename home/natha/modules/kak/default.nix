@@ -77,18 +77,18 @@ in {
             name = "ClientCreate";
             once = true;
             option = ".*";
-            commands = "
+            commands = ''
               evaluate-commands %sh{ kak-lsp }
               evaluate-commands %sh{ kcr init kakoune }
               enable-auto-pairs
               expandtab
               set global softtabstop 4
-            ";
+            '';
           }
           {
             name = "BufCreate";
             option = "/.*";
-            commands = "
+            commands = ''
               expandtab
               hook buffer NormalIdle .* %{
                 try %{
@@ -96,27 +96,41 @@ in {
                   write
                 }
               }
-            ";
+            '';
           }
           {
             name = "WinSetOption";
             option = "filetype=(nix|css)";
-            commands = "
+            commands = ''
               expandtab
               set buffer indentwidth 2
               set buffer tabstop 2
               set buffer softtabstop 2
-            ";
+            '';
           }
           {
             name = "WinSetOption";
-            option = "filetype=(rust|python|c|cpp|javascript|typescript|zig)";
+            option = "filetype=(rust|python|c|cpp|javascript|typescript|zig|nix)";
             commands = "lsp-enable-window";
           }
           {
             name = "RegisterModified";
             option = "'\"'";
             commands = "wl-clipboard-copy";
+          }
+          {
+            name = "BufSetOption";
+            option = "filetype=nix";
+            commands = ''
+              set-option buffer lsp_servers %{
+                [nil]
+                root_globs = ["flake.nix", "shell.nix", ".git"]
+                settings_section = "_"
+
+                [nil.settings._]
+                nil.formatting.command = "nixfmt"
+              }
+            '';
           }
         ] ++ cfg.extraHooks;
 

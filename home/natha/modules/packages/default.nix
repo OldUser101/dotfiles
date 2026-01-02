@@ -39,6 +39,10 @@ in {
       fnm
       jujutsu
 
+      # Nix
+      nil
+      nixfmt
+
       # Python
       python3
       uv
