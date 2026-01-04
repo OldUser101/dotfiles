@@ -39,6 +39,9 @@ in {
       fnm
       jujutsu
 
+      # One needs an office suite sometimes
+      libreoffice
+
       # Nix
       nil
       nixfmt
