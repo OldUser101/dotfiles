@@ -56,6 +56,7 @@
       shellAliases = {
         icat = "kitten icat";
         rebuild = "nixos-rebuild switch --flake ${hostMeta.dotfiles}#${hostMeta.hostname}";
+        _ = "sudo ";
       };
     };
 
