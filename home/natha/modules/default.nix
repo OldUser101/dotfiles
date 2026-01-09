@@ -15,6 +15,7 @@
     ./packages
     ./sidetree
     ./shells
+    ./starship
     ./sway
     ./swayidle
     ./swaylock
