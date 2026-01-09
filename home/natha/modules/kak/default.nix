@@ -92,7 +92,7 @@ in {
               expandtab
               hook buffer NormalIdle .* %{
                 try %{
-                  eval %sh{ [ \"$kak_modified\" = false ] && printf 'fail' }
+                  eval %sh{ [ "$kak_modified" = false ] && printf 'fail' }
                   write
                 }
               }
