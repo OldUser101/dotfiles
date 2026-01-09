@@ -80,7 +80,7 @@ in
               jj log --no-graph -r=@ -T='separate(" ", working_copies, change_id.shortest(), bookmarks,)'
             '';
             when = ''
-              test -n "$(jj status)" || exit 1
+              test -d "./.jj" && test -n "$(jj status)" || exit 1
             '';
             format = "on [$symbol ($output)]($style) ";
             symbol = "🐦";
@@ -95,7 +95,7 @@ in
               jj log --no-graph -r=@ -T="description.first_line()" | awk '{if(length($0) > 25) {s = substr($0, 1, 25); sub(/[ \t\r\n]+$/, "", s); print s "…"} else {print $0}}'
             '';
             when = ''
-              test -n "$(jj status)" -a -n "$(jj log --no-graph -r=@ -T='description')" || exit 1
+              test -d "./.jj" && test -n "$(jj status)" -a -n "$(jj log --no-graph -r=@ -T='description')" || exit 1
             '';
             format = "$symbol [($output)]($style) ";
             symbol = "|";
