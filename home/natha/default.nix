@@ -26,7 +26,6 @@
     kak.enable = true;
     irssi.enable = true;
     nlock.enable = true;
-    #oh-my-zsh.enable = true;
     sidetree.enable = true;
     starship.enable = true;
     swaylock.enable = true;
@@ -41,7 +40,7 @@
 
     email = {
       enable = true;
-      enableZsh = true;
+      enableZsh = false;
     };
 
     kitty = {
