@@ -38,6 +38,7 @@ in {
       firefoxpwa
       fnm
       jujutsu
+      logseq
 
       # One needs an office suite sometimes
       libreoffice
