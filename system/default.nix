@@ -7,6 +7,7 @@
     ./core
     ./fs
     ./hardware
+    ./power
     ./sddm
     ./security
     ./shells

@@ -50,6 +50,10 @@
           audio.enable = true;
           boot.type = "efi";
           core.enable = true;
+          power = {
+            enable = true;
+            profile = "laptop";
+          };
           fs = {
             type = "efi-default";
             swap = {
