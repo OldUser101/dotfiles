@@ -61,6 +61,7 @@ in {
       pavucontrol
     ]
     ++ optionals cfg.enableGames [
+      dhewm3
       gzdoom
       prismlauncher
     ]
