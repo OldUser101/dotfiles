@@ -68,7 +68,10 @@
             type = "intel";
           };
           sddm.enable = true;
-          security.pam.services = [ "swaylock" "nlock" ];
+          security.pam = {
+            services = [ "swaylock" "nlock" ];
+            keyring = true;
+          };
           shells.zsh.enable = true;
           sway.enable = true;
         };

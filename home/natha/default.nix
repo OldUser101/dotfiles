@@ -13,6 +13,7 @@
 
   programs.firefox.enable = true;
   services.gnome-keyring.enable = true;
+  home.packages = [ pkgs.gcr ];
 
   home.sessionVariables = {
     EDITOR = "kak";

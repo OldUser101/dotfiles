@@ -1,9 +1,15 @@
-{ pkgs, config, lib, ... }:
+{
+  pkgs,
+  config,
+  lib,
+  ...
+}:
 
 with lib;
 let
   cfg = config.olduser101.security.pam;
-in {
+in
+{
   options.olduser101.security.pam = {
     enable = mkOption {
       type = types.bool;
@@ -16,11 +22,24 @@ in {
       default = [ ];
       description = "PAM services list";
     };
+
+    keyring = mkOption {
+      type = types.bool;
+      default = true;
+      description = "Enable GNOME Keyring";
+    };
   };
 
   config = mkIf cfg.enable {
-    security.pam.services = listToAttrs (map (s: {
-      name = s; value = {};
-    }) cfg.services);
+    security.pam.services =
+      listToAttrs (
+        map (s: {
+          name = s;
+          value = { };
+        }) cfg.services
+      )
+      // {
+        login.enableGnomeKeyring = cfg.keyring;
+      };
   };
 }
