@@ -28,7 +28,6 @@
     irssi.enable = true;
     nlock.enable = true;
     sidetree.enable = true;
-    starship.enable = true;
     swaylock.enable = true;
     waybar.enable = true;
     wlsunset.enable = true;
@@ -58,6 +57,10 @@
         rebuild = "nixos-rebuild switch --flake ${hostMeta.dotfiles}#${hostMeta.hostname}";
         _ = "sudo ";
       };
+
+      extraContent = ''
+        export PS1="%B%F{cyan}%1~%f %(?.%F{green}→%f.%F{red}✕%f)%b "
+      '';
     };
 
     swayidle = {
