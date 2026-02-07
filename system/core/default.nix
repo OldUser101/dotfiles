@@ -32,8 +32,9 @@ in {
 
     environment.systemPackages = with pkgs; [
       curl
+      tree
+      lsof
       git
-      parted
       wget
       vim
     ];
