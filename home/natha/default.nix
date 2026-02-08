@@ -54,7 +54,9 @@
 
       shellAliases = {
         icat = "kitten icat";
-        rebuild = "nixos-rebuild switch --flake ${hostMeta.dotfiles}#${hostMeta.hostname}";
+        update = "systemctl restart pull-updates.service";
+        rebuild = "systemctl restart rebuild.service";
+        localRebuild = "nixos-rebuild switch --flake ${hostMeta.localDotfiles}#${hostMeta.hostname}";
         _ = "sudo ";
       };
 

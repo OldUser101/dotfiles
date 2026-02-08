@@ -77,7 +77,7 @@
           update.enable = true;
         };
         hostMeta = {
-          dotfiles = "/etc/nixos";
+          localDotfiles = "/home/natha/.config/olduser101";
           hostname = "natha-nixos0";
         };
         users = [
