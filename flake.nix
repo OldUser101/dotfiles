@@ -76,7 +76,7 @@
           sway.enable = true;
         };
         hostMeta = {
-          dotfiles = "/home/natha/.config/olduser101";
+          dotfiles = "/etc/nixos";
           hostname = "natha-nixos0";
         };
         users = [
