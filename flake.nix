@@ -74,6 +74,7 @@
           };
           shells.zsh.enable = true;
           sway.enable = true;
+          update.enable = true;
         };
         hostMeta = {
           dotfiles = "/etc/nixos";

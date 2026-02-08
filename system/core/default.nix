@@ -16,12 +16,20 @@ in {
       default = "Europe/London";
       description = "Time zone";
     };
+
+    waitOnline = mkOption {
+      type = types.bool;
+      default = true;
+      description = "Enable the NetworkManager wait-online service";
+    };
   };
 
   config = mkIf cfg.enable {
     i18n.defaultLocale = "en_GB.UTF-8";
     console.useXkbConfig = true;
     services.xserver.xkb.layout = "gb";
+
+    systemd.services.NetworkManager-wait-online.enable = cfg.waitOnline;
    
     time.timeZone = cfg.timeZone;
 

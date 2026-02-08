@@ -12,5 +12,6 @@
     ./security
     ./shells
     ./sway
+    ./update
   ];
 }
