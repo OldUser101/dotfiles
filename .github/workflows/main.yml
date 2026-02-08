@@ -1,0 +1,31 @@
+name: update-dependencies
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 6 * * *' # run daily at 6 AM GMT
+
+jobs:
+  update-dependencies:
+    runs-on: ubuntu-latest
+      steps:
+        - uses: actions/checkout@v4
+        - uses: DeterminateSystems/nix-installer-action@v21
+        - id: update
+          name: update
+          uses: DeterminateSystems/update-flake-lock@v28
+          with:
+            token: ${{ secrets.GH_ACCESS_TOKEN }}
+            git-author-name: OldUser101-bot
+            git-author-email: 260219709+OldUser101-bot@users.noreply.github.com
+            git-committer-name: OldUser101-bot
+            git-committer-email: 260219709+OldUser101-bot@users.noreply.github.com
+            pr-labels: |
+              dependencies
+              automated
+        - name: merge
+            run:
+              gh pr merge --auto "${{ steps.update.outputs.pull-request-number }}" --rebase
+            env:
+              GITHUB_TOKEN: ${{ secrets.GH_ACCESS_TOKEN }}
+            if: ${{ steps.update.outputs.pull-request-number != '' }}
+
