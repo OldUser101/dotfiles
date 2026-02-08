@@ -56,6 +56,7 @@ in
       path = with pkgs; [
         nixos-rebuild
         systemd
+        nix
       ];
       script = ''
         nixos-rebuild switch --flake /etc/nixos#${config.networking.hostName}
