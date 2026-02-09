@@ -19,78 +19,106 @@
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.naersk.follows = "naersk";
     };
+
+    lic = {
+      url = "git+https://tangled.org/nathanjgill.uk/lic";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = inputs @ { self, nixpkgs, home-manager, naersk, ... }:
-  let
-    system = "x86_64-linux";
-    lib = nixpkgs.lib;
+  outputs =
+    inputs@{
+      self,
+      nixpkgs,
+      home-manager,
+      naersk,
+      ...
+    }:
+    let
+      system = "x86_64-linux";
+      lib = nixpkgs.lib;
 
-    overlays = import ./overlays { inherit system inputs; };
+      overlays = import ./overlays { inherit system inputs; };
 
-    pkgs = import nixpkgs {
-      inherit system overlays;
-      config.allowUnfree = true;
-    };
+      pkgs = import nixpkgs {
+        inherit system overlays;
+        config.allowUnfree = true;
+      };
 
-    util = import ./lib {
-      inherit system pkgs home-manager lib;
-    };
+      util = import ./lib {
+        inherit
+          system
+          pkgs
+          home-manager
+          lib
+          ;
+      };
 
-    inherit (util) user host;
-  in {
-    nixosConfigurations = {
-      natha-nixos0 = host.mkHost {
-        name = "natha-nixos0";
-        kernelPackage = pkgs.linuxPackages_latest;
-        initrdMods = [ "xhci_pci" "nvme" "usbhid" "usb_storage" "sd_mod" "sdhci_pci" ];
-        kernelMods = [ "kvm-intel" ];
-        kernelParams = [];
-        systemConfig = {
-          audio.enable = true;
-          boot.type = "efi";
-          core.enable = true;
-          power = {
-            enable = true;
-            profile = "laptop";
-          };
-          fs = {
-            type = "efi-default";
-            swap = {
+      inherit (util) user host;
+    in
+    {
+      nixosConfigurations = {
+        natha-nixos0 = host.mkHost {
+          name = "natha-nixos0";
+          kernelPackage = pkgs.linuxPackages_latest;
+          initrdMods = [
+            "xhci_pci"
+            "nvme"
+            "usbhid"
+            "usb_storage"
+            "sd_mod"
+            "sdhci_pci"
+          ];
+          kernelMods = [ "kvm-intel" ];
+          kernelParams = [ ];
+          systemConfig = {
+            audio.enable = true;
+            boot.type = "efi";
+            core.enable = true;
+            power = {
               enable = true;
-              type = "partition";
+              profile = "laptop";
             };
+            fs = {
+              type = "efi-default";
+              swap = {
+                enable = true;
+                type = "partition";
+              };
+            };
+            hardware.bluetooth.enable = true;
+            hardware.firmware.enable = true;
+            hardware.graphics = {
+              enable = true;
+              type = "intel";
+            };
+            sddm.enable = true;
+            security.pam = {
+              services = [
+                "swaylock"
+                "nlock"
+              ];
+              keyring = true;
+            };
+            shells.zsh.enable = true;
+            sway.enable = true;
+            update.enable = true;
           };
-          hardware.bluetooth.enable = true;
-          hardware.firmware.enable = true;
-          hardware.graphics = {
-            enable = true;
-            type = "intel";
+          hostMeta = {
+            localDotfiles = "/home/natha/.config/olduser101";
+            hostname = "natha-nixos0";
           };
-          sddm.enable = true;
-          security.pam = {
-            services = [ "swaylock" "nlock" ];
-            keyring = true;
-          };
-          shells.zsh.enable = true;
-          sway.enable = true;
-          update.enable = true;
+          users = [
+            {
+              name = "natha";
+              groups = [ "wheel" ];
+              uid = 1000;
+              shell = pkgs.zsh;
+            }
+          ];
+          cpuCores = 8;
+          stateVersion = "25.11";
         };
-        hostMeta = {
-          localDotfiles = "/home/natha/.config/olduser101";
-          hostname = "natha-nixos0";
-        };
-        users = [
-          {
-            name = "natha";
-            groups = [ "wheel" ];
-            uid = 1000;
-            shell = pkgs.zsh;
-          }
-        ];
-        cpuCores = 8;
-        stateVersion = "25.11";
       };
     };
-  };
 }

@@ -39,6 +39,7 @@ in {
       fnm
       jujutsu
       logseq
+      lic
 
       # One needs an office suite sometimes
       libreoffice
