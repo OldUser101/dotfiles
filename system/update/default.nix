@@ -57,6 +57,7 @@ in
         nixos-rebuild
         systemd
         nix
+        git
       ];
       script = ''
         nixos-rebuild switch --flake /etc/nixos#${config.networking.hostName}
