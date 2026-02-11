@@ -104,7 +104,7 @@ in {
             screenshot = "${cfg.screenshotDirectory}/Screenshot_$(date +%F_%T).png";
           in {
             "${mod}+Shift+e" = "exit";
-            "${mod}+Return" = "exec kitty";
+            "${mod}+Return" = "exec ${terminal}";
             "${mod}+F" = "exec firefox";
 
             "${mod}+Left" = "exec ${src}/helpers/prev-workspace.sh";

@@ -48,6 +48,8 @@
       enableRemoteControl = true;
     };
 
+    ghostty.enable = true;
+
     shells.zsh = {
       enable = true;
       autoSshAdd = true;

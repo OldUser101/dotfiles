@@ -6,6 +6,7 @@
     ./dunst
     ./email
     ./fonts
+    ./ghostty
     ./htop
     ./irssi
     ./kak

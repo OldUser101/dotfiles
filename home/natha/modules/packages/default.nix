@@ -42,7 +42,7 @@ in {
       lic
 
       # One needs an office suite sometimes
-      libreoffice
+      libreoffice-qt-fresh
 
       # Nix
       nil
