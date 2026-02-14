@@ -74,7 +74,10 @@
           systemConfig = {
             audio.enable = true;
             boot.type = "efi";
-            core.enable = true;
+            core = {
+              enable = true;
+              tailscale = true;
+            };
             power = {
               enable = true;
               profile = "laptop";

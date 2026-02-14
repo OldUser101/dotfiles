@@ -22,6 +22,12 @@ in {
       default = true;
       description = "Enable the NetworkManager wait-online service";
     };
+
+    tailscale = mkOption {
+      type = types.bool;
+      default = false;
+      description = "Enable Tailscale";
+    };
   };
 
   config = mkIf cfg.enable {
@@ -46,6 +52,8 @@ in {
       wget
       vim
     ];
+
+    services.tailscale.enable = cfg.tailscale;
     
     programs.nix-ld.enable = true;
     programs.ssh.startAgent = true;
