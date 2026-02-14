@@ -111,7 +111,10 @@
           users = [
             {
               name = "natha";
-              groups = [ "wheel" ];
+              groups = [
+                "wheel"
+                "dialout"
+              ];
               uid = 1000;
               shell = pkgs.zsh;
             }
