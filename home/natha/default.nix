@@ -11,7 +11,11 @@
 
   systemd.user.startServices = true;
 
-  programs.firefox.enable = true;
+  programs.firefox = {
+    enable = true;
+    nativeMessagingHosts = [ pkgs.firefoxpwa ];
+  };  
+  
   services.gnome-keyring.enable = true;
   home.packages = [ pkgs.gcr ];
 
