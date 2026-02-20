@@ -61,7 +61,7 @@ in
       ];
       script = ''
         nixos-rebuild switch --flake /etc/nixos#${config.networking.hostName}
-        nix-collect-garbage --delete-older-than 30d
+        nix-collect-garbage --delete-older-than 7d
       '';
       serviceConfig = {
         WorkingDirectory = "/etc/nixos";
