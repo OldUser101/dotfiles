@@ -82,6 +82,7 @@
               enable = true;
               profile = "laptop";
             };
+            print.enable = true;
             fs = {
               type = "efi-default";
               swap = {

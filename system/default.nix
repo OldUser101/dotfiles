@@ -8,6 +8,7 @@
     ./fs
     ./hardware
     ./power
+    ./print
     ./sddm
     ./security
     ./shells
