@@ -29,6 +29,10 @@ in
       enable = true;
       enableCompletion = true;
 
+      shellOptions = [
+        "autocd"
+      ];
+
       shellAliases = {
         c = "clear";
         "_" = "sudo ";
