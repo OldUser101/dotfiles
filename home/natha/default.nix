@@ -1,4 +1,10 @@
-{ pkgs, config, lib, hostMeta, ... }:
+{
+  pkgs,
+  config,
+  lib,
+  hostMeta,
+  ...
+}:
 
 {
   imports = [ ./modules ];
@@ -14,8 +20,8 @@
   programs.firefox = {
     enable = true;
     nativeMessagingHosts = [ pkgs.firefoxpwa ];
-  };  
-  
+  };
+
   services.gnome-keyring.enable = true;
   home.packages = [ pkgs.gcr ];
 
@@ -71,6 +77,17 @@
       '';
     };
 
+    shells.bash = {
+      enable = true;
+
+      shellAliases = {
+        icat = "kitten icat";
+        update = "systemctl restart pull-updates.service";
+        rebuild = "systemctl restart rebuild.service";
+        localRebuild = "nixos-rebuild switch --flake ${hostMeta.localDotfiles}#${hostMeta.hostname}";
+      };
+    };
+
     swayidle = {
       enable = true;
       screenLocker = "${pkgs.nlock}/bin/nlock";
@@ -78,21 +95,25 @@
 
     sway = {
       enable = true;
-      autoStart = [ "kitty" "waybar" ];
+      autoStart = [
+        "kitty"
+        "waybar"
+      ];
       screenLocker = "${pkgs.nlock}/bin/nlock";
       outputs =
         let
           bg = "${config.home.homeDirectory}/pictures/wallpapers/default.png";
-        in {
-        eDP-1 = {
-          position = "0 0";
-          bg = "${bg} fill";
+        in
+        {
+          eDP-1 = {
+            position = "0 0";
+            bg = "${bg} fill";
+          };
+          HDMI-A-1 = {
+            position = "1920 0";
+            bg = "${bg} fill";
+          };
         };
-        HDMI-A-1 = {
-          position = "1920 0";
-          bg = "${bg} fill";
-        };
-      };
     };
   };
 }

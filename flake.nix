@@ -2,7 +2,7 @@
   description = "OldUser101 NixOS configuration";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:NixOS/nixpkgs/0182a361324364ae3f436a63005877674cf45efb";
 
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -120,7 +120,7 @@
                 "dialout"
               ];
               uid = 1000;
-              shell = pkgs.zsh;
+              shell = pkgs.bash;
             }
           ];
           cpuCores = 8;
