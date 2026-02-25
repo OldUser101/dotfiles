@@ -1,4 +1,9 @@
-{ pkgs, config, lib, ... }:
+{
+  pkgs,
+  config,
+  lib,
+  ...
+}:
 
 with lib;
 let
@@ -8,7 +13,8 @@ let
     themeConfig.General.hideCursor = true;
     themeConfig.General.passwordInputCursorVisible = false;
   };
-in {
+in
+{
   options.olduser101.sddm = {
     enable = mkOption {
       type = types.bool;
@@ -33,7 +39,7 @@ in {
       default = [ ];
       description = "Extra packages for SDDM";
     };
-    
+
     extraSystemPackages = mkOption {
       type = types.listOf types.package;
       default = [ ];
@@ -49,17 +55,23 @@ in {
       theme = cfg.theme;
 
       extraPackages =
-        optionals (cfg.theme == "where_is_my_sddm_theme") (with pkgs; [
-          where-is-my-sddm-theme-classic-nocursor
-          qt6.qt5compat
-        ])
+        optionals (cfg.theme == "where_is_my_sddm_theme") (
+          with pkgs;
+          [
+            where-is-my-sddm-theme-classic-nocursor
+            qt6.qt5compat
+          ]
+        )
         ++ cfg.extraPackages;
     };
 
     environment.systemPackages =
-      optionals (cfg.theme == "where_is_my_sddm_theme") (with pkgs; [
-        where-is-my-sddm-theme-classic-nocursor
-      ])
+      optionals (cfg.theme == "where_is_my_sddm_theme") (
+        with pkgs;
+        [
+          where-is-my-sddm-theme-classic-nocursor
+        ]
+      )
       ++ cfg.extraSystemPackages;
   };
 }

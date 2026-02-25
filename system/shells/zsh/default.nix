@@ -1,9 +1,15 @@
-{ pkgs, config, lib, ... }:
+{
+  pkgs,
+  config,
+  lib,
+  ...
+}:
 
 with lib;
 let
   cfg = config.olduser101.shells.zsh;
-in {
+in
+{
   options.olduser101.shells.zsh = {
     enable = mkOption {
       type = types.bool;

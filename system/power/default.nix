@@ -1,9 +1,15 @@
-{ pkgs, config, lib, ... }:
+{
+  pkgs,
+  config,
+  lib,
+  ...
+}:
 
 with lib;
 let
   cfg = config.olduser101.power;
-in {
+in
+{
   options.olduser101.power = {
     enable = mkOption {
       type = types.bool;
@@ -26,5 +32,5 @@ in {
         })
       ]);
     in
-      powerConfig;
+    powerConfig;
 }

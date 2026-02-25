@@ -1,9 +1,15 @@
-{ pkgs, config, lib, ... }:
+{
+  pkgs,
+  config,
+  lib,
+  ...
+}:
 
 with lib;
 let
   cfg = config.olduser101.kitty;
-in {
+in
+{
   options.olduser101.kitty = {
     enable = mkOption {
       type = types.bool;

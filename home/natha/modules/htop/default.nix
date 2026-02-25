@@ -1,9 +1,15 @@
-{ pkgs, config, lib, ... }:
+{
+  pkgs,
+  config,
+  lib,
+  ...
+}:
 
 with lib;
 let
   cfg = config.olduser101.htop;
-in {
+in
+{
   options.olduser101.htop = {
     enable = mkOption {
       type = types.bool;
@@ -33,19 +39,27 @@ in {
         show_cpu_temperature = true;
 
         tree_view = 1;
-      } // (with config.lib.htop; leftMeters (
-        [
-          (bar "LeftCPUs")
-          (bar "Memory")
+      }
+      // (
+        with config.lib.htop;
+        leftMeters (
+          [
+            (bar "LeftCPUs")
+            (bar "Memory")
+          ]
+          ++ optional cfg.showSwap (bar "Swap")
+          ++ optional cfg.showBattery (text "Battery")
+        )
+      )
+      // (
+        with config.lib.htop;
+        rightMeters [
+          (bar "RightCPUs")
+          (text "Tasks")
+          (text "LoadAverage")
+          (text "Uptime")
         ]
-        ++ optional cfg.showSwap (bar "Swap")
-        ++ optional cfg.showBattery (text "Battery")
-      )) // (with config.lib.htop; rightMeters [
-        (bar "RightCPUs")
-        (text "Tasks")
-        (text "LoadAverage")
-        (text "Uptime")
-      ]);
+      );
     };
   };
 }

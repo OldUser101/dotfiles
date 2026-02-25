@@ -1,9 +1,15 @@
-{ pkgs, config, lib, ... }:
+{
+  pkgs,
+  config,
+  lib,
+  ...
+}:
 
 with lib;
 let
   cfg = config.olduser101.nlock;
-in {
+in
+{
   options.olduser101.nlock = {
     enable = mkOption {
       type = types.bool;

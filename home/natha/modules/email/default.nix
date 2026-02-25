@@ -1,9 +1,15 @@
-{ pkgs, config, lib, ... }:
+{
+  pkgs,
+  config,
+  lib,
+  ...
+}:
 
 with lib;
 let
   cfg = config.olduser101.email;
-in {
+in
+{
   options.olduser101.email = {
     enable = mkOption {
       type = types.bool;
@@ -91,12 +97,14 @@ in {
               "Junk"
               "Deleted"
               "Drafts"
-            ] ++ cfg.extraMailboxes;
+            ]
+            ++ cfg.extraMailboxes;
 
             extraConfig =
               let
                 src = ./.;
-              in ''
+              in
+              ''
                 source ${src}/colorschemes/catppuccin
                 bind index <return> display-message
               '';

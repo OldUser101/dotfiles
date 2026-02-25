@@ -1,9 +1,15 @@
-{ pkgs, config, lib, ... }:
+{
+  pkgs,
+  config,
+  lib,
+  ...
+}:
 
 with lib;
 let
   cfg = config.olduser101.kak;
-in {
+in
+{
   options.olduser101.kak = {
     enable = mkOption {
       type = types.bool;
@@ -47,14 +53,17 @@ in {
       enable = true;
       colorSchemePackage = pkgs.kakounePlugins.kakoune-catppuccin;
 
-      plugins = with pkgs.kakounePlugins; [
-        auto-pairs-kak
-        kak-ansi
-        kak-jj
-        kakoune-lsp
-        smarttab-kak
-        wl-clipboard-kak
-      ] ++ cfg.extraPlugins;
+      plugins =
+        with pkgs.kakounePlugins;
+        [
+          auto-pairs-kak
+          kak-ansi
+          kak-jj
+          kakoune-lsp
+          smarttab-kak
+          wl-clipboard-kak
+        ]
+        ++ cfg.extraPlugins;
 
       config = {
         colorScheme = "catppuccin_mocha";
@@ -132,7 +141,8 @@ in {
               }
             '';
           }
-        ] ++ cfg.extraHooks;
+        ]
+        ++ cfg.extraHooks;
 
         keyMappings = [
           {
@@ -163,15 +173,19 @@ in {
             docstring = "Open sidetree";
             effect = ":connect kitty-terminal-window sh -c \"${pkgs.sidetree}/bin/sidetree\"<ret>";
           }
-        ] ++ cfg.extraKeyMappings;
+        ]
+        ++ cfg.extraKeyMappings;
       };
 
       extraConfig = cfg.extraConfig;
     };
 
-    home.packages = with pkgs; [
-      kakoune-cr
-      sidetree
-    ] ++ cfg.extraPackages;
+    home.packages =
+      with pkgs;
+      [
+        kakoune-cr
+        sidetree
+      ]
+      ++ cfg.extraPackages;
   };
 }

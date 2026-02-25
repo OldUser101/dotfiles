@@ -1,9 +1,15 @@
-{ pkgs, config, lib, ... }:
+{
+  pkgs,
+  config,
+  lib,
+  ...
+}:
 
 with lib;
 let
   cfg = config.olduser101.swayidle;
-in {
+in
+{
   options.olduser101.swayidle = {
     enable = mkOption {
       type = types.bool;

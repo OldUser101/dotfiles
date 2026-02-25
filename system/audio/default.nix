@@ -1,9 +1,15 @@
-{ pkgs, config, lib, ... }:
+{
+  pkgs,
+  config,
+  lib,
+  ...
+}:
 
 with lib;
 let
   cfg = config.olduser101.audio;
-in {
+in
+{
   options.olduser101.audio = {
     enable = mkOption {
       type = types.bool;

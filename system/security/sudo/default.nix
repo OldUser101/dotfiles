@@ -1,9 +1,15 @@
-{ pkgs, config, lib, ... }:
+{
+  pkgs,
+  config,
+  lib,
+  ...
+}:
 
 with lib;
 let
   cfg = config.olduser101.security.sudo;
-in {
+in
+{
   options.olduser101.security.sudo = {
     enable = mkOption {
       type = types.bool;

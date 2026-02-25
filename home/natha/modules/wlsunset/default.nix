@@ -1,9 +1,15 @@
-{ pkgs, config, lib, ... }:
+{
+  pkgs,
+  config,
+  lib,
+  ...
+}:
 
 with lib;
 let
   cfg = config.olduser101.wlsunset;
-in {
+in
+{
   options.olduser101.wlsunset = {
     enable = mkOption {
       type = types.bool;
@@ -19,7 +25,7 @@ in {
 
     longitude = mkOption {
       type = types.str;
-      default = "-0.2664017";  # default to central London
+      default = "-0.2664017"; # default to central London
       description = "Longitude for set location";
     };
   };
@@ -27,7 +33,7 @@ in {
   config = mkIf cfg.enable {
     services.wlsunset = {
       enable = true;
-      
+
       latitude = cfg.latitude;
       longitude = cfg.longitude;
     };

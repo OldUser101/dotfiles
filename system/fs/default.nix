@@ -1,11 +1,17 @@
-{ pkgs, config, lib, ... }:
+{
+  pkgs,
+  config,
+  lib,
+  ...
+}:
 
 with lib;
 let
   cfg = config.olduser101.fs;
-in {
+in
+{
   imports = [ ./swap ];
-  
+
   options.olduser101.fs = {
     type = mkOption {
       type = types.enum [ "efi-default" ];
@@ -25,13 +31,20 @@ in {
           fileSystems."/boot" = {
             device = "/dev/disk/by-partlabel/ESP";
             fsType = "vfat";
-            options = [ "fmask=0077" "dmask=0077" ];
+            options = [
+              "fmask=0077"
+              "dmask=0077"
+            ];
           };
 
           fileSystems."/home" = {
             device = "/dev/disk/by-partlabel/DATA";
             fsType = "btrfs";
-            options = [ "subvol=home" "compress=zstd:1" "noatime" ];
+            options = [
+              "subvol=home"
+              "compress=zstd:1"
+              "noatime"
+            ];
           };
         })
       ];

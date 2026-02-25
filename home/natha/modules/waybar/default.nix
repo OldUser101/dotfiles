@@ -1,9 +1,15 @@
-{ pkgs, config, lib, ... }:
+{
+  pkgs,
+  config,
+  lib,
+  ...
+}:
 
 with lib;
 let
   cfg = config.olduser101.waybar;
-in {
+in
+{
   options.olduser101.waybar = {
     enable = mkOption {
       type = types.bool;
@@ -27,7 +33,10 @@ in {
           layer = "top";
           modules-left = optional cfg.swayWorkspaces [ "sway/workspaces" ];
           modules-center = [ "clock" ];
-          modules-right = [ "network" "battery" ];
+          modules-right = [
+            "network"
+            "battery"
+          ];
 
           "clock" = {
             format = "{:%a %b %d %H:%M}";
@@ -42,16 +51,24 @@ in {
 
           "battery" = {
             format = "{capacity}% {icon}";
-            format-icons = [ "" "" "" "" "" ];
+            format-icons = [
+              ""
+              ""
+              ""
+              ""
+              ""
+            ];
             tooltip = false;
           };
-        } // mkIf cfg.swayWorkspaces {
+        }
+        // mkIf cfg.swayWorkspaces {
           "sway/workspaces" = {
             disable-scroll = true;
           };
         };
       };
-    } // mkIf (cfg.style != null) {
+    }
+    // mkIf (cfg.style != null) {
       style = cfg.style;
     };
 

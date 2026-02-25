@@ -1,9 +1,15 @@
-{ pkgs, config, lib, ... }:
+{
+  pkgs,
+  config,
+  lib,
+  ...
+}:
 
 with lib;
 let
   cfg = config.olduser101.fonts;
-in {
+in
+{
   options.olduser101.fonts = {
     enable = mkOption {
       type = types.bool;
@@ -20,12 +26,15 @@ in {
 
   config = mkIf cfg.enable {
     fonts.fontconfig.enable = true;
-    
-    home.packages = with pkgs; [
-      noto-fonts
-      nerd-fonts.fira-code
-      fira-code
-      fira-code-symbols
-    ] ++ cfg.extraFonts;
+
+    home.packages =
+      with pkgs;
+      [
+        noto-fonts
+        nerd-fonts.fira-code
+        fira-code
+        fira-code-symbols
+      ]
+      ++ cfg.extraFonts;
   };
 }

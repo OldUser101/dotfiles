@@ -1,4 +1,9 @@
-{ pkgs, config, lib, ... }:
+{
+  pkgs,
+  config,
+  lib,
+  ...
+}:
 
 with lib;
 let
@@ -9,7 +14,8 @@ let
     sha256 = "b23dfa60cbe4a51ca6e858334331ee1b42bc36afedfd11d3669c43741890c9b6";
   };
 
-in {
+in
+{
   options.olduser101.ghostty = {
     enable = mkOption {
       type = types.bool;

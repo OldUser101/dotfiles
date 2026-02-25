@@ -1,9 +1,15 @@
-{ pkgs, config, lib, ... }:
+{
+  pkgs,
+  config,
+  lib,
+  ...
+}:
 
 with lib;
 let
   cfg = config.olduser101.boot;
-in {
+in
+{
   options.olduser101.boot = {
     type = mkOption {
       type = types.enum [ "efi" ];

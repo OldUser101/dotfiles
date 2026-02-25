@@ -1,9 +1,15 @@
-{ pkgs, config, lib, ... }:
+{
+  pkgs,
+  config,
+  lib,
+  ...
+}:
 
 with lib;
 let
   cfg = config.olduser101.hardware.graphics;
-in {
+in
+{
   options.olduser101.hardware.graphics = {
     enable = mkOption {
       type = types.bool;
@@ -28,9 +34,12 @@ in {
       enable = true;
 
       extraPackages =
-        optionals (cfg.type == "intel") ( with pkgs; [
-          intel-media-driver
-        ])
+        optionals (cfg.type == "intel") (
+          with pkgs;
+          [
+            intel-media-driver
+          ]
+        )
         ++ cfg.extraPackages;
     };
   };

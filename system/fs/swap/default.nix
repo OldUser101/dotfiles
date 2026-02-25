@@ -1,9 +1,15 @@
-{ pkgs, config, lib, ... }:
+{
+  pkgs,
+  config,
+  lib,
+  ...
+}:
 
 with lib;
 let
   cfg = config.olduser101.fs.swap;
-in {
+in
+{
   options.olduser101.fs.swap = {
     enable = mkOption {
       type = types.bool;
@@ -24,7 +30,10 @@ in {
           swapDevices = [
             {
               device = "/dev/disk/by-partlabel/SWAP";
-              options = [ "defaults" "nofail" ];
+              options = [
+                "defaults"
+                "nofail"
+              ];
               discardPolicy = "once";
             }
           ];

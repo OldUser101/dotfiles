@@ -1,9 +1,15 @@
-{ pkgs, config, lib, ... }:
+{
+  pkgs,
+  config,
+  lib,
+  ...
+}:
 
 with lib;
 let
   cfg = config.olduser101.shells.zsh;
-in {
+in
+{
   options.olduser101.shells.zsh = {
     enable = mkOption {
       type = types.bool;
@@ -13,13 +19,13 @@ in {
 
     shellAliases = mkOption {
       type = types.attrs;
-      default = {};
+      default = { };
       description = "extra zsh shell aliases";
     };
 
     options = mkOption {
       type = types.listOf types.str;
-      default = [];
+      default = [ ];
       description = "extra zsh options";
     };
 
@@ -45,14 +51,17 @@ in {
       setOptions = [
         "PATH_DIRS"
         "PROMPT_SUBST"
-      ] ++ cfg.options;
+      ]
+      ++ cfg.options;
 
       shellAliases = {
         c = "clear";
-      } // cfg.shellAliases;
+      }
+      // cfg.shellAliases;
 
-      initContent = cfg.extraContent +
-        optionalString cfg.autoSshAdd ''
+      initContent =
+        cfg.extraContent
+        + optionalString cfg.autoSshAdd ''
           ssh-add > /dev/null 2>&1
         '';
     };

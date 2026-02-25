@@ -1,9 +1,15 @@
-{ pkgs, config, lib, ... }:
+{
+  pkgs,
+  config,
+  lib,
+  ...
+}:
 
 with lib;
 let
   cfg = config.olduser101.hardware.firmware;
-in {
+in
+{
   options.olduser101.hardware.firmware = {
     enable = mkOption {
       type = types.bool;

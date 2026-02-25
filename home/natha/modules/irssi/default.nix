@@ -1,9 +1,15 @@
-{ pkgs, config, lib, ... }:
+{
+  pkgs,
+  config,
+  lib,
+  ...
+}:
 
 with lib;
 let
   cfg = config.olduser101.irssi;
-in {
+in
+{
   options.olduser101.irssi = {
     enable = mkOption {
       type = types.bool;
@@ -57,7 +63,8 @@ in {
             theme = "catppuccin";
           };
         };
-      '' + cfg.extraConfig;
+      ''
+      + cfg.extraConfig;
     };
 
     home.file.".irssi/catppuccin.theme".source = ./themes/catppuccin.theme;

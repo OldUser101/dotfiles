@@ -1,9 +1,15 @@
-{ pkgs, config, lib, ... }:
+{
+  pkgs,
+  config,
+  lib,
+  ...
+}:
 
 with lib;
 let
   cfg = config.olduser101.core;
-in {
+in
+{
   options.olduser101.core = {
     enable = mkOption {
       type = types.bool;
@@ -36,7 +42,7 @@ in {
     services.xserver.xkb.layout = "gb";
 
     systemd.services.NetworkManager-wait-online.enable = cfg.waitOnline;
-   
+
     time.timeZone = cfg.timeZone;
 
     nix.settings.experimental-features = [
@@ -55,7 +61,7 @@ in {
     ];
 
     services.tailscale.enable = cfg.tailscale;
-    
+
     programs.nix-ld.enable = true;
     programs.ssh.startAgent = true;
   };

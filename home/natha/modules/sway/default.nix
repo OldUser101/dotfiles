@@ -1,9 +1,15 @@
-{ pkgs, config, lib, ... }:
+{
+  pkgs,
+  config,
+  lib,
+  ...
+}:
 
 with lib;
 let
   cfg = config.olduser101.sway;
-in {
+in
+{
   options.olduser101.sway = {
     enable = mkOption {
       type = types.bool;
@@ -19,7 +25,10 @@ in {
 
     autoStart = mkOption {
       type = types.listOf types.str;
-      default = [ "kitty" "waybar" ];
+      default = [
+        "kitty"
+        "waybar"
+      ];
       description = "Commands to run on startup";
     };
 
@@ -31,13 +40,13 @@ in {
 
     outputs = mkOption {
       type = types.attrs;
-      default = {};
+      default = { };
       description = "Display output properties";
     };
 
     extraInput = mkOption {
       type = types.attrs;
-      default = {};
+      default = { };
       description = "Extra input configuration values";
     };
 
@@ -58,7 +67,7 @@ in {
         terminal = "kitty";
 
         startup = map (c: { command = c; }) cfg.autoStart;
-        
+
         input = {
           "type:keyboard" = {
             xkb_layout = "gb";
@@ -76,7 +85,8 @@ in {
             dwtp = "enabled";
             natural_scroll = "enabled";
           };
-        } // cfg.extraInput;
+        }
+        // cfg.extraInput;
 
         seat = {
           "*" = {
@@ -97,12 +107,13 @@ in {
 
         output = cfg.outputs;
 
-        keybindings = 
+        keybindings =
           let
             mod = config.wayland.windowManager.sway.config.modifier;
             src = ./.;
             screenshot = "${cfg.screenshotDirectory}/Screenshot_$(date +%F_%T).png";
-          in {
+          in
+          {
             "${mod}+Shift+e" = "exit";
             "${mod}+Return" = "exec ${terminal}";
             "${mod}+F" = "exec firefox";
@@ -157,7 +168,7 @@ in {
           };
         };
 
-        bars = [];
+        bars = [ ];
       };
 
       # No better equivalent for `bindgesture`, manually done here
@@ -165,7 +176,7 @@ in {
         let
           src = ./.;
         in
-          "bindgesture swipe:left exec ${src}/helpers/next-workspace.sh\n
+        "bindgesture swipe:left exec ${src}/helpers/next-workspace.sh\n
            bindgesture swipe:right exec ${src}/helpers/prev-workspace.sh";
     };
 
