@@ -1,9 +1,23 @@
-{ pkgs, config, lib, ... }:
+{
+  pkgs,
+  config,
+  lib,
+  ...
+}:
 
 with lib;
 let
   cfg = config.olduser101.packages;
-in {
+
+  # https://github.com/NixOS/nixpkgs/issues/493843#issuecomment-3956990127
+  calibre_fix = pkgs.calibre.overrideAttrs (old: {
+    installPhase = ''
+      export QMAKE="${pkgs.qt6.qtbase}/bin/qmake"
+    ''
+    + old.installPhase;
+  });
+in
+{
   options.olduser101.packages = {
     enable = mkOption {
       type = types.bool;
@@ -25,47 +39,49 @@ in {
   };
 
   config = mkIf cfg.enable {
-    home.packages = with pkgs; [
-      # C/C++
-      cmake
-      gcc
-      gnumake
+    home.packages =
+      with pkgs;
+      [
+        # C/C++
+        cmake
+        gcc
+        gnumake
 
-      # Misc
-      calibre
-      delta
-      discord
-      firefoxpwa
-      fnm
-      jujutsu
-      logseq
-      lic
+        # Misc
+        calibre_fix
+        delta
+        discord
+        firefoxpwa
+        fnm
+        jujutsu
+        logseq
+        lic
 
-      # One needs an office suite sometimes
-      libreoffice-qt-fresh
+        # One needs an office suite sometimes
+        libreoffice-qt-fresh
 
-      # Nix
-      nil
-      nixfmt
+        # Nix
+        nil
+        nixfmt
 
-      # Python
-      python3
-      uv
+        # Python
+        python3
+        uv
 
-      # Rust
-      cargo
-      rust-analyzer
-      rustc
+        # Rust
+        cargo
+        rust-analyzer
+        rustc
 
-      # Util
-      brightnessctl
-      pavucontrol
-    ]
-    ++ optionals cfg.enableGames [
-      dhewm3
-      gzdoom
-      prismlauncher
-    ]
-    ++ cfg.extraPackages;
+        # Util
+        brightnessctl
+        pavucontrol
+      ]
+      ++ optionals cfg.enableGames [
+        dhewm3
+        gzdoom
+        prismlauncher
+      ]
+      ++ cfg.extraPackages;
   };
 }
