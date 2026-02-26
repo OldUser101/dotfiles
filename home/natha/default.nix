@@ -48,10 +48,7 @@
       enableGames = (hostMeta.hostname == "natha-nixos0");
     };
 
-    email = {
-      enable = true;
-      enableZsh = false;
-    };
+    email.enable = true;
 
     kitty = {
       enable = true;
@@ -59,23 +56,6 @@
     };
 
     ghostty.enable = true;
-
-    shells.zsh = {
-      enable = true;
-      autoSshAdd = true;
-
-      shellAliases = {
-        icat = "kitten icat";
-        update = "systemctl restart pull-updates.service";
-        rebuild = "systemctl restart rebuild.service";
-        localRebuild = "nixos-rebuild switch --flake ${hostMeta.localDotfiles}#${hostMeta.hostname}";
-        _ = "sudo ";
-      };
-
-      extraContent = ''
-        export PS1="%B%(?.%F{green}→%f.%F{red}✕%f) %F{cyan}%1~%f%b "
-      '';
-    };
 
     shells.bash = {
       enable = true;
