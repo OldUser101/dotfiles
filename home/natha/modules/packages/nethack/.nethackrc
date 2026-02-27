@@ -1,4 +1,8 @@
+# windowing
 OPTIONS=windowtype:curses
+
+# character
+OPTIONS=gender:female, align:neutral, race:human
 ROLE=wizard
 CATNAME=Nyx
 
