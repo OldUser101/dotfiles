@@ -81,6 +81,7 @@ in
         dhewm3
         gzdoom
         prismlauncher
+        nethack
       ]
       ++ cfg.extraPackages;
   };
