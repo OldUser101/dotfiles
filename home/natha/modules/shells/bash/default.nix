@@ -40,6 +40,8 @@ in
       // cfg.shellAliases;
 
       bashrcExtra = ''
+        ${pkgs.openssh}/bin/ssh-add > /dev/null 2>&1
+
         set_prompt() {
           if [[ $? -eq 0 ]]; then
             STATUS="\[\e[32m\]→"
