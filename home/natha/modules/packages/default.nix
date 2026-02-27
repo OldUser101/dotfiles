@@ -84,5 +84,7 @@ in
         nethack
       ]
       ++ cfg.extraPackages;
+
+    home.file."${config.home.homeDirectory}/.nethackrc".source = ./nethack/.nethackrc;
   };
 }
