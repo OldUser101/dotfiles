@@ -1,1 +1,5 @@
 OPTIONS=windowtype:curses
+OPTIONS=align:chaotic gender:male race:human
+ROLE=wizard
+CATNAME=Nyx
+
