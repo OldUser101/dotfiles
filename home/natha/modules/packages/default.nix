@@ -82,6 +82,7 @@ in
         gzdoom
         prismlauncher
         nethack
+        unnethack
       ]
       ++ cfg.extraPackages;
 
