@@ -14,30 +14,32 @@ in
     enable = mkOption {
       type = types.bool;
       default = false;
-      description = "Enable nlock";
+      description = "Enable nlock configuration";
     };
   };
 
   config = mkIf cfg.enable {
-    home.packages = with pkgs; [
-      nlock
-    ];
+    programs.nlock = {
+      enable = true;
+      settings = {
+        colors = {
+          background = "1E1E2E";
+          inputBackground = "1E1E2E";
+          text = "CDD6F4";
+        };
 
-    home.file.".config/nlock/nlock.toml".text = ''
-      [colors]
-      background = "#1E1E2E"
-      inputBackground = "#1E1E2E"
-      text = "#CDD6F4"
+        font = {
+          size = 72.0;
+          useDpiScaling = true;
+          family = "monospace";
+          slant = "normal";
+          weight = "bold";
+        };
 
-      [font]
-      size = 72.0
-      useDpiScaling = true
-      family = "monospace"
-      slant = "normal"
-      weight = "bold"
-
-      [input]
-      maskChar = "*"
-    '';
+        input = {
+          maskChar = "*";
+        };
+      };
+    };
   };
 }

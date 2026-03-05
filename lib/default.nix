@@ -3,6 +3,7 @@
   home-manager,
   system,
   lib,
+  inputs,
   ...
 }:
 
@@ -11,6 +12,7 @@ rec {
   host = import ./host.nix {
     inherit
       system
+      inputs
       pkgs
       home-manager
       lib

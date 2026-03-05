@@ -1,5 +1,6 @@
 {
   system,
+  inputs,
   pkgs,
   home-manager,
   lib,
@@ -20,6 +21,8 @@ with builtins;
       users,
       cpuCores,
       stateVersion,
+      extraNixosModules ? [ ],
+      extraHomeManagerModules ? [ ],
       hostMeta ? { },
     }:
     let
@@ -34,6 +37,7 @@ with builtins;
         ../system
       ]
       ++ sysUsers
+      ++ extraNixosModules
       ++ [
         {
           networking.hostName = "${name}";
@@ -58,6 +62,8 @@ with builtins;
           home-manager.useUserPackages = true;
 
           home-manager.extraSpecialArgs = { inherit hostMeta; };
+
+          home-manager.sharedModules = extraHomeManagerModules;
 
           home-manager.users = listToAttrs (
             map (u: {

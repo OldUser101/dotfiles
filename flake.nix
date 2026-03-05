@@ -26,14 +26,14 @@
   };
 
   outputs =
-    inputs@{
+    {
       self,
       nixpkgs,
       home-manager,
       naersk,
       nlock,
       ...
-    }:
+    }@inputs:
     let
       system = "x86_64-linux";
       lib = nixpkgs.lib;
@@ -51,6 +51,7 @@
       util = import ./lib {
         inherit
           system
+          inputs
           pkgs
           home-manager
           lib
@@ -126,6 +127,8 @@
             }
           ];
           cpuCores = 8;
+          extraNixosModules = [ inputs.nlock.nixosModules.default ];
+          extraHomeManagerModules = [ inputs.nlock.homeManagerModules.default ];
           stateVersion = "25.11";
         };
       };
