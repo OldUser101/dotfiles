@@ -17,7 +17,6 @@
     nlock = {
       url = "github:OldUser101/nlock";
       inputs.nixpkgs.follows = "nixpkgs";
-      inputs.naersk.follows = "naersk";
     };
 
     lic = {
@@ -32,13 +31,17 @@
       nixpkgs,
       home-manager,
       naersk,
+      nlock,
       ...
     }:
     let
       system = "x86_64-linux";
       lib = nixpkgs.lib;
 
-      overlays = import ./overlays { inherit system inputs; };
+      overlays = [
+        nlock.overlays.nlock
+      ]
+      ++ (import ./overlays { inherit system inputs; });
 
       pkgs = import nixpkgs {
         inherit system overlays;

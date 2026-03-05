@@ -7,6 +7,5 @@
   (import ./kak-jj.nix)
   (import ./wl-clipboard-kak.nix)
   (import ./sidetree.nix)
-  (import ./nlock.nix { inherit system inputs; })
   (import ./lic.nix { inherit system inputs; })
 ]
