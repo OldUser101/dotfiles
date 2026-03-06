@@ -116,6 +116,7 @@
       },
       "original": {
         "owner": "OldUser101",
+        "ref": "v0.1.0",
         "repo": "nlock",
         "type": "github"
       }
