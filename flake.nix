@@ -15,7 +15,7 @@
     };
 
     nlock = {
-      url = "github:OldUser101/nlock/v0.1.0";
+      url = "github:OldUser101/nlock/v0.1.1";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
