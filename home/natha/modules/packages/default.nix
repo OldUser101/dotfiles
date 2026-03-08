@@ -43,9 +43,7 @@ in
       with pkgs;
       [
         # C/C++
-        cmake
         gcc
-        gnumake
 
         # Misc
         calibre_fix
@@ -54,7 +52,6 @@ in
         firefoxpwa
         fnm
         jujutsu
-        logseq
         lic
 
         # One needs an office suite sometimes
@@ -66,12 +63,6 @@ in
 
         # Python
         python3
-        uv
-
-        # Rust
-        cargo
-        rust-analyzer
-        rustc
 
         # Util
         brightnessctl
