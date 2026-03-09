@@ -24,5 +24,6 @@
     ./waybar
     ./wlsunset
     ./wofi
+    ./zellij
   ];
 }

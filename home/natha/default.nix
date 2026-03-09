@@ -42,6 +42,7 @@
     waybar.enable = true;
     wlsunset.enable = true;
     wofi.enable = true;
+    zellij.enable = true;
 
     packages = {
       enable = true;

@@ -38,9 +38,12 @@ in
           family = "Fira Code Nerd Font";
           style = "Regular";
         };
-        cursor.style = {
-          shape = "Block";
-          blinking = "On";
+        cursor = {
+          style = {
+            shape = "Block";
+            blinking = "On";
+          };
+          blink_interval = 500;
         };
       };
     };
