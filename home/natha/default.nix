@@ -50,13 +50,6 @@
 
     email.enable = true;
 
-    kitty = {
-      enable = true;
-      enableRemoteControl = true;
-    };
-
-    ghostty.enable = true;
-
     shells.bash = {
       enable = true;
 
@@ -76,7 +69,7 @@
     sway = {
       enable = true;
       autoStart = [
-        "kitty"
+        "alacritty"
         "waybar"
       ];
       screenLocker = "${pkgs.nlock}/bin/nlock";

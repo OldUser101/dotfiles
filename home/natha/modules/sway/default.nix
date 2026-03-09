@@ -26,7 +26,7 @@ in
     autoStart = mkOption {
       type = types.listOf types.str;
       default = [
-        "kitty"
+        "alacritty"
         "waybar"
       ];
       description = "Commands to run on startup";
@@ -64,7 +64,7 @@ in
 
       config = rec {
         modifier = "Mod4";
-        terminal = "kitty";
+        terminal = "alacritty";
 
         startup = map (c: { command = c; }) cfg.autoStart;
 
@@ -176,8 +176,10 @@ in
         let
           src = ./.;
         in
-        "bindgesture swipe:left exec ${src}/helpers/next-workspace.sh\n
-           bindgesture swipe:right exec ${src}/helpers/prev-workspace.sh";
+        ''
+          bindgesture swipe:left exec ${src}/helpers/next-workspace.sh
+          bindgesture swipe:right exec ${src}/helpers/prev-workspace.sh
+        '';
     };
 
     # May depend on external files not present when building,
