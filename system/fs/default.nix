@@ -14,7 +14,7 @@ in
 
   options.olduser101.fs = {
     type = mkOption {
-      type = types.enum [ "efi-default" ];
+      type = types.enum [ "efi-default" "efi-baytrail" ];
       description = "Filesystem configuration type";
     };
   };
@@ -44,6 +44,22 @@ in
               "subvol=home"
               "compress=zstd:1"
               "noatime"
+            ];
+          };
+        })
+
+        (mkIf (cfg.type == "efi-baytrail") {
+          fileSystems."/" = {
+            device = "/dev/disk/by-partlabel/ROOT";
+            fsType = "btrfs";
+          };
+
+          fileSystems."/boot" = {
+            device = "/dev/disk/by-partlabel/BOOT";
+            fsType = "vfat";
+            options = [
+              "fmask=0077"
+              "dmask=0077"
             ];
           };
         })

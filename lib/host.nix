@@ -69,6 +69,7 @@ with builtins;
             map (u: {
               name = u.name;
               value = import ../home/${u.name} {
+                inherit stateVersion;
                 hostName = name;
               };
             }) users

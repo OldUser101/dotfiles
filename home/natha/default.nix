@@ -1,4 +1,4 @@
-{ hostName }:
+{ hostName, stateVersion }:
 {
   pkgs,
   config,
@@ -10,6 +10,32 @@ let
   hosts = {
     "natha-nixos0" = {
       packages.enableGames = true;
+      email.enable = true;
+      irssi.enable = true;
+
+      packages.type = "full";
+
+      sway.outputs =
+        let
+          bg = "${config.home.homeDirectory}/pictures/wallpapers/default.png";
+        in
+        {
+          eDP-1 = {
+            position = "0 0";
+            bg = "${bg} fill";
+          };
+          HDMI-A-1 = {
+            position = "1920 0";
+            bg = "${bg} fill";
+          };
+        };
+    };
+
+    "natha-vrdhq85" = {
+      nlock.enable = false;
+      swaylock.enable = true;
+      swayidle.screenLocker = "${pkgs.swaylock}/bin/swaylock";
+      sway.screenLocker = "${pkgs.swaylock}/bin/swaylock";
     };
   };
 in
@@ -17,9 +43,9 @@ in
   imports = [ ./modules ];
 
   home = {
+    inherit stateVersion;
     username = "natha";
     homeDirectory = "/home/natha";
-    stateVersion = "25.11";
   };
 
   systemd.user.startServices = true;
@@ -42,7 +68,6 @@ in
     fonts.enable = true;
     htop.enable = true;
     kak.enable = true;
-    irssi.enable = true;
     nlock.enable = true;
     sidetree.enable = true;
     swaylock.enable = true;
@@ -51,11 +76,7 @@ in
     wofi.enable = true;
     zellij.enable = true;
 
-    packages = {
-      enable = true;
-    };
-
-    email.enable = true;
+    packages.type = "minimal";
 
     shells.bash = {
       enable = true;
@@ -80,20 +101,6 @@ in
         "waybar"
       ];
       screenLocker = "${pkgs.nlock}/bin/nlock";
-      outputs =
-        let
-          bg = "${config.home.homeDirectory}/pictures/wallpapers/default.png";
-        in
-        {
-          eDP-1 = {
-            position = "0 0";
-            bg = "${bg} fill";
-          };
-          HDMI-A-1 = {
-            position = "1920 0";
-            bg = "${bg} fill";
-          };
-        };
     };
   } (hosts.${hostName} or { });
 }
