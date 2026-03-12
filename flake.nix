@@ -146,7 +146,7 @@
           kernelMods = [ "kvm-intel" ];
           kernelParams = [ ];
           systemConfig = {
-            boot.type = "efi";
+            boot.type = "baytrail";
             core.enable = true;
             power = {
               enable = true;
