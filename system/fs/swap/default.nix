@@ -29,7 +29,7 @@ in
         (mkIf (cfg.type == "partition") {
           swapDevices = [
             {
-              device = "/dev/disk/by-partlabel/SWAP";
+              device = "/dev/disk/by-label/SWAP";
               options = [
                 "defaults"
                 "nofail"
