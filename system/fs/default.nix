@@ -50,12 +50,12 @@ in
 
         (mkIf (cfg.type == "efi-baytrail") {
           fileSystems."/" = {
-            device = "/dev/disk/by-partlabel/ROOT";
+            device = "/dev/disk/by-label/ROOT";
             fsType = "btrfs";
           };
 
           fileSystems."/boot" = {
-            device = "/dev/disk/by-partlabel/BOOT";
+            device = "/dev/disk/by-label/BOOT";
             fsType = "vfat";
             options = [
               "fmask=0077"
