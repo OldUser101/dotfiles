@@ -68,7 +68,9 @@ with builtins;
           home-manager.users = listToAttrs (
             map (u: {
               name = u.name;
-              value = import ../home/${u.name};
+              value = import ../home/${u.name} {
+                hostName = name;
+              };
             }) users
           );
         }

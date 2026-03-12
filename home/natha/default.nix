@@ -1,3 +1,4 @@
+{ hostName }:
 {
   pkgs,
   config,
@@ -5,7 +6,13 @@
   hostMeta,
   ...
 }:
-
+let
+  hosts = {
+    "natha-nixos0" = {
+      packages.enableGames = true;
+    };
+  };
+in
 {
   imports = [ ./modules ];
 
@@ -29,7 +36,7 @@
     EDITOR = "kak";
   };
 
-  olduser101 = {
+  olduser101 = lib.attrsets.recursiveUpdate {
     direnv.enable = true;
     dunst.enable = true;
     fonts.enable = true;
@@ -46,7 +53,6 @@
 
     packages = {
       enable = true;
-      enableGames = (hostMeta.hostname == "natha-nixos0");
     };
 
     email.enable = true;
@@ -89,5 +95,5 @@
           };
         };
     };
-  };
+  } (hosts.${hostName} or { });
 }
