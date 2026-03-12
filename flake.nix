@@ -186,6 +186,8 @@
             }
           ];
           cpuCores = 4;
+          extraNixosModules = [ inputs.nlock.nixosModules.default ];
+          extraHomeManagerModules = [ inputs.nlock.homeManagerModules.default ];
           stateVersion = "26.05";
         };
       };
