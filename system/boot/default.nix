@@ -12,7 +12,10 @@ in
 {
   options.olduser101.boot = {
     type = mkOption {
-      type = types.enum [ "efi" ];
+      type = types.enum [
+        "efi"
+        "baytrail"
+      ];
       description = "Bootloader type";
     };
   };
@@ -25,6 +28,19 @@ in
             systemd-boot.enable = true;
             efi.canTouchEfiVariables = true;
             timeout = 0;
+          };
+        })
+
+        (mkIf (cfg.type == "baytrail") {
+          boot.loader = {
+            efi.canTouchEfiVariables = false;
+            grub = {
+              enable = true;
+              efiSupport = true;
+              efiInstallAsRemovable = true;
+              device = "nodev";
+              forcei686 = true;
+            };
           };
         })
       ];
