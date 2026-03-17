@@ -1,5 +1,6 @@
 # windowing
 OPTIONS=windowtype:curses
+OPTIONS=cursesgraphics
 
 # character
 OPTIONS=gender:female, align:neutral, race:human
