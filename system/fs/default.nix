@@ -14,7 +14,10 @@ in
 
   options.olduser101.fs = {
     type = mkOption {
-      type = types.enum [ "efi-default" "efi-baytrail" ];
+      type = types.enum [
+        "efi-default"
+        "efi-baytrail"
+      ];
       description = "Filesystem configuration type";
     };
   };
