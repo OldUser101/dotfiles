@@ -3,7 +3,7 @@ OPTIONS=windowtype:curses
 OPTIONS=cursesgraphics
 
 # character
-OPTIONS=gender:female, align:neutral, race:human
-ROLE=wizard
+#OPTIONS=gender:female, align:neutral, race:human
+#ROLE=wizard
 CATNAME=Nyx
 
