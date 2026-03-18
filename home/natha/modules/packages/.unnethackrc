@@ -1,0 +1,16 @@
+## windowing
+OPTIONS=cursesgraphics
+
+## character
+#OPTIONS=gender:female, align:neutral, race:human
+#ROLE=wizard
+CATNAME=Nyx
+
+## menucolours
+OPTIONS=menucolors
+MENUCOLOR=" blessed "=green
+MENUCOLOR=" holy "=green
+MENUCOLOR=" cursed "=red
+MENUCOLOR=" unholy "=red
+MENUCOLOR=" cursed .* (being worn)"=orange&underline
+
