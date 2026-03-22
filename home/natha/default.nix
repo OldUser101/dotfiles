@@ -82,7 +82,6 @@ in
       enable = true;
 
       shellAliases = {
-        icat = "kitten icat";
         update = "systemctl restart pull-updates.service";
         rebuild = "systemctl restart rebuild.service";
         localRebuild = "nixos-rebuild switch --flake ${hostMeta.localDotfiles}#${hostMeta.hostname}";
