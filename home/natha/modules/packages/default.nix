@@ -8,14 +8,6 @@
 with lib;
 let
   cfg = config.olduser101.packages;
-
-  # https://github.com/NixOS/nixpkgs/issues/493843#issuecomment-3956990127
-  calibre_fix = pkgs.calibre.overrideAttrs (old: {
-    installPhase = ''
-      export QMAKE="${pkgs.qt6.qtbase}/bin/qmake"
-    ''
-    + old.installPhase;
-  });
 in
 {
   options.olduser101.packages = {
@@ -63,7 +55,7 @@ in
         gcc
 
         # Misc
-        calibre_fix
+        calibre
         delta
         discord
         firefoxpwa
