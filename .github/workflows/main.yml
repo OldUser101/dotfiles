@@ -24,7 +24,7 @@ jobs:
             automated
       - name: merge
         run:
-          gh pr merge --auto "${{ steps.update.outputs.pull-request-number }}" --rebase
+          gh pr merge --admin "${{ steps.update.outputs.pull-request-number }}" --rebase
         env:
           GITHUB_TOKEN: ${{ secrets.GH_ACCESS_TOKEN }}
         if: ${{ steps.update.outputs.pull-request-number != '' }}
