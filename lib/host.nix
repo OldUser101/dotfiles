@@ -50,6 +50,10 @@ with builtins;
 
           nixpkgs.pkgs = pkgs;
           nix.settings.max-jobs = lib.mkDefault cpuCores;
+          nix.settings.trusted-users = [
+            "root"
+            "@wheel"
+          ];
 
           system.stateVersion = stateVersion;
 
