@@ -8,6 +8,12 @@
 with lib;
 let
   cfg = config.olduser101.packages;
+
+  _nethack = pkgs.nethack.overrideAttrs (old: {
+    postPatch = ''
+      echo "WIZARDS=*" >> sys/unix/sysconf
+    '' + old.postPatch;
+  });
 in
 {
   options.olduser101.packages = {
@@ -73,7 +79,7 @@ in
         dhewm3
         gzdoom
         prismlauncher
-        nethack
+        _nethack
         unnethack
       ]
       ++ cfg.extraPackages;
