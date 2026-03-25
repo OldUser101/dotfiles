@@ -68,6 +68,7 @@ in
         fnm
         jujutsu
         lic
+        gh
 
         # One needs an office suite sometimes
         libreoffice-qt-fresh
