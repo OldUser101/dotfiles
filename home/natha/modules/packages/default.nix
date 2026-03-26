@@ -69,6 +69,7 @@ in
         jujutsu
         lic
         gh
+        unzip
 
         # One needs an office suite sometimes
         libreoffice-qt-fresh
