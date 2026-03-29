@@ -75,6 +75,7 @@ in
         libreoffice-qt-fresh
 
         # Nix
+        cachix
         nil
       ])
       ++ optionals cfg.enableGames [
