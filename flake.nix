@@ -14,10 +14,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    nlock = {
-      url = "github:OldUser101/nlock/v0.1.2";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    nlock.url = "github:OldUser101/nlock/v0.1.2";
 
     lic = {
       url = "git+https://tangled.org/nathanjgill.uk/lic";
