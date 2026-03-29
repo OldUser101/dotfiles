@@ -49,11 +49,16 @@ with builtins;
           boot.kernelPackages = kernelPackage;
 
           nixpkgs.pkgs = pkgs;
-          nix.settings.max-jobs = lib.mkDefault cpuCores;
-          nix.settings.trusted-users = [
-            "root"
-            "@wheel"
-          ];
+          nix.settings = {
+            max-jobs = lib.mkDefault cpuCores;
+            trusted-users = [ "@wheel" ];
+            substituters = [
+              "https://olduser101.cachix.org"
+            ];
+            trusted-public-keys = [
+              "olduser101.cachix.org-1:DVqbs5NGDnwbI2VayMHpy/4mHF7O7mYhMuhjvT6fOLI="
+            ];
+          };
 
           system.stateVersion = stateVersion;
 
