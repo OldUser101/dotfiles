@@ -121,16 +121,16 @@
         "nixpkgs": "nixpkgs_2"
       },
       "locked": {
-        "lastModified": 1774822874,
-        "narHash": "sha256-nB8+gSGIPc7dVaqou2yEzklr/vtKZgdDUzC+Bx8ouKA=",
+        "lastModified": 1774826978,
+        "narHash": "sha256-srTx34P2Z44uCNeZm1h1WcVG8WhHU5tgpiJChBspFn8=",
         "owner": "OldUser101",
         "repo": "nlock",
-        "rev": "a2a39a65685c1b5207e23b3bc5e266d53aae5470",
+        "rev": "c4dd9660cedfb3b534b18018212d4079021c6719",
         "type": "github"
       },
       "original": {
         "owner": "OldUser101",
-        "ref": "v0.1.2",
+        "ref": "v0.1.3",
         "repo": "nlock",
         "type": "github"
       }
