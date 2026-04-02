@@ -66,6 +66,7 @@ in
         discord
         firefoxpwa
         jujutsu
+        mpv
         lic
         gh
         unzip
