@@ -65,7 +65,6 @@ in
         delta
         discord
         firefoxpwa
-        fnm
         jujutsu
         lic
         gh
