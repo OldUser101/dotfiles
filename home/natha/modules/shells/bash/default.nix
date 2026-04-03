@@ -43,7 +43,15 @@ in
         ${pkgs.openssh}/bin/ssh-add > /dev/null 2>&1
 
         mkcd() {
-          mkdir -p $1 && cd $1
+          mkdir -p "$1" && cd "$1"
+        }
+
+        xcd() {
+          local cur=$(realpath .)
+          cd "$1"
+          shift
+          eval "$@"
+          cd "$cur"
         }
 
         usrmnt() {
