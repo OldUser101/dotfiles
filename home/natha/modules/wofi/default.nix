@@ -13,13 +13,13 @@ in
   options.olduser101.wofi = {
     enable = mkOption {
       type = types.bool;
-      default = false;
+      default = true;
       description = "Enable wofi";
     };
 
     style = mkOption {
-      type = types.nullOr types.pathWith;
-      default = ./style;
+      type = types.nullOr types.path;
+      default = ./style.css;
       description = "CSS stylesheet for wofi";
     };
   };
@@ -27,13 +27,7 @@ in
   config = mkIf cfg.enable {
     programs.wofi = {
       enable = true;
-    }
-    // mkIf (cfg.style != null) {
-      style = cfg.style;
+      style = optionals (cfg.style != null) (builtins.readFile cfg.style);
     };
-
-    home.packages = with pkgs; [
-      wofi
-    ];
   };
 }

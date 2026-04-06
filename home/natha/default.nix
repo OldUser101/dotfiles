@@ -73,8 +73,6 @@ in
     htop.enable = true;
     kak.enable = true;
     nlock.enable = true;
-    sidetree.enable = true;
-    swaylock.enable = true;
     waybar.enable = true;
     wlsunset.enable = true;
     wofi.enable = true;
@@ -97,13 +95,6 @@ in
       screenLocker = "${pkgs.nlock}/bin/nlock";
     };
 
-    sway = {
-      enable = true;
-      autoStart = [
-        "alacritty"
-        "waybar"
-      ];
-      screenLocker = "${pkgs.nlock}/bin/nlock";
-    };
+    sway.screenLocker = "${pkgs.nlock}/bin/nlock";
   } (hosts.${hostName} or { });
 }

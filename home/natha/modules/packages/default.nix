@@ -56,6 +56,7 @@ in
         # Util
         brightnessctl
         pavucontrol
+        wl-clipboard
       ]
       ++ (optionals (cfg.type == "full") [
         # C/C++

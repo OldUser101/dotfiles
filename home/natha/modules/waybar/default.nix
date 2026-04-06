@@ -18,7 +18,7 @@ in
     };
 
     style = mkOption {
-      type = types.nullOr types.pathWith;
+      type = types.nullOr types.path;
       default = ./style.css;
       description = "CSS file for waybar styling";
     };
@@ -27,16 +27,21 @@ in
   config = mkIf cfg.enable {
     programs.waybar = {
       enable = true;
+      style = optionals (cfg.style != null) (builtins.readFile cfg.style);
 
       settings = {
         mainBar = {
           layer = "top";
-          modules-left = optional cfg.swayWorkspaces [ "sway/workspaces" ];
+          modules-left = [ "sway/workspaces" ];
           modules-center = [ "clock" ];
           modules-right = [
             "network"
             "battery"
           ];
+
+          "sway/workspaces" = {
+            disable-scroll = true;
+          };
 
           "clock" = {
             format = "{:%a %b %d %H:%M}";
@@ -60,21 +65,8 @@ in
             ];
             tooltip = false;
           };
-        }
-        // mkIf cfg.swayWorkspaces {
-          "sway/workspaces" = {
-            disable-scroll = true;
-          };
         };
       };
-    }
-    // mkIf (cfg.style != null) {
-      style = cfg.style;
     };
-
-    # The above doesn't seem to install the waybar binary
-    home.packages = with pkgs; [
-      waybar
-    ];
   };
 }

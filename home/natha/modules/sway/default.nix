@@ -8,26 +8,30 @@
 with lib;
 let
   cfg = config.olduser101.sway;
+
+  grim = "${pkgs.grim}/bin/grim";
+  slurp = "${pkgs.slurp}/bin/slurp";
+  wl-copy = "${pkgs.wl-clipboard}/bin/wl-copy";
 in
 {
   options.olduser101.sway = {
     enable = mkOption {
       type = types.bool;
-      default = false;
+      default = true;
       description = "Enable sway";
     };
 
     screenLocker = mkOption {
       type = types.nullOr types.str;
-      default = "swaylock";
+      default = "${pkgs.swaylock}/bin/swaylock";
       description = "Screen locker to be used by sway";
     };
 
     autoStart = mkOption {
       type = types.listOf types.str;
       default = [
-        "alacritty"
-        "waybar"
+        "${pkgs.alacritty}/bin/alacritty"
+        "${pkgs.waybar}/bin/waybar"
       ];
       description = "Commands to run on startup";
     };
@@ -64,7 +68,7 @@ in
 
       config = rec {
         modifier = "Mod4";
-        terminal = "alacritty";
+        terminal = "${pkgs.alacritty}/bin/alacritty";
 
         startup = map (c: { command = c; }) cfg.autoStart;
 
@@ -116,7 +120,7 @@ in
           {
             "${mod}+Shift+e" = "exit";
             "${mod}+Return" = "exec ${terminal}";
-            "${mod}+F" = "exec firefox";
+            "${mod}+F" = "exec ${pkgs.firefox}/bin/firefox";
 
             "${mod}+Left" = "exec ${src}/helpers/prev-workspace.sh";
             "${mod}+Right" = "exec ${src}/helpers/next-workspace.sh";
@@ -139,11 +143,11 @@ in
             "${mod}+F11" = "fullscreen toggle";
             "${mod}+Shift+F" = "floating toggle";
 
-            "Print" = "exec grim - | wl-copy";
-            "Shift+Print" = "exec grim -g \"$(slurp)\" - | wl-copy";
-            "${mod}+Print" = "exec grim -g \"$(slurp)\" ${screenshot}";
+            "Print" = "exec ${grim} - | ${wl-copy}";
+            "Shift+Print" = "exec ${grim} -g \"$(${slurp})\" - | ${wl-copy}";
+            "${mod}+Print" = "exec ${grim} -g \"$(${slurp})\" ${screenshot}";
 
-            "${mod}+space" = "exec wofi --show drun";
+            "${mod}+space" = "exec ${pkgs.wofi}/bin/wofi --show drun";
           };
 
         modes = {
@@ -187,10 +191,7 @@ in
     wayland.windowManager.sway.checkConfig = false;
 
     home.packages = with pkgs; [
-      grim
       jq
-      slurp
-      wl-clipboard
     ];
 
     home.pointerCursor = {
