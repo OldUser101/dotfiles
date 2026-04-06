@@ -40,8 +40,12 @@ in
 
         (mkIf (cfg.type == "bios") {
           boot.loader = {
-            grub.enable = true;
-            grub.device = cfg.device;
+            timeout = 0;
+            grub = {
+              enable = true;
+              device = cfg.device;
+              timeoutStyle = "hidden";
+            };
           };
         })
 
