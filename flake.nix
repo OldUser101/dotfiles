@@ -233,6 +233,7 @@
               keyring = true;
             };
             sway.enable = true;
+            update.enable = true;
           };
           hostMeta = {
             localDotfiles = "/home/natha/.config/olduser101";
