@@ -17,6 +17,7 @@ in
       type = types.enum [
         "efi-default"
         "efi-baytrail"
+        "bios-default"
       ];
       description = "Filesystem configuration type";
     };
@@ -63,6 +64,22 @@ in
             options = [
               "fmask=0077"
               "dmask=0077"
+            ];
+          };
+        })
+
+        (mkIf (cfg.type == "bios-default") {
+          fileSystems."/" = {
+            device = "/dev/disk/by-label/ROOT";
+            fsType = "ext4";
+          };
+
+          fileSystems."/boot" = {
+            device = "/dev/disk/by-label/BOOT";
+            fsType = "vfat";
+            options = [
+              "fmask=0022"
+              "dmask=0022"
             ];
           };
         })

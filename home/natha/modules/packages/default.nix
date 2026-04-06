@@ -12,7 +12,8 @@ let
   _nethack = pkgs.nethack.overrideAttrs (old: {
     postPatch = ''
       echo "WIZARDS=*" >> sys/unix/sysconf
-    '' + old.postPatch;
+    ''
+    + old.postPatch;
   });
 in
 {

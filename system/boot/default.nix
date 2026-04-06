@@ -14,9 +14,16 @@ in
     type = mkOption {
       type = types.enum [
         "efi"
+        "bios"
         "baytrail"
       ];
       description = "Bootloader type";
+    };
+
+    device = mkOption {
+      type = types.str;
+      default = "";
+      description = "GRUB boot device for BIOS boot type";
     };
   };
 
@@ -28,6 +35,13 @@ in
             systemd-boot.enable = true;
             efi.canTouchEfiVariables = true;
             timeout = 0;
+          };
+        })
+
+        (mkIf (cfg.type == "bios") {
+          boot.loader = {
+            grub.enable = true;
+            grub.device = cfg.device;
           };
         })
 

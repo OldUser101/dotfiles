@@ -37,6 +37,10 @@ let
       swayidle.screenLocker = "${pkgs.swaylock}/bin/swaylock";
       sway.screenLocker = "${pkgs.swaylock}/bin/swaylock";
     };
+
+    "natha-5334qwx" = {
+      nlock.enable = true;
+    };
   };
 in
 {
@@ -59,7 +63,7 @@ in
   home.packages = [ pkgs.gcr ];
 
   home.sessionVariables = {
-    EDITOR = "kak";
+    EDITOR = "${pkgs.kakoune}/bin/kak";
   };
 
   olduser101 = lib.attrsets.recursiveUpdate {

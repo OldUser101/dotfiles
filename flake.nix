@@ -187,6 +187,70 @@
           extraHomeManagerModules = [ inputs.nlock.homeManagerModules.default ];
           stateVersion = "26.05";
         };
+
+        natha-5334qwx = host.mkHost {
+          name = "natha-5334qwx";
+          kernelPackage = pkgs.linuxPackages_latest;
+          initrdMods = [
+            "ehci_pci"
+            "ahci"
+            "firewire_ohci"
+            "xhci_pci"
+            "usb_storage"
+            "sd_mod"
+            "sr_mod"
+            "sdhci_pci"
+          ];
+          kernelMods = [ ];
+          kernelParams = [ ];
+          systemConfig = {
+            boot = {
+              type = "bios";
+              device = "/dev/sda";
+            };
+            core.enable = true;
+            power = {
+              enable = true;
+              profile = "laptop";
+            };
+            fs = {
+              type = "bios-default";
+              swap = {
+                enable = true;
+                type = "partition";
+              };
+            };
+            hardware.firmware.enable = true;
+            hardware.graphics = {
+              enable = true;
+              type = "intel";
+            };
+            security.pam = {
+              services = [
+                "swaylock"
+                "nlock"
+              ];
+              keyring = true;
+            };
+            sway.enable = true;
+          };
+          hostMeta = {
+            localDotfiles = "/home/natha/.config/olduser101";
+            hostname = "natha-5334qwx";
+          };
+          users = [
+            {
+              name = "natha";
+              groups = [ "wheel" ];
+              uid = 1000;
+              shell = pkgs.bash;
+            }
+          ];
+          cpuCores = 8;
+          extraNixosModules = [ inputs.nlock.nixosModules.default ];
+          extraHomeManagerModules = [ inputs.nlock.homeManagerModules.default ];
+          stateVersion = "25.11";
+        };
       };
     };
 }
