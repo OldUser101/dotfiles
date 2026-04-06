@@ -208,7 +208,10 @@
               type = "bios";
               device = "/dev/sda";
             };
-            core.enable = true;
+            core = {
+              enable = true;
+              tailscale = true;
+            };
             power = {
               enable = true;
               profile = "laptop";
@@ -232,6 +235,7 @@
               ];
               keyring = true;
             };
+            sddm.enable = true;
             sway.enable = true;
             update.enable = true;
           };
