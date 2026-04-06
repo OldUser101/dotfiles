@@ -40,6 +40,17 @@ let
 
     "natha-5334qwx" = {
       nlock.enable = true;
+
+      sway.outputs =
+        let
+          bg = "${config.home.homeDirectory}/pictures/wallpapers/default.png";
+        in
+        {
+          LVDS-1 = {
+            position = "0 0";
+            bg = "${bg} fill";
+          };
+        };
     };
   };
 in
