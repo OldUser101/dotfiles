@@ -13,8 +13,14 @@ in
   options.olduser101.kak = {
     enable = mkOption {
       type = types.bool;
-      default = false;
+      default = true;
       description = "Enable kakoune";
+    };
+
+    kittyIntegration = mkOption {
+      type = types.bool;
+      default = false;
+      description = "Enable kakoune kitty integration";
     };
 
     extraPlugins = mkOption {
@@ -40,18 +46,13 @@ in
       default = "";
       description = "Extra configuration file lines";
     };
-
-    extraPackages = mkOption {
-      type = types.listOf types.package;
-      default = [ ];
-      description = "Extra packages to install";
-    };
   };
 
   config = mkIf cfg.enable {
     programs.kakoune = {
       enable = true;
       colorSchemePackage = pkgs.kakounePlugins.kakoune-catppuccin;
+      defaultEditor = true;
 
       plugins =
         with pkgs.kakounePlugins;
@@ -87,8 +88,8 @@ in
             once = true;
             option = ".*";
             commands = ''
-              evaluate-commands %sh{ kak-lsp }
-              evaluate-commands %sh{ kcr init kakoune }
+              evaluate-commands %sh{ ${pkgs.kakounePlugins.kakoune-lsp}/bin/kak-lsp }
+              evaluate-commands %sh{ ${pkgs.kakoune-cr}/bin/kcr init kakoune }
               enable-auto-pairs
               expandtab
               set global softtabstop 4
@@ -137,7 +138,7 @@ in
                 settings_section = "_"
 
                 [nil.settings._]
-                nil.formatting.command = "nixfmt"
+                nil.formatting.command = "${pkgs.nixfmt}/bin/nixfmt"
               }
             '';
           }
@@ -167,25 +168,17 @@ in
             key = "P";
             effect = ":wl-clipboard-paste<ret>P";
           }
-          {
+          (mkIf cfg.kittyIntegration {
             mode = "normal";
             key = "<c-e>";
             docstring = "Open sidetree";
             effect = ":connect kitty-terminal-window sh -c \"${pkgs.sidetree}/bin/sidetree\"<ret>";
-          }
+          })
         ]
         ++ cfg.extraKeyMappings;
       };
 
       extraConfig = cfg.extraConfig;
     };
-
-    home.packages =
-      with pkgs;
-      [
-        kakoune-cr
-        sidetree
-      ]
-      ++ cfg.extraPackages;
   };
 }

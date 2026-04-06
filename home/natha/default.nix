@@ -62,10 +62,6 @@ in
   services.gnome-keyring.enable = true;
   home.packages = [ pkgs.gcr ];
 
-  home.sessionVariables = {
-    EDITOR = "${pkgs.kakoune}/bin/kak";
-  };
-
   olduser101 = lib.attrsets.recursiveUpdate {
     direnv.enable = true;
     dunst.enable = true;
