@@ -8,7 +8,7 @@
 }:
 let
   hosts = {
-    "natha-nixos0" = {
+    "natha-nixos0".olduser101 = {
       packages.enableGames = true;
       email.enable = true;
       irssi.enable = true;
@@ -31,7 +31,7 @@ let
         };
     };
 
-    "natha-vrdhq85" = {
+    "natha-vrdhq85".olduser101 = {
       nlock.enable = false;
       swaylock.enable = true;
       swayidle.screenLocker = "${pkgs.swaylock}/bin/swaylock";
@@ -39,22 +39,28 @@ let
     };
 
     "natha-5334qwx" = {
-      nlock.enable = true;
+      home.packages = with pkgs; [
+        sonobus
+      ];
+      
+      olduser101 = {
+        nlock.enable = true;
 
-      sway.outputs =
-        let
-          bg = "${config.home.homeDirectory}/pictures/wallpapers/default.png";
-        in
-        {
-          LVDS-1 = {
-            position = "0 0";
-            bg = "${bg} fill";
+        sway.outputs =
+          let
+            bg = "${config.home.homeDirectory}/pictures/wallpapers/default.png";
+          in
+          {
+            LVDS-1 = {
+              position = "0 0";
+              bg = "${bg} fill";
+            };
           };
-        };
+      };
     };
   };
 in
-{
+lib.attrsets.recursiveUpdate {
   imports = [ ./modules ];
 
   home = {
@@ -73,7 +79,7 @@ in
   services.gnome-keyring.enable = true;
   home.packages = [ pkgs.gcr ];
 
-  olduser101 = lib.attrsets.recursiveUpdate {
+  olduser101 = {
     direnv.enable = true;
     dunst.enable = true;
     fonts.enable = true;
@@ -103,5 +109,5 @@ in
     };
 
     sway.screenLocker = "${pkgs.nlock}/bin/nlock";
-  } (hosts.${hostName} or { });
-}
+  };
+} (hosts.${hostName} or { })
