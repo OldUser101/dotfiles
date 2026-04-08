@@ -2,7 +2,7 @@ name: update-dependencies
 on:
   workflow_dispatch:
   schedule:
-    - cron: '0 6 * * *' # run daily at 6 AM GMT
+    - cron: '42 5 * * *' # run daily at 5:42 AM UTC
 
 jobs:
   update-dependencies:
