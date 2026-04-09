@@ -212,6 +212,7 @@
               enable = true;
               tailscale = true;
             };
+            display.displaylink = true;
             power = {
               enable = true;
               profile = "laptop";

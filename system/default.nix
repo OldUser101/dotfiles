@@ -10,6 +10,7 @@
     ./audio
     ./boot
     ./core
+    ./display
     ./fs
     ./hardware
     ./power
