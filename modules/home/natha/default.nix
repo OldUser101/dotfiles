@@ -42,7 +42,7 @@ let
       home.packages = with pkgs; [
         sonobus
       ];
-      
+
       olduser101 = {
         nlock.enable = true;
 
@@ -61,7 +61,7 @@ let
   };
 in
 lib.attrsets.recursiveUpdate {
-  imports = [ ./modules ];
+  imports = [ ./modules.nix ];
 
   home = {
     inherit stateVersion;

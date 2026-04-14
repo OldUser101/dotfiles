@@ -55,205 +55,22 @@
           ;
       };
 
-      inherit (util) user host;
+      inherit (util) systems;
     in
     {
       nixosConfigurations = {
-        natha-nixos0 = host.mkHost {
+        natha-nixos0 = systems.mkSystem {
           name = "natha-nixos0";
-          kernelPackage = pkgs.linuxPackages_latest;
-          initrdMods = [
-            "xhci_pci"
-            "nvme"
-            "usbhid"
-            "usb_storage"
-            "sd_mod"
-            "sdhci_pci"
-          ];
-          kernelMods = [ "kvm-intel" ];
-          kernelParams = [ ];
-          systemConfig = {
-            audio.enable = true;
-            boot.type = "efi";
-            core = {
-              enable = true;
-              tailscale = true;
-            };
-            power = {
-              enable = true;
-              profile = "laptop";
-            };
-            print.enable = true;
-            fs = {
-              type = "efi-default";
-              swap = {
-                enable = true;
-                type = "partition";
-              };
-            };
-            hardware.bluetooth.enable = true;
-            hardware.firmware.enable = true;
-            hardware.graphics = {
-              enable = true;
-              type = "intel";
-            };
-            sddm.enable = true;
-            security.pam = {
-              services = [
-                "swaylock"
-                "nlock"
-              ];
-              keyring = true;
-            };
-            sway.enable = true;
-            update.enable = true;
-          };
-          hostMeta = {
-            localDotfiles = "/home/natha/.config/olduser101";
-            hostname = "natha-nixos0";
-          };
-          users = [
-            {
-              name = "natha";
-              groups = [
-                "wheel"
-                "dialout"
-              ];
-              uid = 1000;
-              shell = pkgs.bash;
-            }
-          ];
-          cpuCores = 8;
-          extraNixosModules = [ inputs.nlock.nixosModules.default ];
-          extraHomeManagerModules = [ inputs.nlock.homeManagerModules.default ];
           stateVersion = "25.11";
         };
 
-        natha-vrdhq85 = host.mkHost {
+        natha-vrdhq85 = systems.mkSystem {
           name = "natha-vrdhq85";
-          kernelPackage = pkgs.linuxPackages_latest;
-          initrdMods = [
-            "xhci_pci"
-            "nvme"
-            "usbhid"
-            "usb_storage"
-            "sd_mod"
-            "sdhci_pci"
-          ];
-          kernelMods = [ "kvm-intel" ];
-          kernelParams = [ ];
-          systemConfig = {
-            boot.type = "baytrail";
-            core.enable = true;
-            power = {
-              enable = true;
-              profile = "laptop";
-            };
-            fs = {
-              type = "efi-baytrail";
-              swap = {
-                enable = true;
-                type = "partition";
-              };
-            };
-            hardware.firmware.enable = true;
-            hardware.graphics = {
-              enable = true;
-              type = "intel";
-            };
-            security.pam = {
-              services = [ "swaylock" ];
-              keyring = true;
-            };
-            sway.enable = true;
-          };
-          hostMeta = {
-            localDotfiles = "/home/natha/.config/olduser101";
-            hostname = "natha-vrdhq85";
-          };
-          users = [
-            {
-              name = "natha";
-              groups = [
-                "wheel"
-                "dialout"
-              ];
-              uid = 1000;
-              shell = pkgs.bash;
-            }
-          ];
-          cpuCores = 4;
-          extraNixosModules = [ inputs.nlock.nixosModules.default ];
-          extraHomeManagerModules = [ inputs.nlock.homeManagerModules.default ];
           stateVersion = "26.05";
         };
 
-        natha-5334qwx = host.mkHost {
+        natha-5334qwx = systems.mkSystem {
           name = "natha-5334qwx";
-          kernelPackage = pkgs.linuxPackages_latest;
-          initrdMods = [
-            "ehci_pci"
-            "ahci"
-            "firewire_ohci"
-            "xhci_pci"
-            "usb_storage"
-            "sd_mod"
-            "sr_mod"
-            "sdhci_pci"
-          ];
-          kernelMods = [ ];
-          kernelParams = [ ];
-          systemConfig = {
-            boot = {
-              type = "bios";
-              device = "/dev/sda";
-            };
-            core = {
-              enable = true;
-              tailscale = true;
-            };
-            power = {
-              enable = true;
-              profile = "laptop";
-            };
-            fs = {
-              type = "bios-default";
-              swap = {
-                enable = true;
-                type = "partition";
-              };
-            };
-            hardware.firmware.enable = true;
-            hardware.graphics = {
-              enable = true;
-              type = "intel";
-            };
-            security.pam = {
-              services = [
-                "swaylock"
-                "nlock"
-              ];
-              keyring = true;
-            };
-            sddm.enable = true;
-            sway.enable = true;
-            update.enable = true;
-          };
-          hostMeta = {
-            localDotfiles = "/home/natha/.config/olduser101";
-            hostname = "natha-5334qwx";
-          };
-          users = [
-            {
-              name = "natha";
-              groups = [ "wheel" ];
-              uid = 1000;
-              shell = pkgs.bash;
-            }
-          ];
-          cpuCores = 8;
-          extraNixosModules = [ inputs.nlock.nixosModules.default ];
-          extraHomeManagerModules = [ inputs.nlock.homeManagerModules.default ];
           stateVersion = "25.11";
         };
       };

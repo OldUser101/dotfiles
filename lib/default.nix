@@ -19,4 +19,12 @@ rec {
       user
       ;
   };
+  systems = import ./systems.nix {
+    inherit
+      lib
+      host
+      pkgs
+      inputs
+      ;
+  };
 }

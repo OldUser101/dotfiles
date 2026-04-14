@@ -34,7 +34,7 @@ with builtins;
       specialArgs = { inherit hostMeta; };
 
       modules = [
-        ../system
+        ../modules/system
       ]
       ++ sysUsers
       ++ extraNixosModules
@@ -77,7 +77,7 @@ with builtins;
           home-manager.users = listToAttrs (
             map (u: {
               name = u.name;
-              value = import ../home/${u.name} {
+              value = import ../modules/home/${u.name} {
                 inherit stateVersion;
                 hostName = name;
               };
