@@ -12,6 +12,7 @@ let
   grim = "${pkgs.grim}/bin/grim";
   slurp = "${pkgs.slurp}/bin/slurp";
   wl-copy = "${pkgs.wl-clipboard}/bin/wl-copy";
+  swaybg = "${pkgs.swaybg}/bin/swaybg";
 in
 {
   options.olduser101.sway = {
@@ -183,6 +184,7 @@ in
         ''
           bindgesture swipe:left exec ${src}/helpers/next-workspace.sh
           bindgesture swipe:right exec ${src}/helpers/prev-workspace.sh
+          swaybg_command ${swaybg}
         '';
     };
 
