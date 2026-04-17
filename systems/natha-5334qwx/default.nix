@@ -54,7 +54,10 @@
   users = [
     {
       name = "natha";
-      groups = [ "wheel" ];
+      groups = [
+        "wheel"
+        "network"
+      ];
       uid = 1000;
       shell = pkgs.bash;
     }

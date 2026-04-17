@@ -55,6 +55,7 @@
       groups = [
         "wheel"
         "dialout"
+        "network"
       ];
       uid = 1000;
       shell = pkgs.bash;
