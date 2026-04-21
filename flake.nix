@@ -20,6 +20,11 @@
       url = "git+https://tangled.org/nathanjgill.uk/lic";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    olduser101-sway = {
+      url = "github:OldUser101/sway";
+      flake = false;
+    };
   };
 
   outputs =
