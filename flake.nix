@@ -21,10 +21,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    olduser101-sway = {
-      url = "github:OldUser101/sway";
-      flake = false;
-    };
+    olduser101-sway.url = "github:OldUser101/sway";
   };
 
   outputs =
@@ -34,6 +31,7 @@
       home-manager,
       naersk,
       nlock,
+      olduser101-sway,
       ...
     }@inputs:
     let
@@ -42,6 +40,7 @@
 
       overlays = [
         nlock.overlays.nlock
+        olduser101-sway.overlays.sway-unwrapped
       ]
       ++ (import ./overlays { inherit system inputs; });
 
