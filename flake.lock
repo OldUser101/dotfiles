@@ -138,11 +138,11 @@
     "olduser101-sway": {
       "flake": false,
       "locked": {
-        "lastModified": 1776772772,
-        "narHash": "sha256-ICTQC2X90MPUWZPggVNUkd4QXksHGD4XSGKytQACiQQ=",
+        "lastModified": 1776776249,
+        "narHash": "sha256-dEgBJpTRI7ltx8CL0T+upt1rOayDqQtVGqfFiMuT06Y=",
         "owner": "OldUser101",
         "repo": "sway",
-        "rev": "e3d352e114f0a4e4fe3795a107061a13fa20d32c",
+        "rev": "be325c81cb7cf925147da931a13ba4cf547df4d7",
         "type": "github"
       },
       "original": {
