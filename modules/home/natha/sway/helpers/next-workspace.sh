@@ -1,5 +1,5 @@
 #!/bin/sh
 
-SRC=$(cd -- "$(dirname -- "$0")" && pwd)
+next=$(swaymsg -t get_dynamic_workspaces | jq -r '.next')
 
-swaymsg workspace $($SRC/next-workspace-helper.sh)
+swaymsg workspace "$next"

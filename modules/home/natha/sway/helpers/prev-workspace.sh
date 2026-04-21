@@ -1,5 +1,5 @@
 #!/bin/sh
 
-SRC=$(cd -- "$(dirname -- "$0")" && pwd)
+prev=$(swaymsg -t get_dynamic_workspaces | jq -r '.prev')
 
-swaymsg workspace $($SRC/prev-workspace-helper.sh)
+swaymsg workspace "$prev"
