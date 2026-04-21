@@ -109,6 +109,13 @@ in
             '';
           }
           {
+            name = "BufOpenFile";
+            option = ".*";
+            commands = ''
+              editorconfig-load
+            '';
+          }
+          {
             name = "WinSetOption";
             option = "filetype=(nix|css)";
             commands = ''
@@ -180,5 +187,9 @@ in
 
       extraConfig = cfg.extraConfig;
     };
+
+    home.packages = with pkgs; [
+      editorconfig-core-c
+    ];
   };
 }
