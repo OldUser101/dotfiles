@@ -7,6 +7,8 @@
   ...
 }:
 let
+  assets = ../../../assets;
+
   hosts = {
     "natha-nixos0".olduser101 = {
       packages.enableGames = true;
@@ -17,7 +19,7 @@ let
 
       sway.outputs =
         let
-          bg = "${config.home.homeDirectory}/pictures/wallpapers/default.png";
+          bg = "${assets}/wallpapers/bars.jpg";
         in
         {
           eDP-1 = {
@@ -48,7 +50,7 @@ let
 
         sway.outputs =
           let
-            bg = "${config.home.homeDirectory}/pictures/wallpapers/default.png";
+            bg = "${assets}/wallpapers/bars.jpg";
           in
           {
             LVDS-1 = {
