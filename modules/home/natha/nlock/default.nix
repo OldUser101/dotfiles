@@ -8,6 +8,7 @@
 with lib;
 let
   cfg = config.olduser101.nlock;
+  assets = ../../../../assets;
 in
 {
   options.olduser101.nlock = {
@@ -22,8 +23,10 @@ in
     programs.nlock = {
       enable = true;
       settings = {
+        general.backgroundType = "image";
+        
         colors = {
-          background = "1E1E2E";
+          inputBorder = "CBA6F7";
           inputBackground = "1E1E2E";
           text = "CDD6F4";
         };
@@ -32,13 +35,16 @@ in
           size = 72.0;
           useDpiScaling = true;
           family = "monospace";
-          slant = "normal";
           weight = "bold";
         };
 
         input = {
-          maskChar = "*";
+          border = 2.0;
+          visible = "content";
+          fitToContent = true;
         };
+
+        image.path = "${assets}/wallpapers/bars.jpg";
       };
     };
   };
