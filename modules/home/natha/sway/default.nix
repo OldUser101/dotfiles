@@ -99,15 +99,45 @@ in
           };
         };
 
+        gaps.inner = 13;
+
         window = {
-          commands = [
-            {
-              command = "border none";
-              criteria = {
-                class = ".*";
-              };
-            }
-          ];
+          border = 2;
+          titlebar = false;
+        };
+
+        colors = {
+          focused = {
+            background = "#1e1e2e";
+            border = "#cba6f7";
+            childBorder = "#cba6f7";
+            indicator = "#cba6f7";
+            text = "#ffffff";
+          };
+
+          focusedInactive = {
+            background = "#1e1e2e";
+            border = "#00000000";
+            childBorder = "#00000000";
+            indicator = "#00000000";
+            text = "#ffffff";
+          };
+
+          unfocused = {
+            background = "#1e1e2e";
+            border = "#00000000";
+            childBorder = "#00000000";
+            indicator = "#00000000";
+            text = "#ffffff";
+          };
+
+          urgent = {
+            background = "#1e1e2e";
+            border = "#f38ba8";
+            childBorder = "#f38ba8";
+            indicator = "#f38ba8";
+            text = "#ffffff";
+          };
         };
 
         output = cfg.outputs;
@@ -139,7 +169,12 @@ in
             "${mod}+Shift+k" = "move up";
             "${mod}+Shift+l" = "move right";
 
-            "${mod}+L" = "exec ${cfg.screenLocker}";
+            "${mod}+h" = "focus left";
+            "${mod}+j" = "focus down";
+            "${mod}+k" = "focus up";
+            "${mod}+l" = "focus right";
+
+            "${mod}+comma" = "exec ${cfg.screenLocker}";
 
             "${mod}+F11" = "fullscreen toggle";
             "${mod}+Shift+F" = "floating toggle";

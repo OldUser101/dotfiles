@@ -25,25 +25,27 @@ in
         global = {
           font = "Fira Code 10";
           padding = 10;
+          gap_size = 13;
           frame_width = 2;
+          frame_color = "#cba6f7";
           transparency = 15;
         };
 
         urgency_low = {
-          background = "#302d41";
-          foreground = "#d9e0ee";
+          background = "#1e1e2e";
+          foreground = "#cdd6f4";
           timeout = 5;
         };
 
         urgency_normal = {
-          background = "#403d52";
-          foreground = "#d9e0ee";
+          background = "#1e1e2e";
+          foreground = "#cdd6f4";
           timeout = 10;
         };
 
         urgency_critical = {
-          background = "#f28fad";
-          foreground = "#1e1e2e";
+          background = "#1e1e2e";
+          foreground = "#cdd6f4";
           timeout = 0;
         };
       };
