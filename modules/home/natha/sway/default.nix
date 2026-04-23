@@ -99,7 +99,7 @@ in
           };
         };
 
-        gaps.inner = 13;
+        gaps.inner = 15;
 
         window = {
           border = 2;
@@ -139,6 +139,8 @@ in
             text = "#ffffff";
           };
         };
+
+        focus.followMouse = "always";
 
         output = cfg.outputs;
 
