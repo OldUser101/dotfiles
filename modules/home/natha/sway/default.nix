@@ -32,7 +32,6 @@ in
       type = types.listOf types.str;
       default = [
         "${pkgs.alacritty}/bin/alacritty"
-        "${pkgs.waybar}/bin/waybar"
       ];
       description = "Commands to run on startup";
     };
