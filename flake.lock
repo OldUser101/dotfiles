@@ -176,7 +176,8 @@
         "naersk": "naersk",
         "nixpkgs": "nixpkgs",
         "nlock": "nlock",
-        "olduser101-sway": "olduser101-sway"
+        "olduser101-sway": "olduser101-sway",
+        "way-edges": "way-edges"
       }
     },
     "rust-analyzer-src": {
@@ -193,6 +194,27 @@
         "owner": "rust-lang",
         "ref": "nightly",
         "repo": "rust-analyzer",
+        "type": "github"
+      }
+    },
+    "rust-overlay": {
+      "inputs": {
+        "nixpkgs": [
+          "way-edges",
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1761878277,
+        "narHash": "sha256-6fCtyVdTzoQejwoextAu7dCLoy5fyD3WVh+Qm7t2Nhg=",
+        "owner": "oxalica",
+        "repo": "rust-overlay",
+        "rev": "6604534e44090c917db714faa58d47861657690c",
+        "type": "github"
+      },
+      "original": {
+        "owner": "oxalica",
+        "repo": "rust-overlay",
         "type": "github"
       }
     },
@@ -226,6 +248,28 @@
       "original": {
         "owner": "numtide",
         "repo": "flake-utils",
+        "type": "github"
+      }
+    },
+    "way-edges": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ],
+        "rust-overlay": "rust-overlay"
+      },
+      "locked": {
+        "lastModified": 1774432979,
+        "narHash": "sha256-hvIy5WAv+DqA8Agln2Wgc8dHG/yDktfUU1k/3nlwjmw=",
+        "owner": "way-edges",
+        "repo": "way-edges",
+        "rev": "ffcda9ee59b6fdff86ad693f4cffd0a623420fab",
+        "type": "github"
+      },
+      "original": {
+        "owner": "way-edges",
+        "ref": "0.12.1",
+        "repo": "way-edges",
         "type": "github"
       }
     }

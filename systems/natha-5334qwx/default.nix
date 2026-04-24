@@ -64,5 +64,5 @@
   ];
   cpuCores = 8;
   extraNixosModules = [ inputs.nlock.nixosModules.default ];
-  extraHomeManagerModules = [ inputs.nlock.homeManagerModules.default ];
+  extraHomeManagerModules = [ inputs.nlock.homeManagerModules.default inputs.way-edges.homeManagerModules.default ];
 }

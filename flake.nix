@@ -22,6 +22,11 @@
     };
 
     olduser101-sway.url = "github:OldUser101/sway";
+
+    way-edges = {
+      url = "github:way-edges/way-edges/0.12.1";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =

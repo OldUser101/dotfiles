@@ -1,0 +1,97 @@
+diff --git a/crates/config/src/def/widgets/wrapbox/mod.rs b/crates/config/src/def/widgets/wrapbox/mod.rs
+index cc3415f..0ccb8ef 100644
+--- a/crates/config/src/def/widgets/wrapbox/mod.rs
++++ b/crates/config/src/def/widgets/wrapbox/mod.rs
+@@ -36,6 +36,11 @@ pub struct OutlookWindowConfig {
+     #[serde(deserialize_with = "color_translate")]
+     #[schemars(schema_with = "schema_color")]
+     pub color: Color,
++    #[knus(child, default = dt_bg_color(), unwrap(argument, decode_with = parse_color))]
++    #[serde(default = "dt_bg_color")]
++    #[serde(deserialize_with = "color_translate")]
++    #[schemars(schema_with = "schema_color")]
++    pub bg_color: Color,
+     #[knus(child, default = dt_radius(), unwrap(argument))]
+     #[serde(default = "dt_radius")]
+     pub border_radius: i32,
+@@ -48,6 +53,7 @@ impl Default for OutlookWindowConfig {
+         Self {
+             margins: dt_outlook_margin(),
+             color: dt_color(),
++            bg_color: dt_bg_color(),
+             border_radius: dt_radius(),
+             border_width: dt_border_width(),
+         }
+@@ -56,6 +62,9 @@ impl Default for OutlookWindowConfig {
+ fn dt_color() -> Color {
+     parse_color("#4d8080").unwrap()
+ }
++fn dt_bg_color() -> Color {
++    parse_color("#4d8080").unwrap()
++}
+ fn dt_radius() -> i32 {
+     5
+ }
+diff --git a/crates/frontend/src/widgets/wrapbox/outlook/mod.rs b/crates/frontend/src/widgets/wrapbox/outlook/mod.rs
+index 3eb98f3..4170a36 100644
+--- a/crates/frontend/src/widgets/wrapbox/outlook/mod.rs
++++ b/crates/frontend/src/widgets/wrapbox/outlook/mod.rs
+@@ -7,7 +7,11 @@ use smithay_client_toolkit::shell::wlr_layer::Anchor;
+ mod board;
+ mod window;
+ 
+-pub fn init_outlook(outlook: &Outlook, edge: Anchor, offset: NumOrRelative) -> Box<dyn OutlookDraw> {
++pub fn init_outlook(
++    outlook: &Outlook,
++    edge: Anchor,
++    offset: NumOrRelative,
++) -> Box<dyn OutlookDraw> {
+     match outlook {
+         Outlook::Window(outlook_window_config) => {
+             Box::new(window::DrawConf::new(outlook_window_config, edge, offset))
+diff --git a/crates/frontend/src/widgets/wrapbox/outlook/window.rs b/crates/frontend/src/widgets/wrapbox/outlook/window.rs
+index 1d0fbea..8e6dfeb 100644
+--- a/crates/frontend/src/widgets/wrapbox/outlook/window.rs
++++ b/crates/frontend/src/widgets/wrapbox/outlook/window.rs
+@@ -7,7 +7,7 @@ use config::def::{
+ use cosmic_text::Color;
+ use smithay_client_toolkit::shell::wlr_layer::Anchor;
+ use util::{
+-    color::{cairo_set_color, color_mix},
++    color::cairo_set_color,
+     draw::{draw_rect_path, new_surface},
+     Z,
+ };
+@@ -18,6 +18,7 @@ use super::OutlookDraw;
+ pub struct DrawConf {
+     margins: NumMargins,
+     color: Color,
++    bg_color: Color,
+     border_radius: i32,
+     border_width: i32,
+ 
+@@ -39,6 +40,7 @@ impl DrawConf {
+         Self {
+             margins: outlook.margins.clone(),
+             color: outlook.color,
++            bg_color: outlook.bg_color,
+             border_radius: outlook.border_radius,
+             border_width: outlook.border_width,
+             corners,
+@@ -103,15 +105,12 @@ fn draw_base(conf: &DrawConf, content_size: (i32, i32)) -> DrawBase {
+     let f_content_box_size = (content_box_size.0 as f64, content_box_size.1 as f64);
+     let f_total_size = (total_size.0 as f64, total_size.1 as f64);
+ 
+-    // mix color of border color and shadow(black)
+-    let box_color = color_mix(Color::rgba(0, 0, 0, 0x22), conf.color);
+-
+     // bg
+     let (bg_path, bg) = {
+         let path = draw_rect_path(border_radius, f_total_size, corners).unwrap();
+         let surf = new_surface(total_size);
+         let ctx = cairo::Context::new(&surf).unwrap();
+-        cairo_set_color(&ctx, box_color);
++        cairo_set_color(&ctx, conf.bg_color);
+         ctx.append_path(&path);
+         ctx.fill().unwrap();
+         (path, surf)

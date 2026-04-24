@@ -36,6 +36,8 @@ let
     "natha-vrdhq85".olduser101 = {
       nlock.enable = false;
       swaylock.enable = true;
+      waybar.enable = true;
+      way-edges.enable = false;
       swayidle.screenLocker = "${pkgs.swaylock}/bin/swaylock";
       sway.screenLocker = "${pkgs.swaylock}/bin/swaylock";
     };
@@ -79,7 +81,7 @@ lib.attrsets.recursiveUpdate {
   };
 
   services.gnome-keyring.enable = true;
-  home.packages = [ pkgs.gcr ];
+  home.packages = [ pkgs.gcr pkgs.way-edges ];
 
   olduser101 = {
     direnv.enable = true;
@@ -88,7 +90,7 @@ lib.attrsets.recursiveUpdate {
     htop.enable = true;
     kak.enable = true;
     nlock.enable = true;
-    waybar.enable = true;
+    way-edges.enable = true;
     wlsunset.enable = true;
     wofi.enable = true;
     zellij.enable = true;

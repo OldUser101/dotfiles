@@ -22,6 +22,7 @@
     ./swayidle
     ./swaylock
     ./waybar
+    ./way-edges
     ./wlsunset
     ./wofi
     ./zellij

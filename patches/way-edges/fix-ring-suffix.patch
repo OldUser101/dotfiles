@@ -1,0 +1,13 @@
+diff --git a/crates/frontend/src/widgets/wrapbox/widgets/ring/draw.rs b/crates/frontend/src/widgets/wrapbox/widgets/ring/draw.rs
+index 830208d..470e300 100644
+--- a/crates/frontend/src/widgets/wrapbox/widgets/ring/draw.rs
++++ b/crates/frontend/src/widgets/wrapbox/widgets/ring/draw.rs
+@@ -132,7 +132,7 @@ impl RingDrawer {
+                 size.1 = size.1.max(img_size.1);
+             } else {
+                 v[1] = Some((img, img_size.0, img_size.1));
+-                size.0 += img_size.1;
++                size.0 += img_size.0;
+                 size.1 = size.1.max(img_size.1);
+             }
+         }
