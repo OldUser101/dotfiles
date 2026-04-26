@@ -29,11 +29,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1777086106,
-        "narHash": "sha256-hlNpIN18pw3xo34Lsrp6vAMUPn0aB/zFBqL0QXI1Pmk=",
+        "lastModified": 1777151655,
+        "narHash": "sha256-Th3a5OZyEy4kCoyLfefnt+2dwRIrFQqYgMsayF9qzFw=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "5826802354a74af18540aef0b01bc1320f82cc17",
+        "rev": "6f59831b23d03bbf4fbd13ad167ae25da294cc14",
         "type": "github"
       },
       "original": {
@@ -50,11 +50,11 @@
         "utils": "utils"
       },
       "locked": {
-        "lastModified": 1770670959,
-        "narHash": "sha256-eko9zLTsabCRoZp4UaLxVW4sBraxIfUciNbG5ksPCnY=",
+        "lastModified": 1777158583,
+        "narHash": "sha256-emjLIjCoIo0ldFx9BXXGVXeVrxuCA4UDhwyfqCpvZ3M=",
         "ref": "refs/heads/main",
-        "rev": "9fefad843c47c4830d8ae17e4adfdaa7173fe1ea",
-        "revCount": 28,
+        "rev": "eab1aac833611ae77a2214cdc9509c10e9e4cb82",
+        "revCount": 29,
         "type": "git",
         "url": "https://tangled.org/nathanjgill.uk/lic"
       },
