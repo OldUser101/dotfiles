@@ -10,27 +10,31 @@ let
   assets = ../../../assets;
 
   hosts = {
-    "natha-nixos0".olduser101 = {
-      packages.enableGames = true;
-      email.enable = true;
-      irssi.enable = true;
+    "natha-nixos0" = {
+      programs.firefox.configPath = "${config.xdg.configHome}/mozilla/firefox";
 
-      packages.type = "full";
+      olduser101 = {
+        packages.enableGames = true;
+        email.enable = true;
+        irssi.enable = true;
 
-      sway.outputs =
-        let
-          bg = "${assets}/wallpapers/bars.jpg";
-        in
-        {
-          eDP-1 = {
-            position = "0 0";
-            bg = "${bg} fill";
+        packages.type = "full";
+
+        sway.outputs =
+          let
+            bg = "${assets}/wallpapers/bars.jpg";
+          in
+          {
+            eDP-1 = {
+              position = "0 0";
+              bg = "${bg} fill";
+            };
+            HDMI-A-1 = {
+              position = "1920 0";
+              bg = "${bg} fill";
+            };
           };
-          HDMI-A-1 = {
-            position = "1920 0";
-            bg = "${bg} fill";
-          };
-        };
+      };
     };
 
     "natha-vrdhq85".olduser101 = {
@@ -81,7 +85,7 @@ lib.attrsets.recursiveUpdate {
   };
 
   services.gnome-keyring.enable = true;
-  home.packages = [ pkgs.gcr pkgs.way-edges ];
+  home.packages = [ pkgs.gcr ];
 
   olduser101 = {
     direnv.enable = true;
@@ -90,6 +94,7 @@ lib.attrsets.recursiveUpdate {
     htop.enable = true;
     kak.enable = true;
     nlock.enable = true;
+    qt.enable = true;
     way-edges.enable = true;
     wlsunset.enable = true;
     wofi.enable = true;

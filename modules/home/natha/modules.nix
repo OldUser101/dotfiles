@@ -15,6 +15,7 @@
     ./nlock
     ./oh-my-zsh
     ./packages
+    ./qt
     ./sidetree
     ./shells
     ./starship
