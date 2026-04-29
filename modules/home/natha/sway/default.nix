@@ -238,5 +238,7 @@ in
       name = "Adwaita";
       size = 24;
     };
+
+    home.file.".XCompose".source = ./xcompose;
   };
 }
