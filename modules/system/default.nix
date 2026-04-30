@@ -14,6 +14,7 @@
     ./hardware
     ./power
     ./print
+    ./programs
     ./sddm
     ./security
     ./shells

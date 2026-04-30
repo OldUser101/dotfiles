@@ -24,6 +24,7 @@
       profile = "laptop";
     };
     print.enable = true;
+    programs.steam = true;
     fs = {
       type = "efi-default";
       swap = {
