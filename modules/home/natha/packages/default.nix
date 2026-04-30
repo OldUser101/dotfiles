@@ -86,6 +86,7 @@ in
         prismlauncher
         _nethack
         unnethack
+        steam
       ]
       ++ cfg.extraPackages;
 
