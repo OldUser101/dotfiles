@@ -156,11 +156,11 @@
         "nixpkgs": "nixpkgs_3"
       },
       "locked": {
-        "lastModified": 1778018164,
-        "narHash": "sha256-d4gavIF+jcKsCHERjZiAidPNA+ca9mDmxt1yjclqy6c=",
+        "lastModified": 1778275901,
+        "narHash": "sha256-CaiPHd58Rru4PaUzYgQEe/eOM1PB9XdQjr9jlZtkTaw=",
         "owner": "OldUser101",
         "repo": "sway",
-        "rev": "5b8297ac5188f4863fec6d4290ee8a7d7ca75463",
+        "rev": "3fe963e67dfaf5503e13e21967649adf7c33974d",
         "type": "github"
       },
       "original": {
