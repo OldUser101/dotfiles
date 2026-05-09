@@ -17,7 +17,7 @@
     nlock.url = "github:OldUser101/nlock/v0.1.4";
 
     lic = {
-      url = "git+https://tangled.org/nathanjgill.uk/lic";
+      url = "github:OldUser101/lic";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -27,6 +27,8 @@
       url = "github:way-edges/way-edges/0.12.1";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    onyx.url = "github:OldUser101/onyx";
 
     git-hooks = {
       url = "github:cachix/git-hooks.nix";
@@ -41,6 +43,7 @@
       home-manager,
       naersk,
       nlock,
+      onyx,
       olduser101-sway,
       git-hooks,
       ...
@@ -51,6 +54,7 @@
 
       overlays = [
         nlock.overlays.nlock
+        onyx.overlays.onyx
         olduser101-sway.overlays.sway-unwrapped
       ]
       ++ (import ./overlays { inherit system inputs; });

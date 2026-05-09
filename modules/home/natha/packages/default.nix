@@ -72,6 +72,7 @@ in
         lic
         gh
         unzip
+        onyx
 
         # One needs an office suite sometimes
         libreoffice-qt-fresh

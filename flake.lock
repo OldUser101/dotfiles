@@ -111,15 +111,15 @@
       "locked": {
         "lastModified": 1777158583,
         "narHash": "sha256-emjLIjCoIo0ldFx9BXXGVXeVrxuCA4UDhwyfqCpvZ3M=",
-        "ref": "refs/heads/main",
+        "owner": "OldUser101",
+        "repo": "lic",
         "rev": "eab1aac833611ae77a2214cdc9509c10e9e4cb82",
-        "revCount": 29,
-        "type": "git",
-        "url": "https://tangled.org/nathanjgill.uk/lic"
+        "type": "github"
       },
       "original": {
-        "type": "git",
-        "url": "https://tangled.org/nathanjgill.uk/lic"
+        "owner": "OldUser101",
+        "repo": "lic",
+        "type": "github"
       }
     },
     "naersk": {
@@ -191,6 +191,22 @@
         "type": "github"
       }
     },
+    "nixpkgs_4": {
+      "locked": {
+        "lastModified": 1769330179,
+        "narHash": "sha256-yxgb4AmkVHY5OOBrC79Vv6EVd4QZEotqv+6jcvA212M=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "48698d12cc10555a4f3e3222d9c669b884a49dfe",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "nixpkgs-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
     "nlock": {
       "inputs": {
         "nixpkgs": "nixpkgs_2"
@@ -228,6 +244,24 @@
         "type": "github"
       }
     },
+    "onyx": {
+      "inputs": {
+        "nixpkgs": "nixpkgs_4"
+      },
+      "locked": {
+        "lastModified": 1778344663,
+        "narHash": "sha256-0ys1n7o875pLeUVBX2xMe0ld8sQrfpUiFElDdhjeQDo=",
+        "owner": "OldUser101",
+        "repo": "onyx",
+        "rev": "99d7e118e7cf37fe7ff5bb4534628ead951efb80",
+        "type": "github"
+      },
+      "original": {
+        "owner": "OldUser101",
+        "repo": "onyx",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
         "git-hooks": "git-hooks",
@@ -237,6 +271,7 @@
         "nixpkgs": "nixpkgs",
         "nlock": "nlock",
         "olduser101-sway": "olduser101-sway",
+        "onyx": "onyx",
         "way-edges": "way-edges"
       }
     },
