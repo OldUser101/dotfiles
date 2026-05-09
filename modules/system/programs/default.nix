@@ -8,7 +8,8 @@
 with lib;
 let
   cfg = config.olduser101.programs;
-in {
+in
+{
   options.olduser101.programs = {
     steam = mkOption {
       type = types.bool;

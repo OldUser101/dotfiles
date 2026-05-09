@@ -16,6 +16,7 @@
     ./oh-my-zsh
     ./packages
     ./qt
+    ./readline
     ./sidetree
     ./shells
     ./starship

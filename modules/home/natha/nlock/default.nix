@@ -24,7 +24,7 @@ in
       enable = true;
       settings = {
         general.backgroundType = "image";
-        
+
         colors = {
           inputBorder = "CBA6F7";
           inputBackground = "1E1E2E";
