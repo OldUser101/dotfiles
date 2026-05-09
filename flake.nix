@@ -27,6 +27,11 @@
       url = "github:way-edges/way-edges/0.12.1";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    git-hooks = {
+      url = "github:cachix/git-hooks.nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -37,6 +42,7 @@
       naersk,
       nlock,
       olduser101-sway,
+      git-hooks,
       ...
     }@inputs:
     let
@@ -65,6 +71,11 @@
       };
 
       inherit (util) systems;
+
+      preCommitCheck = git-hooks.lib.${system}.run {
+        src = ./.;
+        hooks.nixfmt.enable = true;
+      };
     in
     {
       nixosConfigurations = {
@@ -82,6 +93,11 @@
           name = "natha-5334qwx";
           stateVersion = "25.11";
         };
+      };
+
+      devShells.${system}.default = pkgs.mkShell {
+        inherit (preCommitCheck) shellHook;
+        buildInputs = preCommitCheck.enabledPackages;
       };
     };
 }
