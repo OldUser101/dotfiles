@@ -13,6 +13,8 @@ let
   slurp = "${pkgs.slurp}/bin/slurp";
   wl-copy = "${pkgs.wl-clipboard}/bin/wl-copy";
   swaybg = "${pkgs.swaybg}/bin/swaybg";
+  brightnessctl = "${pkgs.brightnessctl}/bin/brightnessctl";
+  wpctl = "${pkgs.wireplumber}/bin/wpctl";
 in
 {
   options.olduser101.sway = {
@@ -185,6 +187,13 @@ in
             "${mod}+Print" = "exec ${grim} -g \"$(${slurp})\" ${screenshot}";
 
             "${mod}+space" = "exec ${pkgs.wofi}/bin/wofi --show drun";
+
+            "XF86MonBrightnessUp" = "exec ${brightnessctl} set 5%+";
+            "XF86MonBrightnessDown" = "exec ${brightnessctl} set 5%-";
+
+            "XF86AudioRaiseVolume" = "exec ${wpctl} set-volume @DEFAULT_AUDIO_SINK@ 5%+";
+            "XF86AudioLowerVolume" = "exec ${wpctl} set-volume @DEFAULT_AUDIO_SINK@ 5%-";
+            "XF86AudioMute" = "exec ${wpctl} set-mute @DEFAULT_AUDIO_SINK@ toggle";
           };
 
         modes = {
