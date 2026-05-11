@@ -51,3 +51,9 @@
 <Multi_key> <asterisk> <X>              : "Χ"
 <Multi_key> <asterisk> <Y>              : "Υ"
 <Multi_key> <asterisk> <Z>              : "Ζ"
+
+# Checkmarks
+
+<Multi_key> <c> <v> "✓"
+<Multi_key> <c> <x> "✗"
+
