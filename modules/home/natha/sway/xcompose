@@ -1,3 +1,4 @@
+include "%L"
 
 # Greek
 
@@ -54,6 +55,6 @@
 
 # Checkmarks
 
-<Multi_key> <c> <v> "✓"
-<Multi_key> <c> <x> "✗"
+<Multi_key> <c> <v>                     : "✓"
+<Multi_key> <c> <x>                     : "✗"
 
