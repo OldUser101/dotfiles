@@ -58,3 +58,7 @@ include "%L"
 <Multi_key> <c> <v>                     : "✓"
 <Multi_key> <c> <x>                     : "✗"
 
+# Others
+
+<Multi_key> <n> <n>                     : "ñ_ñ"
+
