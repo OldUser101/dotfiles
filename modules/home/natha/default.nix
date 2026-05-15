@@ -17,6 +17,7 @@ let
         packages.enableGames = true;
         email.enable = true;
         irssi.enable = true;
+        git.sshKey = "${config.home.homeDirectory}/.ssh/id_ed25519.pub";
 
         packages.type = "full";
 

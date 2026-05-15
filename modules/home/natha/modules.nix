@@ -8,6 +8,7 @@
     ./email
     ./fonts
     ./ghostty
+    ./git
     ./htop
     ./irssi
     ./kak
