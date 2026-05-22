@@ -56,7 +56,7 @@
       name = "natha";
       groups = [
         "wheel"
-        "network"
+        "networkmanager"
       ];
       uid = 1000;
       shell = pkgs.bash;
