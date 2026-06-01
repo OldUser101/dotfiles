@@ -82,7 +82,7 @@ lib.attrsets.recursiveUpdate {
 
   programs.firefox = {
     enable = true;
-    nativeMessagingHosts = [ pkgs.firefoxpwa ];
+    #nativeMessagingHosts = [ pkgs.firefoxpwa ];
   };
 
   services.gnome-keyring.enable = true;

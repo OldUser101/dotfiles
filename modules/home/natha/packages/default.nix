@@ -66,7 +66,7 @@ in
         calibre
         delta
         discord
-        firefoxpwa
+        #firefoxpwa  # disabling until #525683
         jujutsu
         mpv
         lic
@@ -90,7 +90,7 @@ in
       ]
       ++ cfg.extraPackages;
 
-    programs.firefox.nativeMessagingHosts = mkIf (cfg.type == "full") [ pkgs.firefoxpwa ];
+    #programs.firefox.nativeMessagingHosts = mkIf (cfg.type == "full") [ pkgs.firefoxpwa ];
 
     home.file."${config.home.homeDirectory}/.nethackrc".source = ./.nethackrc;
     home.file."${config.home.homeDirectory}/.unnethackrc".source = ./.unnethackrc;
