@@ -21,6 +21,7 @@ with builtins;
       users,
       cpuCores,
       stateVersion,
+      extraPackages ? [ ],
       extraNixosModules ? [ ],
       extraHomeManagerModules ? [ ],
       hostMeta ? { },
@@ -59,6 +60,8 @@ with builtins;
               "olduser101.cachix.org-1:DVqbs5NGDnwbI2VayMHpy/4mHF7O7mYhMuhjvT6fOLI="
             ];
           };
+
+          environment.systemPackages = extraPackages;
 
           system.stateVersion = stateVersion;
 

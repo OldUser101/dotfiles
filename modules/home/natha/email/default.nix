@@ -17,12 +17,6 @@ in
       description = "Enable email configuration";
     };
 
-    enableZsh = mkOption {
-      type = types.bool;
-      default = true;
-      description = "Enable email-related zsh modifications";
-    };
-
     extraMailboxes = mkOption {
       type = types.listOf types.str;
       default = [ ];
@@ -46,31 +40,29 @@ in
     accounts.email = {
       maildirBasePath = "mail";
       accounts = {
-        "nathan.j.gill@outlook.com" = {
+        "n@ngill.net" = {
           primary = true;
 
           realName = "Nathan Gill";
-          address = "nathan.j.gill@outlook.com";
-          userName = "nathan.j.gill@outlook.com";
+          address = "n@ngill.net";
+          userName = "nathan.j.gill@icloud.com";
 
           imap = {
-            host = "outlook.office365.com";
+            host = "imap.mail.me.com";
             port = 993;
-            authentication = "xoauth2";
             tls.enable = true;
           };
 
           smtp = {
-            host = "smtp-mail.outlook.com";
+            host = "smtp.mail.me.com";
             port = 587;
-            authentication = "xoauth2";
             tls.enable = true;
           };
 
           msmtp = {
             enable = true;
             extraConfig = {
-              auth = "xoauth2";
+              auth = "plain";
               tls_starttls = "on";
               protocol = "smtp";
               logfile = "${config.home.homeDirectory}/.msmtp.log";
@@ -80,9 +72,8 @@ in
           mbsync = {
             enable = true;
             create = "both";
-
             extraConfig.account = {
-              AuthMechs = "XOAUTH2";
+              AuthMechs = "PLAIN";
             };
           };
 
@@ -93,9 +84,9 @@ in
             sendMailCommand = "${pkgs.msmtp}/bin/msmtp";
 
             extraMailboxes = [
-              "Sent"
+              "Sent Messages"
               "Junk"
-              "Deleted"
+              "Deleted Messages"
               "Drafts"
             ]
             ++ cfg.extraMailboxes;
@@ -110,14 +101,13 @@ in
               '';
           };
 
-          passwordCommand = "${pkgs.python3}/bin/python3 ${pkgs.neomutt}/share/neomutt/oauth2/mutt_oauth2.py ${config.home.homeDirectory}/.config/mutt/outlooktoken --encryption-pipe cat --decryption-pipe cat";
+          passwordCommand = "cat ${config.age.secrets.email-password.path}";
         };
       };
     };
 
     home.packages = with pkgs; [
       python3
-      cyrus-sasl-xoauth2
 
       # Add a `mail` symlink
       (pkgs.runCommand "mail-wrapper" { } ''
@@ -125,26 +115,5 @@ in
         ln -s ${pkgs.neomutt}/bin/neomutt $out/bin/mail
       '')
     ];
-
-    home.sessionVariables = {
-      SASL_PATH = "${pkgs.cyrus-sasl-xoauth2}/lib/sasl2";
-    };
-
-    systemd.user.services.mbsync.Service.Environment = [
-      "SASL_PATH=${pkgs.cyrus-sasl-xoauth2}/lib/sasl2"
-      "PATH=/run/current-system/sw/bin"
-    ];
-
-    programs.zsh.initContent = mkIf cfg.enableZsh ''
-      maildir_count() {
-        local maildir="$HOME/mail/nathan.j.gill@outlook.com/Inbox/new"
-        if [[ -d "$maildir" ]]; then
-          local count=$(find "$maildir" -type f | wc -l)
-          (( count > 0 )) && echo "%B%F{yellow}[$count]%f%b  "
-        fi
-      }
-
-      PROMPT='$(maildir_count)'"$PROMPT"
-    '';
   };
 }

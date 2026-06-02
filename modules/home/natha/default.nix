@@ -14,6 +14,13 @@ let
       programs.firefox.configPath = "${config.xdg.configHome}/mozilla/firefox";
 
       olduser101 = {
+        agenix = {
+          enable = true;
+          identityPaths = [
+            "${config.home.homeDirectory}/.ssh/id_ed25519"
+          ];
+        };
+
         packages.enableGames = true;
         email.enable = true;
         irssi.enable = true;
