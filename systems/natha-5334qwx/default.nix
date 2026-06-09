@@ -63,9 +63,13 @@
     }
   ];
   cpuCores = 8;
-  extraNixosModules = [ inputs.nlock.nixosModules.default ];
+  extraNixosModules = [
+    inputs.nlock.nixosModules.default
+    inputs.agenix.nixosModules.default
+  ];
   extraHomeManagerModules = [
     inputs.nlock.homeManagerModules.default
     inputs.way-edges.homeManagerModules.default
+    inputs.agenix.homeManagerModules.default
   ];
 }
