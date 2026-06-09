@@ -14,7 +14,7 @@
   kernelParams = [ ];
   systemConfig = {
     audio.enable = true;
-    boot.type = "efi";
+    boot.type = "efi-secure";
     core = {
       enable = true;
       tailscale = true;
@@ -69,6 +69,7 @@
   extraNixosModules = [
     inputs.nlock.nixosModules.default
     inputs.agenix.nixosModules.default
+    inputs.lanzaboote.nixosModules.lanzaboote
   ];
   extraHomeManagerModules = [
     inputs.nlock.homeManagerModules.default
