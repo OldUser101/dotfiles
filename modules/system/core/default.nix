@@ -34,12 +34,6 @@ in
       default = false;
       description = "Enable Tailscale";
     };
-
-    avahi = mkOption {
-      type = types.bool;
-      default = false;
-      description = "Enable Avahi configuration";
-    };
   };
 
   config = mkIf cfg.enable {
@@ -71,13 +65,5 @@ in
 
     programs.nix-ld.enable = true;
     programs.ssh.startAgent = true;
-
-    services.avahi = mkIf cfg.avahi {
-      enable = true;
-      extraConfig = ''
-        [publish]
-        disable-user-service-publishing=no
-      '';
-    };
   };
 }

@@ -18,7 +18,6 @@
     core = {
       enable = true;
       tailscale = true;
-      avahi = true;
     };
     power = {
       enable = true;
