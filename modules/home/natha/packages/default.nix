@@ -65,7 +65,6 @@ in
         # Misc
         calibre
         delta
-        discord
         firefoxpwa
         jujutsu
         mpv
