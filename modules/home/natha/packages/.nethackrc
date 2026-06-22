@@ -1,6 +1,9 @@
 ## windowing
 OPTIONS=windowtype:curses
 
+## misc
+OPTIONS=!tutorial
+
 ## character
 #OPTIONS=gender:female, align:neutral, race:human
 #ROLE=wizard
