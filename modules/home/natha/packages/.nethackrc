@@ -3,6 +3,7 @@ OPTIONS=windowtype:curses
 
 ## misc
 OPTIONS=!tutorial
+OPTIONS=perm_invent
 
 ## character
 #OPTIONS=gender:female, align:neutral, race:human
