@@ -10,6 +10,7 @@
     ./fonts
     ./ghostty
     ./git
+    ./gtk
     ./htop
     ./irssi
     ./kak
