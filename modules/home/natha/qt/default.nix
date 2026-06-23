@@ -21,12 +21,12 @@ in
   config = mkIf cfg.enable {
     qt = {
       enable = true;
-      platformTheme.name = "qtct";
-      style.name = "Fusion";
-    };
-
-    home.sessionVariables = {
-      QT_QPA_PLATFORMTHEME = "qt5ct";
+      platformTheme.name = "adwaita";
+      platformTheme.package = [
+        pkgs.adwaita-qt
+        pkgs.adwaita-qt6
+      ];
+      style.name = "adwaita-dark";
     };
   };
 }
