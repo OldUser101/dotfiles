@@ -11,7 +11,7 @@ fi
 if [ -f "$PID_FILE_PATH" ]; then
     TARGET_PID=$(cat "$PID_FILE_PATH")
 
-    kill -s SIGINT "$TARGET_PID" || true
+    kill -n 2 "$TARGET_PID" || true
     waitpid "$TARGET_PID" || true
 
     rm -f "$PID_FILE_PATH"

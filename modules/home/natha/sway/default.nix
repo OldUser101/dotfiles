@@ -188,8 +188,7 @@ in
             "${mod}+F11" = "fullscreen toggle";
             "${mod}+Shift+F" = "floating toggle";
 
-            "${mod}+Shift+S" = "exec ${grim} - | ${wl-copy}";
-            "Shift+S" = "exec ${grim} -g \"$(${slurp})\" - | ${wl-copy}";
+            "${mod}+Shift+S" = "exec ${grim} -g \"$(${slurp})\" - | ${wl-copy}";
             "${mod}+S" = "exec ${grim} -g \"$(${slurp})\" ${screenshot}";
 
             "${mod}+C" = "exec /usr/bin/env OUT_DIR=${cfg.recordingsDirectory} ${src}/helpers/record-output.sh";
