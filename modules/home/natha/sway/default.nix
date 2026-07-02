@@ -44,6 +44,12 @@ in
       description = "Screenshot directory";
     };
 
+    recordingsDirectory = mkOption {
+      type = types.externalPath;
+      default = "${config.home.homeDirectory}/videos";
+      description = "Recordings directory";
+    };
+
     outputs = mkOption {
       type = types.attrs;
       default = { };
@@ -182,9 +188,11 @@ in
             "${mod}+F11" = "fullscreen toggle";
             "${mod}+Shift+F" = "floating toggle";
 
-            "Print" = "exec ${grim} - | ${wl-copy}";
-            "Shift+Print" = "exec ${grim} -g \"$(${slurp})\" - | ${wl-copy}";
-            "${mod}+Print" = "exec ${grim} -g \"$(${slurp})\" ${screenshot}";
+            "${mod}+Shift+S" = "exec ${grim} - | ${wl-copy}";
+            "Shift+S" = "exec ${grim} -g \"$(${slurp})\" - | ${wl-copy}";
+            "${mod}+S" = "exec ${grim} -g \"$(${slurp})\" ${screenshot}";
+
+            "${mod}+C" = "exec /usr/bin/env OUT_DIR=${cfg.recordingsDirectory} ${src}/helpers/record-output.sh";
 
             "${mod}+space" = "exec ${pkgs.wofi}/bin/wofi --show drun";
 
