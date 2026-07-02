@@ -247,6 +247,7 @@ in
 
     home.packages = with pkgs; [
       jq
+      wf-recorder
     ];
 
     home.pointerCursor = {
