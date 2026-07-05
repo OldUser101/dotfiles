@@ -57,6 +57,7 @@
         "wheel"
         "dialout"
         "networkmanager"
+        "input"
       ];
       uid = 1000;
       shell = pkgs.bash;
