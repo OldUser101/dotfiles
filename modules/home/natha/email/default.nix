@@ -109,6 +109,9 @@ in
     home.packages = with pkgs; [
       python3
 
+      # only for html mail
+      thunderbird
+
       # Add a `mail` symlink
       (pkgs.runCommand "mail-wrapper" { } ''
         mkdir -p $out/bin
