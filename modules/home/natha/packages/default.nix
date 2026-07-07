@@ -57,6 +57,10 @@ in
         brightnessctl
         pavucontrol
         wl-clipboard
+
+        # man pages
+        man-pages
+        man-pages-posix
       ]
       ++ (optionals (cfg.type == "full") [
         # C/C++
