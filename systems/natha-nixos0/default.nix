@@ -14,7 +14,7 @@
   kernelParams = [ ];
   systemConfig = {
     audio.enable = true;
-    boot.type = "efi-secure";
+    boot.type = "efi";
     core = {
       enable = true;
       tailscale = true;

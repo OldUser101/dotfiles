@@ -18,7 +18,7 @@ in
   options.olduser101.gtk = {
     enable = mkOption {
       type = types.bool;
-      default = true;
+      default = false;
       description = "Enable GTK configuration";
     };
 
