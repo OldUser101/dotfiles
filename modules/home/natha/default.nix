@@ -103,6 +103,7 @@ lib.attrsets.recursiveUpdate {
     kak.enable = true;
     nlock.enable = true;
     qt.enable = true;
+    gtk.enable = true;
     way-edges.enable = true;
     wlsunset.enable = true;
     wofi.enable = true;
