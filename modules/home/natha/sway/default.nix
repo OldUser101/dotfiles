@@ -162,10 +162,10 @@ in
             "${mod}+Return" = "exec ${terminal}";
             "${mod}+F" = "exec ${pkgs.firefox}/bin/firefox";
 
-            "${mod}+Left" = "workspace next_on_output";
-            "${mod}+Right" = "workspace prev_on_output";
-            "${mod}+Shift+Left" = "move container to workspace next_on_output, workspace next_on_output";
-            "${mod}+Shift+Right" = "move container to workspace prev_on_output, workspace prev_on_output";
+            "${mod}+Left" = "workspace prev_on_output";
+            "${mod}+Right" = "workspace next_on_output";
+            "${mod}+Shift+Left" = "move container to workspace prev_on_output, workspace prev_on_output";
+            "${mod}+Shift+Right" = "move container to workspace next_on_output, workspace next_on_output";
 
             "${mod}+r" = "mode resize";
             "${mod}+m" = "mode move_float";
