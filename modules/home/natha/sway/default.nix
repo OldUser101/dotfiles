@@ -162,10 +162,10 @@ in
             "${mod}+Return" = "exec ${terminal}";
             "${mod}+F" = "exec ${pkgs.firefox}/bin/firefox";
 
-            "${mod}+Left" = "exec ${src}/helpers/prev-workspace.sh";
-            "${mod}+Right" = "exec ${src}/helpers/next-workspace.sh";
-            "${mod}+Shift+Left" = "exec ${src}/helpers/prev-move-workspace.sh";
-            "${mod}+Shift+Right" = "exec ${src}/helpers/next-move-workspace.sh";
+            "${mod}+Left" = "workspace next_on_output";
+            "${mod}+Right" = "workspace prev_on_output";
+            "${mod}+Shift+Left" = "move container to workspace next_on_output, workspace next_on_output";
+            "${mod}+Shift+Right" = "move container to workspace prev_on_output, workspace prev_on_output";
 
             "${mod}+r" = "mode resize";
             "${mod}+m" = "mode move_float";
@@ -229,15 +229,11 @@ in
       };
 
       # No better equivalent for `bindgesture`, manually done here
-      extraConfig =
-        let
-          src = ./.;
-        in
-        ''
-          bindgesture swipe:left exec ${src}/helpers/next-workspace.sh
-          bindgesture swipe:right exec ${src}/helpers/prev-workspace.sh
-          swaybg_command ${swaybg}
-        '';
+      extraConfig = ''
+        bindgesture swipe:left workspace next_on_output
+        bindgesture swipe:right workspace prev_on_output
+        swaybg_command ${swaybg}
+      '';
     };
 
     # May depend on external files not present when building,
