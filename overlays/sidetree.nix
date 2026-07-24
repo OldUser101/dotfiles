@@ -1,5 +1,5 @@
 final: prev: {
-  sidetree = prev.naersk.buildPackage {
+  sidetree = prev.rustPlatform.buildRustPackage {
     pname = "sidetree";
     version = "0.10.0";
 
