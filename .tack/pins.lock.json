@@ -1,0 +1,90 @@
+{
+  "agenix": {
+    "type": "github",
+    "owner": "ryantm",
+    "repo": "agenix",
+    "rev": "b027ee29d959fda4b60b57566d64c98a202e0feb",
+    "narHash": "sha256-9VnK6Oqai65puVJ4WYtCTvlJeXxMzAp/69HhQuTdl/I=",
+    "lastModified": 1770165109
+  },
+  "git-hooks": {
+    "type": "github",
+    "owner": "cachix",
+    "repo": "git-hooks.nix",
+    "rev": "43b3c1ab9d40fb1dbb008f451988a91e375825e9",
+    "narHash": "sha256-ReRHaLgr/uVqdD8afFSn+myXIfpHeOhP0yYe0TJqAA8=",
+    "lastModified": 1784288435
+  },
+  "home-manager": {
+    "type": "github",
+    "owner": "nix-community",
+    "repo": "home-manager",
+    "rev": "32de400b6ac9f43042bca706f4a64f6ad08117e8",
+    "narHash": "sha256-W649GocILahx7Vb/JMx834217+OLKBrq014VmC/8+NM=",
+    "lastModified": 1784877405
+  },
+  "lanzaboote": {
+    "type": "github",
+    "owner": "nix-community",
+    "repo": "lanzaboote",
+    "rev": "7c9a54a7f87b4539ddbd8bda09a8a5f5f9361aa9",
+    "narHash": "sha256-hqijVSEETttmo8Okql9/LG0Ua34hdciKW1a5zzlj8mU=",
+    "lastModified": 1782141370
+  },
+  "lic": {
+    "type": "github",
+    "owner": "OldUser101",
+    "repo": "lic",
+    "rev": "eab1aac833611ae77a2214cdc9509c10e9e4cb82",
+    "narHash": "sha256-emjLIjCoIo0ldFx9BXXGVXeVrxuCA4UDhwyfqCpvZ3M=",
+    "lastModified": 1777158583
+  },
+  "nixpkgs": {
+    "type": "github",
+    "owner": "NixOS",
+    "repo": "nixpkgs",
+    "rev": "7525d999cd850b9a488817abc89c75dc733acf17",
+    "narHash": "sha256-4IHyyLgLBdKefkljdKod4IMn023pQiDXAWJA187cmdY=",
+    "lastModified": 1784783405
+  },
+  "nlock": {
+    "type": "github",
+    "owner": "OldUser101",
+    "repo": "nlock",
+    "rev": "e6fbe158938b1c2707e324a4bc8b11b81893c2a4",
+    "narHash": "sha256-Ddl7r2O8cQUhzgsQXf9y2amjss9JwsA1yNAUkja7/u8=",
+    "lastModified": 1784034875
+  },
+  "onyx": {
+    "type": "github",
+    "owner": "OldUser101",
+    "repo": "onyx",
+    "rev": "99d7e118e7cf37fe7ff5bb4534628ead951efb80",
+    "narHash": "sha256-0ys1n7o875pLeUVBX2xMe0ld8sQrfpUiFElDdhjeQDo=",
+    "lastModified": 1778344663
+  },
+  "sway": {
+    "type": "github",
+    "owner": "OldUser101",
+    "repo": "sway",
+    "rev": "06987978fd18816c6a427d93989c127a3a798a3d",
+    "narHash": "sha256-svht2Qdcd4AOkAnpmR6Ro15MAEj+fuMYwJf2kPzCigY=",
+    "lastModified": 1784502658
+  },
+  "tack": {
+    "type": "github",
+    "owner": "manic-systems",
+    "repo": "tack",
+    "rev": "a834318b7fe7371fce1eaf9c309caeadf57cf9af",
+    "narHash": "sha256-KhJb0NWLhj8AkD8uWEbXt179YlFLemk0OgOltw4jEk8=",
+    "lastModified": 1782001225
+  },
+  "way-edges": {
+    "type": "github",
+    "owner": "way-edges",
+    "repo": "way-edges",
+    "rev": "ffcda9ee59b6fdff86ad693f4cffd0a623420fab",
+    "narHash": "sha256-hvIy5WAv+DqA8Agln2Wgc8dHG/yDktfUU1k/3nlwjmw=",
+    "lastModified": 1774432979
+  }
+}

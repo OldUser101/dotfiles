@@ -1,0 +1,46 @@
+[shorturls]
+gh = "github:{path}"
+olduser = "github:OldUser101/{path}"
+ngill = "git+https://git.ngill.net/{path}.git"
+
+[tack]
+recomposable = true
+
+[all_follow]
+nixpkgs = "nixpkgs"
+
+[inputs.nixpkgs]
+url = "gh:NixOS/nixpkgs/nixpkgs-unstable"
+
+[inputs.home-manager]
+url = "gh:nix-community/home-manager"
+
+[inputs.nlock]
+url = "olduser:nlock"
+exclude_follow = ["nixpkgs"]
+
+[inputs.lic]
+url = "olduser:lic"
+
+[inputs.sway]
+url = "olduser:sway"
+
+[inputs.onyx]
+url = "olduser:onyx"
+exclude_follow = ["nixpkgs"]
+
+[inputs.way-edges]
+url = "gh:way-edges/way-edges/0.12.1"
+exclude_follow = ["nixpkgs"]
+
+[inputs.git-hooks]
+url = "gh:cachix/git-hooks.nix"
+
+[inputs.agenix]
+url = "gh:ryantm/agenix"
+
+[inputs.lanzaboote]
+url = "gh:nix-community/lanzaboote/v1.1.0"
+
+[inputs.tack]
+url = "gh:manic-systems/tack/v1.0.0"

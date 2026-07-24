@@ -61,7 +61,11 @@ with builtins;
             ];
           };
 
-          environment.systemPackages = extraPackages;
+          environment.systemPackages = [
+            # this is always wanted for flake management
+            inputs.tack.packages.${system}.default
+          ]
+          ++ extraPackages;
 
           system.stateVersion = stateVersion;
 

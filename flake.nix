@@ -1,72 +1,25 @@
 {
   description = "OldUser101 NixOS configuration";
 
-  inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-
-    home-manager = {
-      url = "github:nix-community/home-manager";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    naersk = {
-      url = "github:nix-community/naersk";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    nlock.url = "github:OldUser101/nlock";
-
-    lic = {
-      url = "github:OldUser101/lic";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    olduser101-sway.url = "github:OldUser101/sway";
-
-    way-edges = {
-      url = "github:way-edges/way-edges/0.12.1";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    onyx.url = "github:OldUser101/onyx";
-
-    git-hooks = {
-      url = "github:cachix/git-hooks.nix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    agenix = {
-      url = "github:ryantm/agenix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    lanzaboote = {
-      url = "github:nix-community/lanzaboote/001e560fffc8f0235e9db20ebeb4ccde0ade1caf";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-  };
-
   outputs =
     {
       self,
-      nixpkgs,
-      home-manager,
-      naersk,
-      nlock,
-      onyx,
-      olduser101-sway,
-      git-hooks,
-      agenix,
       ...
-    }@inputs:
+    }@args:
     let
+      inputs = import ./.tack {
+        overrides = args.tackOverrides or { };
+      };
+
+      inherit (inputs) nixpkgs home-manager;
+
       system = "x86_64-linux";
       lib = nixpkgs.lib;
 
       overlays = [
-        nlock.overlays.nlock
-        onyx.overlays.onyx
-        olduser101-sway.overlays.sway-unwrapped
+        inputs.nlock.overlays.nlock
+        inputs.onyx.overlays.onyx
+        inputs.sway.overlays.sway-unwrapped
       ]
       ++ (import ./overlays { inherit system inputs; });
 
@@ -87,7 +40,7 @@
 
       inherit (util) systems;
 
-      preCommitCheck = git-hooks.lib.${system}.run {
+      preCommitCheck = inputs.git-hooks.lib.${system}.run {
         src = ./.;
         hooks.nixfmt.enable = true;
       };
