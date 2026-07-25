@@ -1,0 +1,30 @@
+From 56eb25706ec2dde71feea4bed8f3d4f6e455b087 Mon Sep 17 00:00:00 2001
+From: Nathan Gill <n@ngill.net>
+Date: Sat, 25 Jul 2026 09:31:27 +0100
+Subject: [PATCH] exit follow mode when search or filter is cancelled
+
+condition change in bbec22d7592ea6cf26dfd615be649855a4e0f22b caused
+panel state during search to persist even if the search was cancelled
+(e.g. escape key). previous behaviour relied on the absence of the
+`HTOP_KEEP_FOLLOWING` reaction to stop following, which is no longer
+the case.
+---
+ MainPanel.c | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/MainPanel.c b/MainPanel.c
+index ede85422..638f60c6 100644
+--- a/MainPanel.c
++++ b/MainPanel.c
+@@ -121,6 +121,8 @@ static HandlerResult MainPanel_eventHandler(Panel* super, int ch) {
+          reaction |= HTOP_KEEP_FOLLOWING;
+          if (confirmedSearch)
+             reaction |= HTOP_REFRESH;
++      } else {
++         host->activeTable->following = -1;
+       }
+       result = HANDLED;
+    } else if (ch == 27) {
+-- 
+2.55.0
+
