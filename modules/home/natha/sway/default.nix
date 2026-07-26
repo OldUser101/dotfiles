@@ -254,5 +254,10 @@ in
     };
 
     home.file.".XCompose".source = ./xcompose;
+
+    home.sessionVariables = {
+      # sway is non-reparenting, needed for java awt (ghidra in my case)
+      _JAVA_AWT_WM_NONREPARENTING = 1;
+    };
   };
 }
