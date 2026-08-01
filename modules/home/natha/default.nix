@@ -10,7 +10,7 @@ let
   assets = ../../../assets;
 
   hosts = {
-    "natha-nixos0" = {
+    "natha-e2hyref" = {
       programs.firefox.configPath = "${config.xdg.configHome}/mozilla/firefox";
 
       olduser101 = {

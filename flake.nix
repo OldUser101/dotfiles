@@ -47,8 +47,8 @@
     in
     {
       nixosConfigurations = {
-        natha-nixos0 = systems.mkSystem {
-          name = "natha-nixos0";
+        natha-e2hyref = systems.mkSystem {
+          name = "natha-e2hyref";
           stateVersion = "25.11";
         };
 
