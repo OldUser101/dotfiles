@@ -1,3 +1,5 @@
 .direnv/
 result
 .pre-commit-config.yaml
+tools/gen-suffix
+tools/*.o

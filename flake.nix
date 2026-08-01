@@ -68,9 +68,32 @@
         };
       };
 
+      packages.${system}.gen-suffix = pkgs.stdenv.mkDerivation {
+        name = "gen-suffix";
+
+        src = ./.;
+
+        buildInputs = with pkgs; [
+          gcc
+          gnumake
+        ];
+
+        buildPhase = ''
+          make tools/gen-suffix
+        '';
+
+        installPhase = ''
+          mkdir -p $out/bin
+          cp tools/gen-suffix $out/bin/
+        '';
+      };
+
       devShells.${system}.default = pkgs.mkShell {
         inherit (preCommitCheck) shellHook;
-        buildInputs = preCommitCheck.enabledPackages;
+        buildInputs = [
+          self.packages.${system}.gen-suffix
+        ]
+        ++ preCommitCheck.enabledPackages;
       };
     };
 }
