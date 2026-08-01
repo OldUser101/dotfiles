@@ -45,6 +45,26 @@ let
       };
     };
 
+    "natha-76k4epg" = {
+      programs.firefox.configPath = "${config.xdg.configHome}/mozilla/firefox";
+
+      olduser101 = {
+        agenix = {
+          enable = true;
+          identityPaths = [
+            "${config.home.homeDirectory}/.ssh/id_ed25519"
+          ];
+        };
+
+        packages.enableGames = true;
+        email.enable = true;
+        irssi.enable = true;
+        git.sshKey = "${config.home.homeDirectory}/.ssh/id_ed25519.pub";
+
+        packages.type = "full";
+      };
+    };
+
     "natha-vrdhq85".olduser101 = {
       nlock.enable = false;
       swaylock.enable = true;

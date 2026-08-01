@@ -52,6 +52,11 @@
           stateVersion = "25.11";
         };
 
+        natha-76k4epg = systems.mkSystem {
+          name = "natha-76k4epg";
+          stateVersion = "25.11";
+        };
+
         natha-vrdhq85 = systems.mkSystem {
           name = "natha-vrdhq85";
           stateVersion = "26.05";
