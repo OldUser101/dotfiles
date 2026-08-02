@@ -70,7 +70,6 @@ in
       sddm = ''
         ${config.services.displayManager.sddm.package}
         ${where-is-my-sddm-theme-classic-nocursor}
-        ${pkgs.qt6.qt5compat}
       ''
       + builtins.foldl' (a: b: a + b) "" (map (a: "${a}") cfg.extraPackages);
     };
