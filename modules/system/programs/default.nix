@@ -19,6 +19,12 @@ in
   };
 
   config = {
-    programs.steam.enable = cfg.steam;
+    programs.steam = mkIf cfg.steam {
+      enable = true;
+      extraCompatPackages = with pkgs; [
+        proton-ge-bin
+        dwproton-bin
+      ];
+    };
   };
 }
