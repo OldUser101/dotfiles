@@ -4,12 +4,13 @@
   kernelPackage = pkgs.linuxPackages_latest;
   initrdMods = [
     "xhci_pci"
-    "nvme"
-    "usbhid"
+    "ahci"
     "usb_storage"
+    "usbhid"
+    "sd_mod"
   ];
   kernelMods = [ "kvm-intel" ];
-  kernelParams = [ ];
+  kernelParams = [ "amdgpu.ppfeaturemask=0xffffffff" ];
   systemConfig = {
     audio.enable = true;
     boot.type = "efi";
@@ -30,7 +31,8 @@
     hardware.firmware.enable = true;
     hardware.graphics = {
       enable = true;
-      type = "intel";
+      type = "amd";
+      lact = true;
     };
     sddm.enable = true;
     security.pam = {

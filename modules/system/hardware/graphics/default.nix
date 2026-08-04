@@ -18,8 +18,17 @@ in
     };
 
     type = mkOption {
-      type = types.enum [ "intel" ];
+      type = types.enum [
+        "intel"
+        "amd"
+      ];
       description = "GPU \"type\"";
+    };
+
+    lact = mkOption {
+      type = types.bool;
+      default = false;
+      description = "Enable LACT";
     };
 
     extraPackages = mkOption {
@@ -29,18 +38,25 @@ in
     };
   };
 
-  config = mkIf cfg.enable {
-    hardware.graphics = {
-      enable = true;
+  config =
+    mkIf cfg.enable {
+      hardware.graphics = {
+        enable = true;
+        enable32Bit = true;
 
-      extraPackages =
-        optionals (cfg.type == "intel") (
-          with pkgs;
-          [
-            intel-media-driver
-          ]
-        )
-        ++ cfg.extraPackages;
-    };
-  };
+        extraPackages =
+          optionals (cfg.type == "intel") (
+            with pkgs;
+            [
+              intel-media-driver
+            ]
+          )
+          ++ cfg.extraPackages;
+      };
+
+      services.lact.enable = cfg.lact;
+    }
+    // (mkIf (cfg.enable && cfg.type == "amd") {
+      hardware.amdgpu.overdrive.enable = true;
+    });
 }
