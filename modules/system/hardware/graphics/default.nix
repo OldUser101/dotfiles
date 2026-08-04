@@ -38,25 +38,22 @@ in
     };
   };
 
-  config =
-    mkIf cfg.enable {
-      hardware.graphics = {
-        enable = true;
-        enable32Bit = true;
+  config = mkIf cfg.enable {
+    hardware.graphics = {
+      enable = true;
+      enable32Bit = true;
 
-        extraPackages =
-          optionals (cfg.type == "intel") (
-            with pkgs;
-            [
-              intel-media-driver
-            ]
-          )
-          ++ cfg.extraPackages;
-      };
+      extraPackages =
+        optionals (cfg.type == "intel") (
+          with pkgs;
+          [
+            intel-media-driver
+          ]
+        )
+        ++ cfg.extraPackages;
+    };
 
-      services.lact.enable = cfg.lact;
-    }
-    // (mkIf (cfg.enable && cfg.type == "amd") {
-      hardware.amdgpu.overdrive.enable = true;
-    });
+    services.lact.enable = cfg.lact;
+    hardware.amdgpu.overdrive.enable = (cfg.type == "amd");
+  };
 }
