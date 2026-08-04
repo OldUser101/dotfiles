@@ -62,6 +62,16 @@ let
         git.sshKey = "${config.home.homeDirectory}/.ssh/id_ed25519.pub";
 
         packages.type = "full";
+
+        sway.outputs =
+          let
+            bg = "${assets}/wallpapers/bars.jpg";
+          in
+          {
+            "*" = {
+              bg = "${bg} fill";
+            };
+          };
       };
     };
 
