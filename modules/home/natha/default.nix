@@ -23,6 +23,7 @@ let
 
         git.sshKey = "${config.home.homeDirectory}/.ssh/id_ed25519.pub";
         htop.showBattery = true;
+        way-edges.battery = true;
 
         packages.type = "full";
 

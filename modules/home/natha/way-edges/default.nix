@@ -22,6 +22,12 @@ in
       default = true;
       description = "Enable SystemD service for way-edges";
     };
+
+    battery = mkOption {
+      type = types.bool;
+      default = false;
+      description = "Enable battery display";
+    };
   };
 
   config = mkIf cfg.enable {
@@ -62,6 +68,8 @@ in
                   update-interval = 500;
                 };
               }
+            ]
+            ++ (lib.optional cfg.battery [
               {
                 type = "ring";
                 fg-color = "#a6e3a1";
@@ -72,7 +80,7 @@ in
                   update-interval = 500;
                 };
               }
-            ];
+            ]);
           }
         ];
       };
