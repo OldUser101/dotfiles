@@ -21,9 +21,6 @@ let
           ];
         };
 
-        packages.enableGames = true;
-        email.enable = true;
-        irssi.enable = true;
         git.sshKey = "${config.home.homeDirectory}/.ssh/id_ed25519.pub";
         htop.showBattery = true;
 
@@ -36,10 +33,6 @@ let
           {
             eDP-1 = {
               position = "0 0";
-              bg = "${bg} fill";
-            };
-            HDMI-A-1 = {
-              position = "1920 0";
               bg = "${bg} fill";
             };
           };

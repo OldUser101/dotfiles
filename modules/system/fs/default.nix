@@ -17,6 +17,7 @@ in
       type = types.enum [
         "efi-default"
         "efi-baytrail"
+        "efi-unified"
         "bios-default"
       ];
       description = "Filesystem configuration type";
@@ -53,6 +54,22 @@ in
         })
 
         (mkIf (cfg.type == "efi-baytrail") {
+          fileSystems."/" = {
+            device = "/dev/disk/by-label/ROOT";
+            fsType = "btrfs";
+          };
+
+          fileSystems."/boot" = {
+            device = "/dev/disk/by-label/BOOT";
+            fsType = "vfat";
+            options = [
+              "fmask=0077"
+              "dmask=0077"
+            ];
+          };
+        })
+
+        (mkIf (cfg.type == "efi-unified") {
           fileSystems."/" = {
             device = "/dev/disk/by-label/ROOT";
             fsType = "btrfs";

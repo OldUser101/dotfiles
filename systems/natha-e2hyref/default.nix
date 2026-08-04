@@ -24,9 +24,8 @@
       profile = "laptop";
     };
     print.enable = true;
-    programs.steam = true;
     fs = {
-      type = "efi-default";
+      type = "efi-unified";
       swap = {
         enable = true;
         type = "partition";
