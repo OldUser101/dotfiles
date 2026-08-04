@@ -25,6 +25,7 @@ let
         email.enable = true;
         irssi.enable = true;
         git.sshKey = "${config.home.homeDirectory}/.ssh/id_ed25519.pub";
+        htop.showBattery = true;
 
         packages.type = "full";
 
@@ -60,6 +61,7 @@ let
         email.enable = true;
         irssi.enable = true;
         git.sshKey = "${config.home.homeDirectory}/.ssh/id_ed25519.pub";
+        htop.showGPU = true;
 
         packages.type = "full";
 
@@ -91,6 +93,7 @@ let
 
       olduser101 = {
         nlock.enable = true;
+        htop.showBattery = true;
 
         sway.outputs =
           let

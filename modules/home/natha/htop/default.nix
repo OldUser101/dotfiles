@@ -25,8 +25,14 @@ in
 
     showBattery = mkOption {
       type = types.bool;
-      default = true;
+      default = false;
       description = "Display battery capacity if this system has a battery";
+    };
+
+    showGPU = mkOption {
+      type = types.bool;
+      default = false;
+      description = "Display GPU usage";
     };
   };
 
@@ -49,6 +55,7 @@ in
           ]
           ++ optional cfg.showSwap (bar "Swap")
           ++ optional cfg.showBattery (text "Battery")
+          ++ optional cfg.showGPU (bar "GPU")
         )
       )
       // (
