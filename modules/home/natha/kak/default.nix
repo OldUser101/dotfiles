@@ -62,7 +62,6 @@ in
           kak-jj
           kakoune-lsp
           smarttab-kak
-          wl-clipboard-kak
         ]
         ++ cfg.extraPlugins;
 
@@ -131,11 +130,6 @@ in
             commands = "lsp-enable-window";
           }
           {
-            name = "RegisterModified";
-            option = "'\"'";
-            commands = "wl-clipboard-copy";
-          }
-          {
             name = "BufSetOption";
             option = "filetype=nix";
             commands = ''
@@ -164,16 +158,6 @@ in
             key = "<c-b>";
             docstring = "Delete buffer";
             effect = ":db<ret>";
-          }
-          {
-            mode = "normal";
-            key = "p";
-            effect = ":wl-clipboard-paste<ret>p";
-          }
-          {
-            mode = "normal";
-            key = "P";
-            effect = ":wl-clipboard-paste<ret>P";
           }
           (mkIf cfg.kittyIntegration {
             mode = "normal";
