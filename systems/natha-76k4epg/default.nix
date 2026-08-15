@@ -10,10 +10,7 @@
     "sd_mod"
   ];
   kernelMods = [ "kvm-intel" ];
-  kernelParams = [
-    "amdgpu.ppfeaturemask=0xffffffff"
-    "pcie_aspm=off"
-  ];
+  kernelParams = [ "amdgpu.ppfeaturemask=0xffffffff" ];
   systemConfig = {
     audio.enable = true;
     boot = {
