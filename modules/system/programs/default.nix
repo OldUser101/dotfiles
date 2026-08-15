@@ -29,5 +29,7 @@ in
         dwproton-bin
       ];
     };
+
+    services.speechd.enable = mkForce false;
   };
 }
