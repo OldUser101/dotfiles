@@ -13,7 +13,10 @@
   kernelParams = [ "amdgpu.ppfeaturemask=0xffffffff" ];
   systemConfig = {
     audio.enable = true;
-    boot.type = "efi";
+    boot = {
+      type = "efi";
+      configurationLimit = 3;
+    };
     core = {
       enable = true;
       tailscale = true;

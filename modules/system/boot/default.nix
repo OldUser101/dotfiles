@@ -32,6 +32,12 @@ in
       default = "/var/lib/sbctl";
       description = "Path to secure boot PKI bundle, required for secure EFI boot type";
     };
+
+    configurationLimit = mkOption {
+      type = types.nullOr types.number;
+      default = null;
+      description = "Maximum number of configuration entries";
+    };
   };
 
   config =
@@ -40,6 +46,7 @@ in
         (mkIf (cfg.type == "efi") {
           boot.loader = {
             systemd-boot.enable = true;
+            systemd-boot.configurationLimit = cfg.configurationLimit;
             efi.canTouchEfiVariables = true;
             timeout = 0;
           };
@@ -57,6 +64,7 @@ in
 
           boot.loader = {
             systemd-boot.enable = mkForce false;
+            systemd-boot.configurationLimit = cfg.configurationLimit;
             efi.canTouchEfiVariables = true;
             timeout = 0;
           };
@@ -69,6 +77,7 @@ in
               enable = true;
               device = cfg.device;
               timeoutStyle = "hidden";
+              configurationLimit = cfg.configurationLimit;
             };
           };
         })
@@ -82,6 +91,7 @@ in
               efiInstallAsRemovable = true;
               device = "nodev";
               forcei686 = true;
+              configurationLimit = cfg.configurationLimit;
             };
           };
         })
