@@ -110,7 +110,7 @@ in
           };
         })
 
-        (mkIf (cfg.dataType == "btrfs") {
+        (mkIf (cfg.dataType == "default") {
           fileSystems."/data" = {
             device = "/dev/disk/by-label/DATA.EXT";
             fsType = "btrfs";
