@@ -25,6 +25,7 @@
     programs.steam = true;
     fs = {
       type = "efi-default";
+      dataType = "default";
       swap = {
         enable = true;
         type = "partition";

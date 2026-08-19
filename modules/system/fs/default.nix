@@ -22,6 +22,15 @@ in
       ];
       description = "Filesystem configuration type";
     };
+
+    dataType = mkOption {
+      type = types.enum [
+        "none"
+        "default"
+      ];
+      default = "none";
+      description = "Data partition condifuration type";
+    };
   };
 
   config =
@@ -97,6 +106,17 @@ in
             options = [
               "fmask=0022"
               "dmask=0022"
+            ];
+          };
+        })
+
+        (mkIf (cfg.dataType == "btrfs") {
+          fileSystems."/data" = {
+            device = "/dev/disk/by-label/DATA.EXT";
+            fsType = "btrfs";
+            options = [
+              "compress=zstd:1"
+              "noatime"
             ];
           };
         })
