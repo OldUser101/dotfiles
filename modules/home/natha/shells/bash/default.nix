@@ -65,13 +65,14 @@ in
         }
 
         set_prompt() {
-          if [[ $? -eq 0 ]]; then
+          local rc=$?
+          if [[ $rc -eq 0 ]]; then
             printf "\e[1;32m"
           else
             printf "\e[1;31m"
           fi
           hr
-          if [[ $? -eq 0 ]]; then
+          if [[ $rc -eq 0 ]]; then
             STATUS="\[\e[32m\]→"
           else
             STATUS="\[\e[31m\]✕"
