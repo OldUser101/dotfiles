@@ -58,7 +58,19 @@ in
           sudo mount -o uid=$UID $@
         }
 
+        hr() {
+            local line
+            printf -v line '%*s' "$(tput cols)" ""
+            printf '%s\n' "''${line// /─}"
+        }
+
         set_prompt() {
+          if [[ $? -eq 0 ]]; then
+            printf "\e[1;32m"
+          else
+            printf "\e[1;31m"
+          fi
+          hr
           if [[ $? -eq 0 ]]; then
             STATUS="\[\e[32m\]→"
           else
