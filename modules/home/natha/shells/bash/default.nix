@@ -66,12 +66,19 @@ in
 
         set_prompt() {
           local rc=$?
-          if [[ $rc -eq 0 ]]; then
-            printf "\e[1;32m"
-          else
-            printf "\e[1;31m"
+
+          # don't run first time
+          if [[ $set_prompt_once -eq 1 ]]; then
+            if [[ $rc -eq 0 ]]; then
+              printf "\e[1;32m"
+            else
+              printf "\e[1;31m"
+            fi
+            hr
           fi
-          hr
+
+          set_prompt_once=1
+
           if [[ $rc -eq 0 ]]; then
             STATUS="\[\e[32m\]→"
           else
