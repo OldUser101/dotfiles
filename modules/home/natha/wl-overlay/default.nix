@@ -117,11 +117,25 @@ in
                   prefix-format = "title";
                   suffix-format = "percentage";
                   bar = {
-                    type = "bar";
-                    background = "#1e1e2e";
-                    color = "#a6e3a1";
-                    height = 20;
-                    width = 196;
+                    type = "colored-bar";
+                    colors = [
+                      {
+                        min = 50;
+                        color = "#a6e3a1";
+                      }
+                      {
+                        min = 20;
+                        color = "#f9e2af";
+                      }
+                      { color = "#f38ba8"; }
+                    ];
+                    bar = {
+                      type = "bar";
+                      background = "#1e1e2e";
+                      color = "#f38ba8";
+                      height = 20;
+                      width = 196;
+                    };
                   };
                   prefix = {
                     type = "box";
