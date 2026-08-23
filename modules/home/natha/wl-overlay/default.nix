@@ -114,6 +114,7 @@ in
                 meter = {
                   type = "meter";
                   background = "#1e1e2e";
+                  prefix-format = "title";
                   suffix-format = "percentage";
                   bar = {
                     type = "bar";
@@ -146,7 +147,6 @@ in
                   };
                 };
               };
-
             });
           };
         }
