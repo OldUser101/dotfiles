@@ -25,7 +25,7 @@ in
     sshKey = mkOption {
       type = types.nullOr types.str;
       default = null;
-      description = "Path to an SSH key for signing";
+      description = "SSH key for signing";
     };
   };
 
@@ -42,8 +42,13 @@ in
         }
 
         (optionalAttrs (cfg.sshKey != null) {
-          user.signingkey = cfg.sshKey or "";
-          gpg.format = "ssh";
+          user.signingkey = pkgs.writeText "${cfg.email}-ssh-key" (cfg.sshKey or "");
+          gpg = {
+            format = "ssh";
+            ssh.allowedSignersFile = "${pkgs.writeText "allowed-signers" ''
+              ${cfg.email} ${cfg.sshKey}
+            ''}";
+          };
           commit.gpgsign = true;
           tag.gpgsign = true;
         })

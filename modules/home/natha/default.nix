@@ -9,6 +9,8 @@
 let
   assets = ../../../assets;
 
+  sshKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICeXZ8vRxqvcxCaOehuxN50MoTp5b7UNRIsn9FvW327x n@ngill.net";
+
   hosts = {
     "natha-e2hyref" = {
       programs.firefox.configPath = "${config.xdg.configHome}/mozilla/firefox";
@@ -21,7 +23,7 @@ let
           ];
         };
 
-        git.sshKey = "${config.home.homeDirectory}/.ssh/id_ed25519.pub";
+        git.sshKey = sshKey;
         htop.showBattery = true;
         wl-overlay.battery = true;
 
@@ -54,7 +56,7 @@ let
         packages.enableGames = true;
         email.enable = true;
         irssi.enable = true;
-        git.sshKey = "${config.home.homeDirectory}/.ssh/id_ed25519.pub";
+        git.sshKey = sshKey;
         htop.showGPU = true;
 
         packages.type = "full";
