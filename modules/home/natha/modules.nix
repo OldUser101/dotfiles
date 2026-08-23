@@ -28,6 +28,7 @@
     ./swaylock
     ./waybar
     ./way-edges
+    ./wl-overlay
     ./wlsunset
     ./wofi
     ./zellij

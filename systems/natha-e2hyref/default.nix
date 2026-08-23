@@ -75,5 +75,6 @@
     inputs.nlock.homeManagerModules.default
     inputs.way-edges.homeManagerModules.default
     inputs.agenix.homeManagerModules.default
+    inputs.wl-overlay.homeManagerModules.wl-overlay
   ];
 }

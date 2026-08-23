@@ -34,7 +34,10 @@ in
       type = types.listOf types.str;
       default = [
         "${pkgs.alacritty}/bin/alacritty"
-      ];
+      ]
+      ++ (optionals config.olduser101.wl-overlay.enable [
+        "${pkgs.wl-overlay}/bin/wl-overlay"
+      ]);
       description = "Commands to run on startup";
     };
 
@@ -233,7 +236,11 @@ in
         bindgesture swipe:left workspace next_on_output
         bindgesture swipe:right workspace prev_on_output
         swaybg_command ${swaybg}
-      '';
+      ''
+      + (optionals config.olduser101.wl-overlay.enable ''
+        bindsym --no-repeat ${config.wayland.windowManager.sway.config.modifier}+Tab exec ${pkgs.wl-overlay}/bin/wl-overlayctl overlay show
+        bindsym --no-repeat --release ${config.wayland.windowManager.sway.config.modifier}+Tab exec ${pkgs.wl-overlay}/bin/wl-overlayctl overlay hide
+      '');
     };
 
     # May depend on external files not present when building,

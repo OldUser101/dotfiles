@@ -1,7 +1,7 @@
 [shorturls]
 gh = "github:{path}"
 olduser = "github:OldUser101/{path}"
-ngill = "git+https://git.ngill.net/{path}.git"
+ngill = "git+https://git.ngill.net/git/{path}.git"
 
 [tack]
 recomposable = true
@@ -28,6 +28,9 @@ url = "olduser:sway"
 [inputs.onyx]
 url = "olduser:onyx"
 exclude_follow = ["nixpkgs"]
+
+[inputs.wl-overlay]
+url = "ngill:wl-overlay"
 
 [inputs.way-edges]
 url = "gh:way-edges/way-edges/0.12.1"

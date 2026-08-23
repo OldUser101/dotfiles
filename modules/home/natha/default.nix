@@ -23,7 +23,7 @@ let
 
         git.sshKey = "${config.home.homeDirectory}/.ssh/id_ed25519.pub";
         htop.showBattery = true;
-        way-edges.battery = true;
+        wl-overlay.battery = true;
 
         packages.type = "full";
 
@@ -75,7 +75,7 @@ let
       nlock.enable = false;
       swaylock.enable = true;
       waybar.enable = true;
-      way-edges.enable = false;
+      wl-overlay.enable = false;
       swayidle.screenLocker = "${pkgs.swaylock}/bin/swaylock";
       sway.screenLocker = "${pkgs.swaylock}/bin/swaylock";
     };
@@ -88,6 +88,7 @@ let
       olduser101 = {
         nlock.enable = true;
         htop.showBattery = true;
+        wl-overlay.battery = true;
 
         sway.outputs =
           let
@@ -131,7 +132,7 @@ lib.attrsets.recursiveUpdate {
     nlock.enable = true;
     qt.enable = true;
     gtk.enable = true;
-    way-edges.enable = true;
+    wl-overlay.enable = true;
     wlsunset.enable = true;
     wofi.enable = true;
     zellij.enable = true;

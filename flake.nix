@@ -20,6 +20,7 @@
         inputs.nlock.overlays.nlock
         inputs.onyx.overlays.onyx
         inputs.sway.overlays.sway-unwrapped
+        inputs.wl-overlay.overlays.wl-overlay
       ]
       ++ (import ./overlays { inherit system inputs; });
 
