@@ -78,7 +78,7 @@ in
         onyx
 
         # One needs an office suite sometimes
-        libreoffice-qt-fresh
+        libreoffice-qt-stable
 
         # Nix
         cachix
