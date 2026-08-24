@@ -19,9 +19,9 @@
     "type": "github",
     "owner": "nix-community",
     "repo": "home-manager",
-    "rev": "ec1a8fdf74ed3f276148ee106299a2ba0e65d51f",
-    "narHash": "sha256-XL2qfqmocfsvuEGyomZg4nOZfkuSe8vZtrOX99I+b6I=",
-    "lastModified": 1787379775
+    "rev": "03f4cd46bc1dd4f3a96da778d2ce9f7ce39dd450",
+    "narHash": "sha256-MHwk52ty3NsLhq9a1IbIfBJZlCUJIdiUYFo52JLK9hY=",
+    "lastModified": 1787540599
   },
   "lanzaboote": {
     "type": "github",
@@ -91,8 +91,8 @@
     "type": "git",
     "url": "https://git.ngill.net/git/wl-overlay.git",
     "ref": "HEAD",
-    "rev": "2c387f7c237c2ebee4d146cfedfa1d3c86715f12",
-    "narHash": "sha256-4rwJhmvJVqQRsLTOFzGZV6HWqFpmeYwSivTwzqwIWMI=",
-    "lastModified": 1787484293
+    "rev": "6db2780bf88e0cc70221cd7e95631e7319018fd6",
+    "narHash": "sha256-g+prj6guRLuJY6Sa9Lm7k3uUqxk64rhnJNgYjIcGaGQ=",
+    "lastModified": 1787526088
   }
 }
