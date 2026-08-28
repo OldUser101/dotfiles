@@ -43,9 +43,9 @@
     "type": "github",
     "owner": "NixOS",
     "repo": "nixpkgs",
-    "rev": "ac6b2166e7a9375683b8e98f860f273222337b16",
-    "narHash": "sha256-vMiXptXarfSdJb1Gkc+FYVOAibuBRj7qxGa8z68q1Uw=",
-    "lastModified": 1787631388
+    "rev": "c27cdad491a991b11ed731760aa2ef8db0cb0410",
+    "narHash": "sha256-PYZq1qzCJXC2zGI0mH07vrZBsw6DRBAOX0jN1pPtqOQ=",
+    "lastModified": 1787814960
   },
   "nlock": {
     "type": "github",
@@ -91,8 +91,8 @@
     "type": "git",
     "url": "https://git.ngill.net/git/wl-overlay.git",
     "ref": "HEAD",
-    "rev": "77174168999bd44cbcaf5bcbcee6e35912e31f9d",
-    "narHash": "sha256-JwXwbDYucYMJ+S2kWKW9GzkEmhWf7lOJeEKr5Q3gQ2A=",
-    "lastModified": 1787782007
+    "rev": "d1e5f5cac5a6360b5cf1a110ef72d9c3d935cba3",
+    "narHash": "sha256-OKgRiJPLgcI5cEUCmS0k0u1wXsoZ78TO4QfF6VySipE=",
+    "lastModified": 1787871058
   }
 }
