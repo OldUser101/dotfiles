@@ -16,9 +16,21 @@ in
       default = true;
       description = "Enable alacritty configuration";
     };
+
+    mango = mkOption {
+      type = types.bool;
+      default = config.olduser101.mango.enable;
+      description = "Enable Mango integration";
+    };
   };
 
   config = mkIf cfg.enable {
+    olduser101.mango = mkIf cfg.mango {
+      autoStart = [
+        "${pkgs.alacritty}/bin/alacritty"
+      ];
+    };
+
     programs.alacritty = {
       enable = true;
       theme = "catppuccin_mocha";

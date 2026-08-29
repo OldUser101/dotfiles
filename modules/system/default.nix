@@ -12,6 +12,7 @@
     ./core
     ./fs
     ./hardware
+    ./mango
     ./power
     ./print
     ./programs

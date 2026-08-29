@@ -38,6 +38,7 @@
       type = "amd";
       lact = true;
     };
+    mango.enable = true;
     sddm.enable = true;
     security.pam = {
       services = [
@@ -46,7 +47,6 @@
       ];
       keyring = true;
     };
-    sway.enable = true;
     update.enable = true;
   };
   hostMeta.localDotfiles = "/home/natha/.config/olduser101";
@@ -71,11 +71,13 @@
     inputs.nlock.nixosModules.default
     inputs.agenix.nixosModules.default
     inputs.lanzaboote.nixosModules.lanzaboote
+    inputs.mango.nixosModules.mango
   ];
   extraHomeManagerModules = [
     inputs.nlock.homeManagerModules.default
     inputs.way-edges.homeManagerModules.default
     inputs.agenix.homeManagerModules.default
     inputs.wl-overlay.homeManagerModules.wl-overlay
+    inputs.mango.hmModules.mango
   ];
 }

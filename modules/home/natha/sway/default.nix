@@ -20,7 +20,7 @@ in
   options.olduser101.sway = {
     enable = mkOption {
       type = types.bool;
-      default = true;
+      default = false;
       description = "Enable sway";
     };
 

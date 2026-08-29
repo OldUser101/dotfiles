@@ -36,6 +36,9 @@ url = "ngill:wl-overlay"
 url = "gh:way-edges/way-edges/0.12.1"
 exclude_follow = ["nixpkgs"]
 
+[inputs.mango]
+url = "gh:mangowm/mango/0.16.2"
+
 [inputs.git-hooks]
 url = "gh:cachix/git-hooks.nix"
 

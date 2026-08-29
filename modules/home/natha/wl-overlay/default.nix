@@ -22,9 +22,25 @@ in
       default = false;
       description = "Enable wl-overlay battery widget";
     };
+
+    mango = mkOption {
+      type = types.bool;
+      default = config.olduser101.mango.enable;
+      description = "Enable Mango integration";
+    };
   };
 
   config = mkIf cfg.enable {
+    olduser101.mango = mkIf cfg.mango {
+      autoStart = [
+        "${pkgs.wl-overlay}/bin/wl-overlay"
+      ];
+      extraConfig = ''
+        bind=SUPER,Tab,spawn,${pkgs.wl-overlay}/bin/wl-overlayctl overlay show
+        bindr=SUPER,Tab,spawn,${pkgs.wl-overlay}/bin/wl-overlayctl overlay hide
+      '';
+    };
+
     programs.wl-overlay = {
       enable = true;
       layers = [

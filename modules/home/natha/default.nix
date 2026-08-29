@@ -29,16 +29,9 @@ let
 
         packages.type = "full";
 
-        sway.outputs =
-          let
-            bg = "${assets}/wallpapers/bars.jpg";
-          in
-          {
-            eDP-1 = {
-              position = "0 0";
-              bg = "${bg} fill";
-            };
-          };
+        mango.autoStart = [
+          "${pkgs.swaybg}/bin/swaybg -i ${assets}/wallpapers/bars.jpg -m fill"
+        ];
       };
     };
 
@@ -61,19 +54,15 @@ let
 
         packages.type = "full";
 
-        sway.outputs =
-          let
-            bg = "${assets}/wallpapers/bars.jpg";
-          in
-          {
-            "*" = {
-              bg = "${bg} fill";
-            };
-          };
+        mango.autoStart = [
+          "${pkgs.swaybg}/bin/swaybg -i ${assets}/wallpapers/bars.jpg -m fill"
+        ];
       };
     };
 
     "natha-vrdhq85".olduser101 = {
+      sway.enable = true;
+      mango.enable = false;
       nlock.enable = false;
       swaylock.enable = true;
       waybar.enable = true;
@@ -83,6 +72,9 @@ let
     };
 
     "natha-5334qwx" = {
+      sway.enable = true;
+      mango.enable = false;
+
       home.packages = with pkgs; [
         sonobus
       ];

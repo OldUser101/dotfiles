@@ -15,6 +15,7 @@
     ./irssi
     ./kak
     ./kitty
+    ./mango
     ./nlock
     ./oh-my-zsh
     ./packages
