@@ -137,6 +137,7 @@ in
         urgentcolor = "0xf38ba800";
         scratchpadcolor = "0x00000000";
         overlaycolor = "0x00000000";
+        maximizecolor = "0x00000000";
 
         tagrule = [
           "id:*,layout_name:scroller"
