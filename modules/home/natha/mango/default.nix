@@ -77,11 +77,7 @@ in
           focus_center = 0;
           prefer_center = 1;
           default_proportion_single = 1.0;
-          proportion_preset = [
-            0.5
-            0.8
-            1.0
-          ];
+          proportion_preset = "0.5,0.8,1.0";
         };
 
         edge_scroller = {
@@ -143,10 +139,7 @@ in
           "id:*,layout_name:scroller"
         ];
 
-        circle_layout = [
-          "scroller"
-          "tile"
-        ];
+        circle_layout = "scroller,tile";
 
         bind = [
           "SUPER,r,reload_config"
