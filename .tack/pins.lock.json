@@ -91,8 +91,8 @@
     "type": "git",
     "url": "https://git.ngill.net/git/wl-overlay.git",
     "ref": "HEAD",
-    "rev": "d1e5f5cac5a6360b5cf1a110ef72d9c3d935cba3",
-    "narHash": "sha256-OKgRiJPLgcI5cEUCmS0k0u1wXsoZ78TO4QfF6VySipE=",
-    "lastModified": 1787871058
+    "rev": "195390e5ddee7e60ba5d94e24ceb4feeb2a2201d",
+    "narHash": "sha256-T+H2sNNqREPqZXAAagHrGQR5f6Aex+e3XcDj+bc1F1U=",
+    "lastModified": 1787954147
   }
 }
