@@ -20,6 +20,7 @@ in
 
   config = mkIf cfg.enable {
     security.polkit.enable = true;
+    programs.dconf.enable = true;
     programs.mango.enable = true;
   };
 }

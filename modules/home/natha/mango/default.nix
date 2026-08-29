@@ -217,13 +217,13 @@ in
       wf-recorder
     ];
 
-    #    home.pointerCursor = {
-    #      enable = true;
-    #      gtk.enable = true;
-    #      package = pkgs.adwaita-icon-theme;
-    #      name = "Adwaita";
-    #      size = 24;
-    #    };
+    home.pointerCursor = {
+      enable = true;
+      gtk.enable = true;
+      package = pkgs.adwaita-icon-theme;
+      name = "Adwaita";
+      size = 24;
+    };
 
     home.file.".XCompose".source = ../sway/xcompose;
 
