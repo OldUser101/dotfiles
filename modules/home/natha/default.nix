@@ -51,6 +51,7 @@ let
         irssi.enable = true;
         git.sshKey = sshKey;
         htop.showGPU = true;
+        gtk.enable = false;
 
         packages.type = "full";
 
