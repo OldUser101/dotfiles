@@ -41,11 +41,11 @@
   },
   "mango": {
     "type": "github",
-    "owner": "mangowm",
+    "owner": "OldUser101",
     "repo": "mango",
-    "rev": "641c36fcbbe508c46f27b435d5a68d4e9b32f59f",
-    "narHash": "sha256-od6lK1KOquakP/GD17fGEm1ck5EMZa/s+jhmvGrRFzk=",
-    "lastModified": 1787813077
+    "rev": "6fd4637f1f5fb60443983c53e4156a085c149c16",
+    "narHash": "sha256-IBey0AGwyyTDUsAWhoQbu5wHAoSboExx+ivY6qX/90k=",
+    "lastModified": 1788046883
   },
   "nixpkgs": {
     "type": "github",

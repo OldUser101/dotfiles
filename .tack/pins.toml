@@ -37,7 +37,7 @@ url = "gh:way-edges/way-edges/0.12.1"
 exclude_follow = ["nixpkgs"]
 
 [inputs.mango]
-url = "gh:mangowm/mango/0.16.2"
+url = "gh:OldUser101/mango"
 
 [inputs.git-hooks]
 url = "gh:cachix/git-hooks.nix"
