@@ -193,8 +193,8 @@ in
           "ALT,Down,viewtoright,0"
 
           "SUPER,c,spawn,/usr/bin/env OUT_DIR=${cfg.recordingsDirectory} ${src}/../sway/helpers/record-output.sh"
-          "SUPER,s,spawn,${grim} -g \"$(${slurp})\" ${cfg.screenshotDirectory}/Screenshot_$(date +%F_%T).png"
-          "SUPER+SHIFT,s,spawn,${grim} -g \"$(${slurp})\" - | ${wl-copy}"
+          "SUPER,s,spawn,/bin/sh -c '${grim} -g \"$(${slurp})\" ${cfg.screenshotDirectory}/Screenshot_$(date +%F_%T).png'"
+          "SUPER+SHIFT,s,spawn,/bin/sh -c '${grim} -g \"$(${slurp})\" - | ${wl-copy}'"
 
           "NONE,XF86AudioLowerVolume,spawn,${wpctl} set-volume @DEFAULT_AUDIO_SINK@ 5%-"
           "NONE,XF86AudioRaiseVolume,spawn,${wpctl} set-volume @DEFAULT_AUDIO_SINK@ 5%+"
