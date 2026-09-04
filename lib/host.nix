@@ -43,6 +43,11 @@ with builtins;
         {
           networking.hostName = "${name}";
           networking.networkmanager.enable = true;
+          networking.nameservers = [
+            "1.1.1.1"
+            "1.0.0.1"
+            "9.9.9.9"
+          ];
 
           boot.initrd.availableKernelModules = initrdMods;
           boot.kernelModules = kernelMods;
