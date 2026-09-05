@@ -43,17 +43,17 @@
     "type": "github",
     "owner": "OldUser101",
     "repo": "mango",
-    "rev": "6fd4637f1f5fb60443983c53e4156a085c149c16",
-    "narHash": "sha256-IBey0AGwyyTDUsAWhoQbu5wHAoSboExx+ivY6qX/90k=",
-    "lastModified": 1788046883
+    "rev": "da46fa4340cd9315bc85c87347e6af88f1ec47d5",
+    "narHash": "sha256-uA+YTaoQyTX1BR3I8CTfTEEVRf42EacN90LlZk8jGAk=",
+    "lastModified": 1788515686
   },
   "nixpkgs": {
     "type": "github",
     "owner": "NixOS",
     "repo": "nixpkgs",
-    "rev": "9387b3fcc0c23c86661636da63faabad4235a0a6",
-    "narHash": "sha256-7aqErvrAEz/5OcPA5p3M+tVOqeYc4oJXkNIPXfCqxAw=",
-    "lastModified": 1788372231
+    "rev": "5545adfad2e98de106a5544ca7067e03010410bd",
+    "narHash": "sha256-JIHQ6xNAN53cdo6zZ72LRcQ9lpvnABCnNE4hldJ5uZU=",
+    "lastModified": 1788400875
   },
   "nlock": {
     "type": "github",
