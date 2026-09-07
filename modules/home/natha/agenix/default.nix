@@ -8,7 +8,7 @@
 with lib;
 let
   cfg = config.olduser101.agenix;
-  secrets = ../../../../secrets;
+  secrets = ../../../../secrets/home/natha;
 in
 {
   options.olduser101.agenix = {

@@ -49,26 +49,31 @@
     {
       nixosConfigurations = {
         natha-e2hyref = systems.mkSystem {
+          inherit system;
           name = "natha-e2hyref";
           stateVersion = "26.05";
         };
 
         natha-76k4epg = systems.mkSystem {
+          inherit system;
           name = "natha-76k4epg";
           stateVersion = "25.11";
         };
 
         natha-vrdhq85 = systems.mkSystem {
+          inherit system;
           name = "natha-vrdhq85";
           stateVersion = "26.05";
         };
 
         natha-5334qwx = systems.mkSystem {
+          inherit system;
           name = "natha-5334qwx";
           stateVersion = "25.11";
         };
 
         natha-sdafwca = systems.mkSystem {
+          inherit system;
           name = "natha-sdafwca";
           stateVersion = "26.05";
         };

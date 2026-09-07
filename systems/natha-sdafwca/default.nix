@@ -1,5 +1,53 @@
-{ pkgs, inputs, ... }:
+{
+  pkgs,
+  inputs,
+  system,
+  ...
+}:
 
+let
+  dotfiles-update =
+    config:
+    pkgs.writeShellScriptBin "dotfiles-update" ''
+      set -euo pipefail
+
+      BARE_REPO="/data/git/dotfiles.git"
+      BRANCH="master"
+
+      WORKTREE=$(${pkgs.mktemp}/bin/mktemp -d /tmp/gitworktree.XXXXXXX)
+
+      cleanup() {
+      	rc=$?
+
+      	${pkgs.git}/bin/git --git-dir="$BARE_REPO" worktree remove -f "$WORKTREE" || true
+      	rm -rf "$WORKTREE" || true
+
+      	exit "$rc"
+      }
+
+      ${pkgs.git}/bin/git --git-dir="$BARE_REPO" worktree add "$WORKTREE" "$BRANCH"
+
+      trap cleanup EXIT SIGTERM SIGINT
+
+      pushd "$WORKTREE" >/dev/null
+
+      GH_TOKEN=$(cat ${config.age.secrets.gh-access-token.path})
+
+      ${inputs.tack.packages.${system}.default}/bin/tack init --resolver
+      RES=$(GH_TOKEN=$GH_TOKEN ${inputs.tack.packages.${system}.default}/bin/tack update)
+
+      if ! ${pkgs.git}/bin/git diff --quiet --exit-code; then
+        ${pkgs.git}/bin/git add .
+        ${pkgs.git}/bin/git commit -F - <<EOF
+      tack: update inputs
+
+      $RES
+      EOF
+      fi
+
+      popd >/dev/null
+    '';
+in
 {
   kernelPackage = pkgs.linuxPackages_latest;
   initrdMods = [
@@ -77,7 +125,15 @@
   cpuCores = 4;
   extraNixosModules = [
     inputs.lanzaboote.nixosModules.lanzaboote
+    inputs.agenix.nixosModules.default
     {
+      age.secrets.gh-access-token = {
+        file = ../../secrets/system/gh-access-token.age;
+        mode = "0640";
+        owner = "root";
+        group = "git";
+      };
+
       networking.firewall.allowedTCPPorts = [
         22
         80
@@ -88,6 +144,7 @@
       users.groups.git = {
         name = "git";
         members = [
+          "root"
           "natha"
           "git"
           "cgit"
@@ -120,6 +177,35 @@
         };
       };
     }
+    ({ config, ... }: {
+      environment.systemPackages = [
+        (dotfiles-update config)
+      ];
+
+      systemd.timers."dotfiles-update" = {
+        wantedBy = [ "timers.target" ];
+        timerConfig = {
+          OnCalendar = "*-*-* 05:42:00 UTC";
+          Persistent = true;
+          Unit = "dotfiles-update.service";
+        };
+      };
+
+      systemd.services."dotfiles-update" = {
+        path = with pkgs; [
+          git
+          openssh
+          inputs.tack.packages.${system}.default
+        ];
+        serviceConfig = {
+          Type = "oneshot";
+          User = "git";
+          Group = "git";
+          ExecStart = "${dotfiles-update config}/bin/dotfiles-update";
+          RemainAfterExit = false;
+        };
+      };
+    })
     (import ./cgit.nix { inherit pkgs; })
   ];
   extraHomeManagerModules = [

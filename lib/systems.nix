@@ -8,10 +8,14 @@
 
 {
   mkSystem =
-    { name, stateVersion }:
+    {
+      name,
+      stateVersion,
+      system,
+    }:
     let
       sysConfig = import ../systems/${name} {
-        inherit pkgs inputs;
+        inherit pkgs inputs system;
       };
       cfg = lib.attrsets.recursiveUpdate sysConfig {
         inherit name stateVersion;
