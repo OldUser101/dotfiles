@@ -119,7 +119,7 @@ in
       email = "n@ngill.net"
 
       [ui]
-      editor = "${pkgs.kakoune}/bin/kak"
+      editor = "kak" # use kakoune from environment
       default-command = "log"
       pager = "${pkgs.less}/bin/less -FR --mouse"
 
