@@ -19,6 +19,7 @@
     ./sddm
     ./security
     ./shells
+    ./sshd
     ./sway
     ./update
   ];

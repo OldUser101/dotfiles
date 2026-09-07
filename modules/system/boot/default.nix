@@ -34,8 +34,8 @@ in
     };
 
     configurationLimit = mkOption {
-      type = types.nullOr types.number;
-      default = null;
+      type = types.number;
+      default = 3;
       description = "Maximum number of configuration entries";
     };
   };

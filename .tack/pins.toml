@@ -1,7 +1,7 @@
 [shorturls]
 gh = "github:{path}"
 olduser = "github:OldUser101/{path}"
-ngill = "git+https://git.ngill.net/git/{path}.git"
+ngill = "git+https://git.ngill.net/{path}.git"
 
 [tack]
 recomposable = true

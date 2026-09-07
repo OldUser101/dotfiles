@@ -72,9 +72,6 @@ let
     };
 
     "natha-5334qwx" = {
-      sway.enable = true;
-      mango.enable = false;
-
       home.packages = with pkgs; [
         sonobus
       ];
@@ -83,6 +80,8 @@ let
         nlock.enable = true;
         htop.showBattery = true;
         wl-overlay.battery = true;
+        sway.enable = true;
+        mango.enable = false;
 
         sway.outputs =
           let
@@ -94,6 +93,30 @@ let
               bg = "${bg} fill";
             };
           };
+      };
+    };
+
+    "natha-sdafwca" = {
+      # this is a server
+      programs.firefox.enable = false;
+      services.gnome-keyring.enable = false;
+      olduser101 = {
+        alacritty.enable = false;
+        dunst.enable = false;
+        fonts.enable = false;
+        nlock.enable = false;
+        qt.enable = false;
+        gtk.enable = false;
+        wlsunset.enable = false;
+        wofi.enable = false;
+        zellij.enable = false;
+        swayidle.enable = false;
+        shells.bash.enable = false;
+        readline.enable = false;
+        packages.type = "server";
+        mango.enable = false;
+        sway.enable = false;
+        wl-overlay.enable = false;
       };
     };
   };

@@ -7,6 +7,7 @@
       groups,
       uid,
       shell,
+      sshKeys,
       ...
     }:
     {
@@ -17,6 +18,7 @@
         extraGroups = groups;
         uid = uid;
         shell = shell;
+        openssh.authorizedKeys.keys = sshKeys;
       };
     };
 }

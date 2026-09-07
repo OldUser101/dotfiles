@@ -67,6 +67,11 @@
           name = "natha-5334qwx";
           stateVersion = "25.11";
         };
+
+        natha-sdafwca = systems.mkSystem {
+          name = "natha-sdafwca";
+          stateVersion = "26.05";
+        };
       };
 
       packages.${system}.gen-suffix = pkgs.stdenv.mkDerivation {

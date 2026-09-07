@@ -19,6 +19,7 @@ in
         "efi-baytrail"
         "efi-unified"
         "bios-default"
+        "bios-sdafwca"
       ];
       description = "Filesystem configuration type";
     };
@@ -27,6 +28,7 @@ in
       type = types.enum [
         "none"
         "default"
+        "xfs"
       ];
       default = "none";
       description = "Data partition condifuration type";
@@ -110,6 +112,18 @@ in
           };
         })
 
+        (mkIf (cfg.type == "bios-sdafwca") {
+          fileSystems."/" = {
+            device = "/dev/disk/by-label/ROOT";
+            fsType = "xfs";
+          };
+
+          fileSystems."/boot" = {
+            device = "/dev/disk/by-label/BOOT";
+            fsType = "ext4";
+          };
+        })
+
         (mkIf (cfg.dataType == "default") {
           fileSystems."/data" = {
             device = "/dev/disk/by-label/DATA.EXT";
@@ -118,6 +132,13 @@ in
               "compress=zstd:1"
               "noatime"
             ];
+          };
+        })
+
+        (mkIf (cfg.dataType == "xfs") {
+          fileSystems."/data" = {
+            device = "/dev/disk/by-label/DATA";
+            fsType = "ext4";
           };
         })
       ];

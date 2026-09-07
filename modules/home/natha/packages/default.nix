@@ -22,6 +22,7 @@ in
       type = types.enum [
         "minimal"
         "full"
+        "server"
       ];
       default = "minimal";
       description = "Types of extra packages to install";
@@ -43,7 +44,16 @@ in
   config = {
     home.packages =
       with pkgs;
-      [
+      [ ]
+      ++ (optionals (cfg.type == "server") [
+        nixfmt
+        python3
+        man-pages
+        cachix
+        nil
+        unzip
+      ])
+      ++ (optionals (cfg.type == "minimal") [
         # Web browser
         firefox
 
@@ -61,7 +71,7 @@ in
         # man pages
         man-pages
         man-pages-posix
-      ]
+      ])
       ++ (optionals (cfg.type == "full") [
         # C/C++
         gcc
