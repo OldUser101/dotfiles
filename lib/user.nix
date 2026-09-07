@@ -7,7 +7,7 @@
       groups,
       uid,
       shell,
-      sshKeys,
+      sshKeys ? [ ],
       ...
     }:
     {
