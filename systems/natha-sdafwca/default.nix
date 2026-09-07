@@ -174,7 +174,38 @@ in
 
             file_server browse
           '';
+          "multi-scrobbler.ngill.net".extraConfig = ''
+            bind 100.107.35.98
+            reverse_proxy 127.0.0.1:9078
+          '';
+          "http://natha-sdafwca.tail48a497.ts.net".extraConfig = ''
+            bind 100.107.35.98
+            reverse_proxy 127.0.0.1:9078
+          '';
         };
+      };
+
+      virtualisation.docker.enable = true;
+      environment.systemPackages = [
+        pkgs.docker-compose
+      ];
+
+      systemd.services."multi-scrobbler" = {
+        enable = true;
+        after = [ "docker.service" ];
+        requires = [ "docker.service" ];
+        path = with pkgs; [
+          docker
+          docker-compose
+        ];
+        serviceConfig = {
+          WorkingDirectory = "/data/multi-scrobbler";
+          ExecStart = "${pkgs.docker}/bin/docker compose up";
+          ExecStop = "${pkgs.docker}/bin/docker compose down";
+          Restart = "always";
+          RemainAfterExit = true;
+        };
+        wantedBy = [ "multi-user.target" ];
       };
     }
     ({ config, ... }: {
@@ -183,6 +214,7 @@ in
       ];
 
       systemd.timers."dotfiles-update" = {
+        enable = true;
         wantedBy = [ "timers.target" ];
         timerConfig = {
           OnCalendar = "*-*-* 05:42:00 UTC";

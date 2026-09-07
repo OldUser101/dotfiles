@@ -138,7 +138,7 @@ lib.attrsets.recursiveUpdate {
   };
 
   services.gnome-keyring.enable = true;
-  home.packages = [ pkgs.gcr ];
+  home.packages = [ pkgs.gcr_3 ];
 
   olduser101 = {
     direnv.enable = true;
