@@ -107,5 +107,24 @@ in
 
     home.file."${config.home.homeDirectory}/.nethackrc".source = ./.nethackrc;
     home.file."${config.home.homeDirectory}/.unnethackrc".source = ./.unnethackrc;
+
+    xdg.configFile."jj/config.toml".text = ''
+      [signing]
+      behavior="own"
+      backend="ssh"
+      key="ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICeXZ8vRxqvcxCaOehuxN50MoTp5b7UNRIsn9FvW327x"
+
+      [user]
+      name = "Nathan Gill"
+      email = "n@ngill.net"
+
+      [ui]
+      editor = "${pkgs.kakoune}/bin/kak"
+      default-command = "log"
+      pager = "${pkgs.less}/bin/less -FR --mouse"
+
+      [templates]
+      git_push_bookmark = '"OldUser101/push-" ++ change_id.short()'
+    '';
   };
 }
