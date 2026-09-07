@@ -53,7 +53,7 @@ in
         nil
         unzip
       ])
-      ++ (optionals (cfg.type == "minimal") [
+      ++ (optionals (cfg.type == "minimal" || cfg.type == "full") [
         # Web browser
         firefox
 
