@@ -43,9 +43,9 @@
     "type": "github",
     "owner": "OldUser101",
     "repo": "mango",
-    "rev": "da46fa4340cd9315bc85c87347e6af88f1ec47d5",
-    "narHash": "sha256-uA+YTaoQyTX1BR3I8CTfTEEVRf42EacN90LlZk8jGAk=",
-    "lastModified": 1788515686
+    "rev": "6d159e65301d3b4e27871d47216d53d305659c95",
+    "narHash": "sha256-N+wtFvmM+vb/U2qipUZMemehUlPYeEJTiN+WAhAfPV8=",
+    "lastModified": 1788886698
   },
   "nixpkgs": {
     "type": "github",
