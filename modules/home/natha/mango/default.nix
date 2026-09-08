@@ -192,7 +192,7 @@ in
           "ALT,Up,viewtoleft,0"
           "ALT,Down,viewtoright,0"
 
-          "SUPER,c,spawn,/usr/bin/env OUT_DIR=${cfg.recordingsDirectory} ${src}/../sway/helpers/record-output.sh"
+          "SUPER,c,spawn,/usr/bin/env OUT_DIR=${cfg.recordingsDirectory} ${src}/record-output.sh"
           "SUPER,s,spawn,/bin/sh -c '${grim} -g \"$(${slurp})\" ${cfg.screenshotDirectory}/Screenshot_$(date +%F_%T).png'"
           "SUPER+SHIFT,s,spawn,/bin/sh -c '${grim} -g \"$(${slurp})\" - | ${wl-copy}'"
 
