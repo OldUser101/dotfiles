@@ -43,11 +43,14 @@ in
 
     programs.wl-overlay = {
       enable = true;
+      widgets = [
+        "${pkgs.wl-overlay_cava}/lib/libwl-overlay_cava.so"
+      ];
       layers = [
         {
           anchors = [ ];
           name = "centre-panel";
-          refresh = 1000;
+          refresh = 33;
           hide = true;
           root = {
             type = "panel";
@@ -177,7 +180,28 @@ in
                   };
                 };
               };
-            });
+            })
+            ++ [
+              {
+                type = "box";
+                background = "#1e1e2e";
+                border-color = "#cba6f7";
+                border-width = 2;
+                padding-bottom = 5;
+                padding-left = 5;
+                padding-right = 6; # cava width is actually 299, not 300
+                padding-top = 5;
+                child = {
+                  type = "cava";
+                  bars-per-channel = 8;
+                  bar-width = 14;
+                  bar-height = 75;
+                  gap = 5;
+                  background = "#1e1e2e";
+                  color = "#cdd6f4";
+                };
+              }
+            ];
           };
         }
       ];

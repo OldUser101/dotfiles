@@ -32,6 +32,10 @@ exclude_follow = ["nixpkgs"]
 [inputs.wl-overlay]
 url = "ngill:wl-overlay"
 
+[inputs.wl-overlay_cava]
+url = "ngill:wl-overlay_cava"
+submodules = true
+
 [inputs.way-edges]
 url = "gh:way-edges/way-edges/0.12.1"
 exclude_follow = ["nixpkgs"]

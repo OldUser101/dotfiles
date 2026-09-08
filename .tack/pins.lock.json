@@ -102,5 +102,14 @@
     "rev": "6fb72817722e90ab42f704fe28953acbc546eeb8",
     "narHash": "sha256-+q9c85LwdtDp1qXopOiINPBzWAPqiOI0/wJ6AR5yqoI=",
     "lastModified": 1788386734
+  },
+  "wl-overlay_cava": {
+    "type": "git",
+    "url": "https://git.ngill.net/wl-overlay_cava.git",
+    "ref": "HEAD",
+    "rev": "d54a116d7aa6ffa4ddce6763f4775ab192a74a1e",
+    "narHash": "sha256-rLGrE5ZtQRgtJhT/80/OW/B3Jq8s4KnhPEl7wIzhkgw=",
+    "lastModified": 1788881885,
+    "submodules": true
   }
 }
