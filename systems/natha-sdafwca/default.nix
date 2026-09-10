@@ -235,6 +235,15 @@ in
             reverse_proxy 127.0.0.1:9078
           '';
           "guestbook.ngill.net".extraConfig = ''
+            header {
+                Access-Control-Allow-Origin "https://ngill.net"
+                Access-Control-Allow-Methods "GET, POST, OPTIONS"
+                Access-Control-Allow-Headers "Content-Type"
+            }
+
+            @preflight method OPTIONS
+            respond @preflight 204
+
             root * ${guestbook}
 
             @messages path /
