@@ -47,6 +47,14 @@
     "narHash": "sha256-N+wtFvmM+vb/U2qipUZMemehUlPYeEJTiN+WAhAfPV8=",
     "lastModified": 1788886698
   },
+  "ngill_net": {
+    "type": "git",
+    "url": "https://git.ngill.net/personal-site.git",
+    "ref": "HEAD",
+    "rev": "b4063cfe11baf60c072a32ce0b0b603b30416230",
+    "narHash": "sha256-csHyoO9uSwGihO1nRTe76OaNXp9rEsSoxs7tT3T+UB0=",
+    "lastModified": 1789055134
+  },
   "nixpkgs": {
     "type": "github",
     "owner": "NixOS",

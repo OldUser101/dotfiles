@@ -47,6 +47,13 @@ let
 
       popd >/dev/null
     '';
+
+  guestbook = inputs.ngill_net.packages.${system}.guestbook;
+
+  caddy = pkgs.caddy.withPlugins {
+    plugins = [ "github.com/WeidiDeng/caddy-cloudflare-ip@v0.0.0-20231130002422-f53b62aa13cb" ];
+    hash = "sha256-PgFPKCdJOylY4S51JcJAetrEr9EbypKHM67kgwW0lws=";
+  };
 in
 {
   kernelPackage = pkgs.linuxPackages_latest;
@@ -152,14 +159,59 @@ in
         gid = 991;
       };
 
+      users.users.guestbook = {
+        name = "guestbook";
+        createHome = false;
+        isNormalUser = false;
+        isSystemUser = true;
+        group = "guestbook";
+        uid = 1002;
+      };
+
+      users.groups.guestbook = {
+        name = "guestbook";
+        members = [
+          "guestbook"
+        ];
+        gid = 992;
+      };
+
       services.tailscale = {
         enable = true;
         openFirewall = true;
         useRoutingFeatures = "server";
       };
 
+      services.phpfpm.pools.guestbook = {
+        user = "guestbook";
+        group = "guestbook";
+
+        phpPackage = pkgs.php;
+
+        settings = {
+          "listen" = "/run/phpfpm/guestbook.sock";
+          "listen.owner" = "caddy";
+          "listen.group" = "caddy";
+          "listen.mode" = "0660";
+
+          "pm" = "ondemand";
+          "pm.max_children" = 4;
+          "pm.process_idle_timeout" = "10s";
+          "pm.max_requests" = 500;
+        };
+      };
+
       services.caddy = {
         enable = true;
+        package = caddy;
+        globalConfig = ''
+          servers {
+            trusted_proxies cloudflare {
+              interval 1h
+            }
+            client_ip_headers CF-Connecting-IP
+          }
+        '';
         virtualHosts = {
           "obj.ngill.net".extraConfig = ''
             root * /data/obj
@@ -181,6 +233,14 @@ in
           "http://natha-sdafwca.tail48a497.ts.net".extraConfig = ''
             bind 100.107.35.98
             reverse_proxy 127.0.0.1:9078
+          '';
+          "guestbook.ngill.net".extraConfig = ''
+            root * ${guestbook}
+
+            @messages path /
+            rewrite @messages /guestbook.php
+
+            php_fastcgi unix//run/phpfpm/guestbook.sock
           '';
         };
       };

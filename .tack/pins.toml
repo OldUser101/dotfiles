@@ -43,6 +43,9 @@ exclude_follow = ["nixpkgs"]
 [inputs.mango]
 url = "gh:OldUser101/mango"
 
+[inputs.ngill_net]
+url = "git+https://git.ngill.net/personal-site.git?rev=b4063cfe11baf60c072a32ce0b0b603b30416230"
+
 [inputs.git-hooks]
 url = "gh:cachix/git-hooks.nix"
 
