@@ -19,9 +19,9 @@
     "type": "github",
     "owner": "nix-community",
     "repo": "home-manager",
-    "rev": "a2dbe7c2c9333e8234ae8114c7f731784201d108",
-    "narHash": "sha256-2wRuvf9UDw1SYWtBcxNmxLeAtNU1i/hc1c0AKQHdvlM=",
-    "lastModified": 1788921139
+    "rev": "df044b78fd9ec60d0e54752169666e6e1d393798",
+    "narHash": "sha256-+h1H0g2XMGXK0fNUlX4ajCmCz8u05IR7k0Cj2MJviBY=",
+    "lastModified": 1789012927
   },
   "lanzaboote": {
     "type": "github",
@@ -51,9 +51,9 @@
     "type": "github",
     "owner": "NixOS",
     "repo": "nixpkgs",
-    "rev": "da39501c8d0a093136854eddcd6927c8a8bb0d8f",
-    "narHash": "sha256-guyexwrrF5GBKqjO0eg9LNIvrXn4j2frNak63sDr8zg=",
-    "lastModified": 1788894124
+    "rev": "5052d7ccbcfb7e4ae1586cb2ecf95a2e3707dce9",
+    "narHash": "sha256-PJCTsE4I20CrJJPcye9/z6brRFysG5+aygr/dZK097k=",
+    "lastModified": 1788982683
   },
   "nlock": {
     "type": "github",
@@ -107,9 +107,9 @@
     "type": "git",
     "url": "https://git.ngill.net/wl-overlay_cava.git",
     "ref": "HEAD",
-    "rev": "37f180cd7d3a6f14daa055853a72f9174dff4c13",
-    "narHash": "sha256-Om95Qu+aepSIC25th3nxG0/I2iAuv6xMVy19YHxqWcY=",
-    "lastModified": 1788892031,
+    "rev": "ce4a54eca041cb5c52f396a4b4499e3b337fadc3",
+    "narHash": "sha256-UtXNt48+mCnjtO4AccC/zBRfsioqgI2XbOHF1u5HX+4=",
+    "lastModified": 1788946298,
     "submodules": true
   }
 }
