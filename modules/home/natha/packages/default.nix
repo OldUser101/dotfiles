@@ -54,9 +54,6 @@ in
         unzip
       ])
       ++ (optionals (cfg.type == "minimal" || cfg.type == "full") [
-        # Web browser
-        firefox
-
         # Nix
         nixfmt
 
