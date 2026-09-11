@@ -19,9 +19,9 @@
     "type": "github",
     "owner": "nix-community",
     "repo": "home-manager",
-    "rev": "df044b78fd9ec60d0e54752169666e6e1d393798",
-    "narHash": "sha256-+h1H0g2XMGXK0fNUlX4ajCmCz8u05IR7k0Cj2MJviBY=",
-    "lastModified": 1789012927
+    "rev": "f10b3f2ad4aae9259617a1ff518cc921e3394228",
+    "narHash": "sha256-zzHj2wl69724lzx7DLAVziWbL75wRIk+xJ3duD0Bgrc=",
+    "lastModified": 1789099078
   },
   "lanzaboote": {
     "type": "github",
@@ -51,17 +51,17 @@
     "type": "git",
     "url": "https://git.ngill.net/personal-site.git",
     "ref": "HEAD",
-    "rev": "297d65cb40b37530f75f92e9eb7e077d5644f2d3",
-    "narHash": "sha256-hL4DP1Y8Q83SPQb+Zh9UYz8w+xZhp4m3XMc0W9xmjxE=",
-    "lastModified": 1789060012
+    "rev": "c07bcb0b52062f4ead82d3900c4f9b97750fcde1",
+    "narHash": "sha256-GgZClQAkt2Dfj9YW5tW+qPChJLenkQJ/EJQzRkHjkvg=",
+    "lastModified": 1789070982
   },
   "nixpkgs": {
     "type": "github",
     "owner": "NixOS",
     "repo": "nixpkgs",
-    "rev": "5052d7ccbcfb7e4ae1586cb2ecf95a2e3707dce9",
-    "narHash": "sha256-PJCTsE4I20CrJJPcye9/z6brRFysG5+aygr/dZK097k=",
-    "lastModified": 1788982683
+    "rev": "aff8a0b28396750446e5537a96461bc4facdb287",
+    "narHash": "sha256-xfX/toC2QV707s06GbP4II/TxYF0fNQj7s5/LClNDKc=",
+    "lastModified": 1789073787
   },
   "nlock": {
     "type": "github",
