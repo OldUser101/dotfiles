@@ -214,8 +214,8 @@ in
     home.pointerCursor = {
       enable = true;
       gtk.enable = true;
-      package = pkgs.adwaita-icon-theme;
-      name = "Adwaita";
+      package = pkgs.miku-cursor-linux;
+      name = "miku-cursor-linux";
       size = 24;
     };
 
