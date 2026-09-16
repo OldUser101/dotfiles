@@ -276,6 +276,21 @@ in
         };
         wantedBy = [ "multi-user.target" ];
       };
+
+      systemd.services."hillsbot" = {
+        enable = true;
+        path = with pkgs; [
+          nix
+          bash
+        ];
+        serviceConfig = {
+          WorkingDirectory = "/data/hillsbot/HillsBot";
+          ExecStart = "/data/hillsbot/HillsBot/start_nix.sh";
+          Restart = "always";
+          RemainAfterExit = true;
+        };
+        wantedBy = [ "multi-user.target" ];
+      };
     }
     ({ config, ... }: {
       environment.systemPackages = [
