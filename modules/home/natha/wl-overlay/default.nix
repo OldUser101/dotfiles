@@ -153,7 +153,7 @@ in
                       background = "#1e1e2e";
                       color = "#f38ba8";
                       height = 20;
-                      width = 196;
+                      width = 184;
                     };
                   };
                   prefix = {
