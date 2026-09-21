@@ -19,9 +19,9 @@
     "type": "github",
     "owner": "nix-community",
     "repo": "home-manager",
-    "rev": "d2a22a3659a6ae99847ea9176114f6957b8ac62e",
-    "narHash": "sha256-sOag/7DTqw4tXLI7UxjrZxPGV+dlTe6zFtJn0VSkgFM=",
-    "lastModified": 1789867870
+    "rev": "1944398834e2b9677ee6081e11e42c32d7c1eb5d",
+    "narHash": "sha256-sLY2PSiu5EGJXgTDAQjHKzzezdpPk0lre9MD2VLpqew=",
+    "lastModified": 1789915421
   },
   "lanzaboote": {
     "type": "github",
@@ -59,9 +59,9 @@
     "type": "github",
     "owner": "NixOS",
     "repo": "nixpkgs",
-    "rev": "a32edd7654519351e48e80372a928df336394670",
-    "narHash": "sha256-RjR8AyvGlWuw16XRj7C1YDEw4E27ciuyPeB2nDMzgTU=",
-    "lastModified": 1789632929
+    "rev": "0a3468a402c449992505b6a9fc5b06580141b750",
+    "narHash": "sha256-nlKgrm0dsVhOSopKheVBCcOpiIticufPPVLdVOI0euA=",
+    "lastModified": 1789724158
   },
   "nlock": {
     "type": "github",
