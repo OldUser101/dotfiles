@@ -59,6 +59,9 @@ in
       git
       wget
       vim
+
+      # surprisingly useful
+      nqdc
     ];
 
     services.tailscale.enable = cfg.tailscale;

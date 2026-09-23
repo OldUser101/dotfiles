@@ -46,6 +46,9 @@ url = "gh:OldUser101/mango"
 [inputs.ngill_net]
 url = "ngill:personal-site"
 
+[inputs.nqdc]
+url = "ngill:nqdc"
+
 [inputs.git-hooks]
 url = "gh:cachix/git-hooks.nix"
 

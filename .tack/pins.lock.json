@@ -71,6 +71,14 @@
     "narHash": "sha256-LQ7eizB5osANti/4Jmg0FFgpFJ5AuXYwTnl2tGxjAc8=",
     "lastModified": 1789672207
   },
+  "nqdc": {
+    "type": "git",
+    "url": "https://git.ngill.net/nqdc.git",
+    "ref": "HEAD",
+    "rev": "1226ccf3c15befa6c84e58ba757a1f1b77d274da",
+    "narHash": "sha256-OCOkHMrG4K1bEE8GSxTZVXYajXvrHzd1xIFptiXigOE=",
+    "lastModified": 1790121423
+  },
   "onyx": {
     "type": "github",
     "owner": "OldUser101",

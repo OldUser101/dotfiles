@@ -22,6 +22,7 @@
         inputs.sway.overlays.sway-unwrapped
         inputs.wl-overlay.overlays.wl-overlay
         inputs.wl-overlay_cava.overlays.wl-overlay_cava
+        inputs.nqdc.overlays.nqdc
       ]
       ++ (import ./overlays { inherit system inputs; });
 
