@@ -19,9 +19,9 @@
     "type": "github",
     "owner": "nix-community",
     "repo": "home-manager",
-    "rev": "0b2f1129177f70c5f0f5d88bb53c49ca47d0bfc0",
-    "narHash": "sha256-6Gm9q+wW3E4Ey4F6wEbJAwaMsEK6hvCYfTW7yY64ZfA=",
-    "lastModified": 1790128814
+    "rev": "4900baf1e219645e4a2acba35723852b2091bc20",
+    "narHash": "sha256-BOyZoliWfm/beS4m3FxFKlu5at6npZen1PsWtvzzihk=",
+    "lastModified": 1790225410
   },
   "lanzaboote": {
     "type": "github",
@@ -59,9 +59,9 @@
     "type": "github",
     "owner": "NixOS",
     "repo": "nixpkgs",
-    "rev": "b6c98e9e6633ee64753b594ff4a5febf0367fc00",
-    "narHash": "sha256-QpXotokGh5eeMG1Njiuh27oP0rK6t5+cMp7ymXSs7mc=",
-    "lastModified": 1790055231
+    "rev": "00455b0a3690d3f5dc61e9aef4277dc86235b73f",
+    "narHash": "sha256-kK3t7gwoz4Nx8RF46cs1Xz/skKNcK7y3KYP+gGqX6W8=",
+    "lastModified": 1790178388
   },
   "nlock": {
     "type": "github",
@@ -75,9 +75,9 @@
     "type": "git",
     "url": "https://git.ngill.net/nqdc.git",
     "ref": "HEAD",
-    "rev": "1226ccf3c15befa6c84e58ba757a1f1b77d274da",
-    "narHash": "sha256-OCOkHMrG4K1bEE8GSxTZVXYajXvrHzd1xIFptiXigOE=",
-    "lastModified": 1790121423
+    "rev": "138309225225bee03126d5cb2a04d6ec2d7be99e",
+    "narHash": "sha256-h5SJwh/7AhuJkTi3wJqy4tuKy+Rs/v1heVBkgfI7CCU=",
+    "lastModified": 1790157870
   },
   "onyx": {
     "type": "github",
