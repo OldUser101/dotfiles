@@ -129,56 +129,65 @@ in
               padding-right = 5;
               padding-top = 5;
               child = {
-                type = "battery";
-                meter = {
-                  type = "meter";
-                  background = "#1e1e2e";
-                  prefix-format = "title";
-                  suffix-format = "percentage";
-                  bar = {
-                    type = "colored-bar";
-                    colors = [
-                      {
-                        min = 50;
-                        color = "#a6e3a1";
-                      }
-                      {
-                        min = 20;
-                        color = "#f9e2af";
-                      }
-                      { color = "#f38ba8"; }
-                    ];
-                    bar = {
-                      type = "bar";
+                type = "panel";
+                width = 300;
+                height = 20;
+                alignment = "center";
+                background = "#1e1e2e";
+                children = [
+                  {
+                    type = "battery";
+                    meter = {
+                      type = "meter";
                       background = "#1e1e2e";
-                      color = "#f38ba8";
-                      height = 20;
-                      width = 184;
+                      prefix-format = "title";
+                      suffix-format = "percentage";
+                      bar = {
+                        type = "colored-bar";
+                        colors = [
+                          {
+                            min = 50;
+                            color = "#a6e3a1";
+                          }
+                          {
+                            min = 20;
+                            color = "#f9e2af";
+                          }
+                          { color = "#f38ba8"; }
+                        ];
+                        bar = {
+                          type = "bar";
+                          background = "#1e1e2e";
+                          color = "#f38ba8";
+                          height = 20;
+                          width = 184;
+                        };
+                      };
+                      prefix = {
+                        type = "box";
+                        background = "#1e1e2e";
+                        padding-right = 5;
+                        child = {
+                          background = "#1e1e2e";
+                          color = "#f9e2af";
+                          size = 20.0;
+                          type = "text";
+                        };
+                      };
+                      suffix = {
+                        type = "box";
+                        background = "#1e1e2e";
+                        padding-left = 5;
+                        child = {
+                          background = "#1e1e2e";
+                          color = "#f9e2af";
+                          size = 20.0;
+                          type = "text";
+                        };
+                      };
                     };
-                  };
-                  prefix = {
-                    type = "box";
-                    background = "#1e1e2e";
-                    padding-right = 5;
-                    child = {
-                      background = "#1e1e2e";
-                      color = "#f9e2af";
-                      size = 20.0;
-                      type = "text";
-                    };
-                  };
-                  suffix = {
-                    type = "box";
-                    background = "#1e1e2e";
-                    padding-left = 5;
-                    child = {
-                      background = "#1e1e2e";
-                      color = "#f9e2af";
-                      size = 20.0;
-                      type = "text";
-                    };
-                  };
-                };
+                  }
+                ];
               };
             })
             ++ [
