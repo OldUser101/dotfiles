@@ -40,6 +40,7 @@ in
             text = "#f9e2af";
             background = "#454145";
           };
+          normal.black = "#1e1e2e";
           cursor.cursor = "#f9e2af";
         };
         window.padding = {
