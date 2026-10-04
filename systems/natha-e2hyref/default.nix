@@ -33,7 +33,7 @@
 
     i18n = { };
     misc.update = { };
-    network.tailscale = { };
+    network.tailscale = true;
     power.profile = "laptop";
     print = { };
 
