@@ -1,44 +1,25 @@
 {
-  pkgs,
-  config,
   lib,
+  util,
   ...
 }:
-
-with lib;
-let
-  cfg = config.olduser101.fs.swap;
-in
 {
-  options.olduser101.fs.swap = {
-    enable = mkOption {
-      type = types.bool;
-      default = true;
-      description = "Enable swap configuration";
-    };
-
-    type = mkOption {
-      type = types.enum [ "partition" ];
-      description = "Swap types";
-    };
-  };
-
-  config =
-    let
-      swapConfig = mkMerge [
-        (mkIf (cfg.type == "partition") {
-          swapDevices = [
-            {
-              device = "/dev/disk/by-label/SWAP";
-              options = [
-                "defaults"
-                "nofail"
-              ];
-              discardPolicy = "once";
-            }
-          ];
-        })
-      ];
-    in
-    mkIf cfg.enable swapConfig;
-}
+  type,
+}:
+let
+  type' = util.assertMsg (builtins.elem type [ "partition" ]) type "invalid swap type";
+in
+lib.mkMerge [
+  (lib.mkIf (type' == "partition") {
+    swapDevices = [
+      {
+        device = "/dev/disk/by-label/SWAP";
+        options = [
+          "defaults"
+          "nofail"
+        ];
+        discardPolicy = "once";
+      }
+    ];
+  })
+]

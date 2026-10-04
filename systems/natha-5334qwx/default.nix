@@ -15,40 +15,38 @@
   kernelMods = [ ];
   kernelParams = [ ];
   systemConfig = {
+    audio = { };
+
     boot = {
       type = "bios";
       device = "/dev/sda";
     };
-    core = {
-      enable = true;
-      tailscale = true;
-    };
-    power = {
-      enable = true;
-      profile = "laptop";
-    };
+
     fs = {
       type = "bios-default";
-      swap = {
-        enable = true;
-        type = "partition";
-      };
+      swap.type = "partition";
     };
-    hardware.firmware.enable = true;
-    hardware.graphics = {
-      enable = true;
-      type = "intel";
+
+    hardware = {
+      firmware = { };
+      graphics.type = "intel";
     };
-    security.pam = {
-      services = [
+
+    i18n = { };
+    misc.update = true;
+    network.tailscale = true;
+    power.profile = "laptop";
+
+    security = {
+      pam.services = [
         "swaylock"
         "nlock"
       ];
-      keyring = true;
+      sudo = { };
     };
-    sddm.enable = true;
-    sway.enable = true;
-    update.enable = true;
+
+    session.sddm = { };
+    wayland.sway = true;
   };
   hostMeta.localDotfiles = "/home/natha/.config/olduser101";
   users = [

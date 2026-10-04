@@ -12,42 +12,54 @@
   kernelMods = [ "kvm-intel" ];
   kernelParams = [ "amdgpu.ppfeaturemask=0xffffffff" ];
   systemConfig = {
-    audio.enable = true;
+    audio = { };
+
     boot = {
       type = "efi";
-      configurationLimit = 3;
+      configLimit = 3;
     };
-    core = {
-      enable = true;
-      tailscale = true;
-    };
-    print.enable = true;
-    programs.steam = true;
+
     fs = {
       type = "efi-default";
-      dataType = "default";
-      swap = {
-        enable = true;
-        type = "partition";
+      swap.type = "partition";
+      extraConfig = {
+        fileSystems."/data" = {
+          device = "/dev/disk/by-label/DATA.EXT";
+          fsType = "btrfs";
+          options = [
+            "compress=zstd:1"
+            "noatime"
+          ];
+        };
       };
     };
-    hardware.bluetooth.enable = true;
-    hardware.firmware.enable = true;
-    hardware.graphics = {
-      enable = true;
-      type = "amd";
-      lact = true;
+
+    hardware = {
+      bluetooth = { };
+      firmware = { };
+      graphics.type = "amd";
     };
-    mango.enable = true;
-    sddm.enable = true;
-    security.pam = {
-      services = [
+
+    i18n = { };
+
+    misc = {
+      steam = true;
+      update = { };
+    };
+
+    network.tailscale = true;
+    print = { };
+
+    security = {
+      sudo = { };
+      pam.services = [
         "swaylock"
         "nlock"
       ];
-      keyring = true;
     };
-    update.enable = true;
+
+    session.sddm = { };
+    wayland.mango = true;
   };
   hostMeta.localDotfiles = "/home/natha/.config/olduser101";
   users = [

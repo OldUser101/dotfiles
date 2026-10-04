@@ -8,6 +8,7 @@
 }:
 
 rec {
+  util = import ./util.nix;
   user = import ./user.nix { };
   host = import ./host.nix {
     inherit
@@ -17,6 +18,7 @@ rec {
       home-manager
       lib
       user
+      util
       ;
   };
   systems = import ./systems.nix {

@@ -83,25 +83,28 @@ in
       type = "bios";
       device = "/dev/sda";
     };
-    core = {
-      enable = true;
-      timeZone = "UTC";
-      tailscale = true;
-    };
+
     fs = {
       type = "bios-sdafwca";
-      dataType = "xfs";
-      swap = {
-        enable = true;
-        type = "partition";
+      swap.type = "partition";
+      extraConfig = {
+        fileSystems."/data" = {
+          device = "/dev/disk/by-label/DATA";
+          fsType = "ext4";
+        };
       };
     };
-    sshd = {
-      enable = true;
-      users = [
+
+    i18n.timeZone = "UTC";
+
+    misc.gnomeKeyring = false;
+
+    network = {
+      sshd.users = [
         "natha"
         "git"
       ];
+      tailscale = true;
     };
   };
   users = [

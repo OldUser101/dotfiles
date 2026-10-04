@@ -1,59 +1,35 @@
 {
   pkgs,
-  config,
   lib,
+  util,
   ...
 }:
-
-with lib;
+{
+  type,
+  lact ? (type == "amd"),
+  extraPackages ? [ ],
+}:
 let
-  cfg = config.olduser101.hardware.graphics;
+  type' = util.assertMsg (builtins.elem type [
+    "intel"
+    "amd"
+  ]) type "invalid graphics type";
 in
 {
-  options.olduser101.hardware.graphics = {
-    enable = mkOption {
-      type = types.bool;
-      default = false;
-      description = "Enable graphics configuration";
-    };
+  hardware.graphics = {
+    enable = true;
+    enable32Bit = true;
 
-    type = mkOption {
-      type = types.enum [
-        "intel"
-        "amd"
-      ];
-      description = "GPU \"type\"";
-    };
-
-    lact = mkOption {
-      type = types.bool;
-      default = false;
-      description = "Enable LACT";
-    };
-
-    extraPackages = mkOption {
-      type = types.listOf types.package;
-      default = [ ];
-      description = "Extra graphics packages to install";
-    };
+    extraPackages =
+      lib.optionals (type' == "intel") (
+        with pkgs;
+        [
+          intel-media-driver
+        ]
+      )
+      ++ extraPackages;
   };
 
-  config = mkIf cfg.enable {
-    hardware.graphics = {
-      enable = true;
-      enable32Bit = true;
-
-      extraPackages =
-        optionals (cfg.type == "intel") (
-          with pkgs;
-          [
-            intel-media-driver
-          ]
-        )
-        ++ cfg.extraPackages;
-    };
-
-    services.lact.enable = cfg.lact;
-    hardware.amdgpu.overdrive.enable = (cfg.type == "amd");
-  };
+  services.lact.enable = lact;
+  hardware.amdgpu.overdrive.enable = (type' == "amd");
 }

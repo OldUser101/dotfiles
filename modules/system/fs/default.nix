@@ -1,147 +1,128 @@
 {
   pkgs,
-  config,
   lib,
-  ...
+  util,
+  modulesPath,
+  config,
 }:
-
-with lib;
-let
-  cfg = config.olduser101.fs;
-in
 {
-  imports = [ ./swap ];
-
-  options.olduser101.fs = {
-    type = mkOption {
-      type = types.enum [
-        "efi-default"
-        "efi-baytrail"
-        "efi-unified"
-        "bios-default"
-        "bios-sdafwca"
-      ];
-      description = "Filesystem configuration type";
+  type,
+  swap ? null,
+  extraConfig ? { },
+}:
+let
+  type' = util.assertMsg (builtins.elem type [
+    "efi-default"
+    "efi-unified"
+    "efi-baytrail"
+    "bios-default"
+    "bios-sdafwca"
+  ]) type "invalid filesystem type";
+in
+lib.mkMerge [
+  (lib.mkIf (type' == "efi-default") {
+    fileSystems."/" = {
+      device = "/dev/disk/by-label/ROOT";
+      fsType = "btrfs";
     };
 
-    dataType = mkOption {
-      type = types.enum [
-        "none"
-        "default"
-        "xfs"
+    fileSystems."/boot" = {
+      device = "/dev/disk/by-label/BOOT";
+      fsType = "vfat";
+      options = [
+        "fmask=0077"
+        "dmask=0077"
       ];
-      default = "none";
-      description = "Data partition condifuration type";
     };
-  };
 
-  config =
-    let
-      fsConfig = mkMerge [
-        (mkIf (cfg.type == "efi-default") {
-          fileSystems."/" = {
-            device = "/dev/disk/by-label/ROOT";
-            fsType = "btrfs";
-          };
-
-          fileSystems."/boot" = {
-            device = "/dev/disk/by-label/BOOT";
-            fsType = "vfat";
-            options = [
-              "fmask=0077"
-              "dmask=0077"
-            ];
-          };
-
-          fileSystems."/home" = {
-            device = "/dev/disk/by-label/HOME";
-            fsType = "btrfs";
-            options = [
-              "subvol=home"
-              "compress=zstd:1"
-              "noatime"
-            ];
-          };
-        })
-
-        (mkIf (cfg.type == "efi-baytrail") {
-          fileSystems."/" = {
-            device = "/dev/disk/by-label/ROOT";
-            fsType = "btrfs";
-          };
-
-          fileSystems."/boot" = {
-            device = "/dev/disk/by-label/BOOT";
-            fsType = "vfat";
-            options = [
-              "fmask=0077"
-              "dmask=0077"
-            ];
-          };
-        })
-
-        (mkIf (cfg.type == "efi-unified") {
-          fileSystems."/" = {
-            device = "/dev/disk/by-label/ROOT";
-            fsType = "btrfs";
-          };
-
-          fileSystems."/boot" = {
-            device = "/dev/disk/by-label/BOOT";
-            fsType = "vfat";
-            options = [
-              "fmask=0077"
-              "dmask=0077"
-            ];
-          };
-        })
-
-        (mkIf (cfg.type == "bios-default") {
-          fileSystems."/" = {
-            device = "/dev/disk/by-label/ROOT";
-            fsType = "ext4";
-          };
-
-          fileSystems."/boot" = {
-            device = "/dev/disk/by-label/BOOT";
-            fsType = "vfat";
-            options = [
-              "fmask=0022"
-              "dmask=0022"
-            ];
-          };
-        })
-
-        (mkIf (cfg.type == "bios-sdafwca") {
-          fileSystems."/" = {
-            device = "/dev/disk/by-label/ROOT";
-            fsType = "xfs";
-          };
-
-          fileSystems."/boot" = {
-            device = "/dev/disk/by-label/BOOT";
-            fsType = "ext4";
-          };
-        })
-
-        (mkIf (cfg.dataType == "default") {
-          fileSystems."/data" = {
-            device = "/dev/disk/by-label/DATA.EXT";
-            fsType = "btrfs";
-            options = [
-              "compress=zstd:1"
-              "noatime"
-            ];
-          };
-        })
-
-        (mkIf (cfg.dataType == "xfs") {
-          fileSystems."/data" = {
-            device = "/dev/disk/by-label/DATA";
-            fsType = "ext4";
-          };
-        })
+    fileSystems."/home" = {
+      device = "/dev/disk/by-label/HOME";
+      fsType = "btrfs";
+      options = [
+        "subvol=home"
+        "compress=zstd:1"
+        "noatime"
       ];
-    in
-    fsConfig;
-}
+    };
+  })
+
+  (lib.mkIf (type' == "efi-baytrail") {
+    fileSystems."/" = {
+      device = "/dev/disk/by-label/ROOT";
+      fsType = "btrfs";
+    };
+
+    fileSystems."/boot" = {
+      device = "/dev/disk/by-label/BOOT";
+      fsType = "vfat";
+      options = [
+        "fmask=0077"
+        "dmask=0077"
+      ];
+    };
+  })
+
+  (lib.mkIf (type' == "efi-unified") {
+    fileSystems."/" = {
+      device = "/dev/disk/by-label/ROOT";
+      fsType = "btrfs";
+    };
+
+    fileSystems."/boot" = {
+      device = "/dev/disk/by-label/BOOT";
+      fsType = "vfat";
+      options = [
+        "fmask=0077"
+        "dmask=0077"
+      ];
+    };
+  })
+
+  (lib.mkIf (type' == "bios-default") {
+    fileSystems."/" = {
+      device = "/dev/disk/by-label/ROOT";
+      fsType = "ext4";
+    };
+
+    fileSystems."/boot" = {
+      device = "/dev/disk/by-label/BOOT";
+      fsType = "vfat";
+      options = [
+        "fmask=0022"
+        "dmask=0022"
+      ];
+    };
+  })
+
+  (lib.mkIf (type' == "bios-sdafwca") {
+    fileSystems."/" = {
+      device = "/dev/disk/by-label/ROOT";
+      fsType = "xfs";
+    };
+
+    fileSystems."/boot" = {
+      device = "/dev/disk/by-label/BOOT";
+      fsType = "ext4";
+    };
+  })
+
+  (
+    if (swap != null) then
+      (
+        (import ./swap {
+          inherit
+            pkgs
+            lib
+            util
+            modulesPath
+            config
+            ;
+        })
+          swap
+      )
+    else
+      { }
+  )
+
+  extraConfig
+]

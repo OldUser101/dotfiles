@@ -14,28 +14,26 @@
   kernelParams = [ ];
   systemConfig = {
     boot.type = "baytrail";
-    core.enable = true;
-    power = {
-      enable = true;
-      profile = "laptop";
-    };
+
     fs = {
       type = "efi-baytrail";
-      swap = {
-        enable = true;
-        type = "partition";
-      };
+      swap.type = "partition";
     };
-    hardware.firmware.enable = true;
-    hardware.graphics = {
-      enable = true;
-      type = "intel";
+
+    hardware = {
+      firmware = { };
+      graphics.type = "intel";
     };
-    security.pam = {
-      services = [ "swaylock" ];
-      keyring = true;
+
+    i18n = { };
+    power.profile = "laptop";
+
+    security = {
+      sudo = { };
+      pam.services = [ "swaylock" ];
     };
-    sway.enable = true;
+
+    wayland.sway = { };
   };
   hostMeta.localDotfiles = "/home/natha/.config/olduser101";
   users = [

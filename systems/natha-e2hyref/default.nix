@@ -13,40 +13,40 @@
   kernelMods = [ "kvm-intel" ];
   kernelParams = [ ];
   systemConfig = {
-    audio.enable = true;
-    boot.type = "efi";
-    core = {
-      enable = true;
-      tailscale = true;
+    audio = { };
+
+    boot = {
+      type = "efi";
+      configLimit = 3;
     };
-    power = {
-      enable = true;
-      profile = "laptop";
-    };
-    print.enable = true;
+
     fs = {
       type = "efi-unified";
-      swap = {
-        enable = true;
-        type = "partition";
-      };
+      swap.type = "partition";
     };
-    hardware.bluetooth.enable = true;
-    hardware.firmware.enable = true;
-    hardware.graphics = {
-      enable = true;
-      type = "intel";
+
+    hardware = {
+      bluetooth = { };
+      firmware = { };
+      graphics.type = "intel";
     };
-    mango.enable = true;
-    sddm.enable = true;
-    security.pam = {
-      services = [
+
+    i18n = { };
+    misc.update = { };
+    network.tailscale = { };
+    power.profile = "laptop";
+    print = { };
+
+    security = {
+      sudo = { };
+      pam.services = [
         "swaylock"
         "nlock"
       ];
-      keyring = true;
     };
-    update.enable = true;
+
+    session.sddm = { };
+    wayland.mango = { };
   };
   hostMeta.localDotfiles = "/home/natha/.config/olduser101";
   users = [
