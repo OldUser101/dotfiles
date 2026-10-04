@@ -40,12 +40,12 @@ in
       fsConfig = mkMerge [
         (mkIf (cfg.type == "efi-default") {
           fileSystems."/" = {
-            device = "/dev/disk/by-partlabel/ROOT";
+            device = "/dev/disk/by-label/ROOT";
             fsType = "btrfs";
           };
 
           fileSystems."/boot" = {
-            device = "/dev/disk/by-partlabel/ESP";
+            device = "/dev/disk/by-label/BOOT";
             fsType = "vfat";
             options = [
               "fmask=0077"
@@ -54,7 +54,7 @@ in
           };
 
           fileSystems."/home" = {
-            device = "/dev/disk/by-partlabel/DATA";
+            device = "/dev/disk/by-label/HOME";
             fsType = "btrfs";
             options = [
               "subvol=home"
