@@ -46,7 +46,7 @@
     };
 
     session.sddm = { };
-    wayland.mango = { };
+    wayland.mango = true;
   };
   hostMeta.localDotfiles = "/home/natha/.config/olduser101";
   users = [
