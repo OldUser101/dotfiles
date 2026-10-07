@@ -1,0 +1,35 @@
+From 50cbc1f89336854f2570b75a80a9521fd79df87f Mon Sep 17 00:00:00 2001
+From: Nathan Gill <n@ngill.net>
+Date: Wed, 7 Oct 2026 11:10:21 +0100
+Subject: [PATCH] add `TOOLS` option to disable extra tools
+
+---
+ neo/CMakeLists.txt | 5 ++++-
+ 1 file changed, 4 insertions(+), 1 deletion(-)
+
+diff --git a/neo/CMakeLists.txt b/neo/CMakeLists.txt
+index cf0d56fd..1071bea1 100644
+--- a/neo/CMakeLists.txt
++++ b/neo/CMakeLists.txt
+@@ -68,6 +68,9 @@ option(RETAIL
+ option(FLATPAK
+ 		"Strip certain developer features and cheats from flatpak builds" OFF)
+ 
++option(TOOLS
++        "Enable extra tools, not required for running the game" ON)
++
+ #set(NVRHI_INSTALL OFF)
+ 
+ set(CPU_TYPE "" CACHE STRING "When set, passes this string as CPU-ID which will be embedded into the binary.")
+@@ -453,7 +456,7 @@ endif()
+ 
+ # RB: there haven't been requests for a separate map compiler executable by macOS users
+ # and it is ok to not support it until someone also supports TrenchBroomBFG on macOS
+-if(NOT APPLE AND NOT FLATPAK)
++if(TOOLS AND NOT APPLE AND NOT FLATPAK)
+ 	add_subdirectory(tools/compilers)
+ endif()
+ 
+-- 
+2.55.0
+

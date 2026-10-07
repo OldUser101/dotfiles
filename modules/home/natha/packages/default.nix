@@ -93,6 +93,7 @@ in
       ])
       ++ optionals cfg.enableGames [
         dhewm3
+        rbdoom-3-bfg
         gzdoom
         prismlauncher
         _nethack
