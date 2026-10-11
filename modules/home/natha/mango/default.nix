@@ -92,15 +92,15 @@ in
         };
 
         no_border_when_single = 0;
-        sloppyfocus = 1;
-        warpcursor = 1;
+        sloppy_focus = 1;
+        warp_cursor = 1;
         enable_floating_snap = 0;
         cursor_size = 24;
         tag_gather = 1;
 
         repeat_rate = 25;
         repeat_delay = 600;
-        numlockon = 0;
+        numlock_on = 0;
         xkb_rules = {
           layout = "gb";
           options = "compose:ralt";
@@ -118,24 +118,24 @@ in
         animation_fade_in = 0;
         animation_fade_out = 0;
 
-        gappih = 15;
-        gappiv = 15;
-        gappoh = 15;
-        gappov = 15;
+        gap_inner_horizontal = 15;
+        gap_inner_vertical = 15;
+        gap_outer_horizontal = 15;
+        gap_outer_vertical = 15;
 
-        borderpx = 2;
-        rootcolor = "0x00000000";
-        bordercolor = "0x00000000";
-        dropcolor = "0x00000000";
-        splitcolor = "0x00000000";
-        focuscolor = "0xcba6f7ff";
-        globalcolor = "0x00000000";
-        urgentcolor = "0xf38ba800";
-        scratchpadcolor = "0x00000000";
-        overlaycolor = "0x00000000";
-        maximizecolor = "0x00000000";
+        border_px = 2;
+        root_color = "0x00000000";
+        border_color = "0x00000000";
+        drop_color = "0x00000000";
+        split_color = "0x00000000";
+        focus_color = "0xcba6f7ff";
+        global_color = "0x00000000";
+        urgent_color = "0xf38ba800";
+        scratchpad_color = "0x00000000";
+        overlay_color = "0x00000000";
+        maximized_screen_color = "0x00000000";
 
-        tagrule = [
+        tag_rule = [
           "id:*,layout_name:scroller"
         ];
 

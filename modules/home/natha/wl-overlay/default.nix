@@ -36,8 +36,8 @@ in
         "${pkgs.wl-overlay}/bin/wl-overlay"
       ];
       extraConfig = ''
-        bindo=SUPER,Tab,spawn,${pkgs.wl-overlay}/bin/wl-overlayctl overlay show
-        bindr=SUPER,Tab,spawn,${pkgs.wl-overlay}/bin/wl-overlayctl overlay hide
+        bindoc=SUPER,Tab,spawn,${pkgs.wl-overlay}/bin/wl-overlayctl overlay show
+        bindrc=SUPER,Tab,spawn,${pkgs.wl-overlay}/bin/wl-overlayctl overlay hide
       '';
     };
 
