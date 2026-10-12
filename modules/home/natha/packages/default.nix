@@ -83,6 +83,7 @@ in
         gh
         unzip
         onyx
+        discord
 
         # One needs an office suite sometimes
         libreoffice-qt-stable
