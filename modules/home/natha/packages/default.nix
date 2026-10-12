@@ -82,7 +82,6 @@ in
         lic
         gh
         unzip
-        onyx
         discord
 
         # One needs an office suite sometimes
