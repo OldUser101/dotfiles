@@ -27,7 +27,7 @@ in
   config = mkIf cfg.enable {
     olduser101.mango = mkIf cfg.mango {
       autoStart = [
-        "${pkgs.alacritty}/bin/alacritty"
+        "${pkgs.alacritty}/bin/alacritty --daemon"
       ];
     };
 

@@ -25,12 +25,6 @@ in
       description = "Enable mangowm configuration";
     };
 
-    terminal = mkOption {
-      type = types.nullOr types.str;
-      default = "${pkgs.alacritty}/bin/alacritty";
-      description = "Terminal to use";
-    };
-
     screenLocker = mkOption {
       type = types.nullOr types.str;
       default = "${pkgs.nlock}/bin/nlock";
@@ -145,7 +139,7 @@ in
           "SUPER,r,reload_config"
 
           "SUPER,Space,spawn,${wofi} --show drun"
-          "SUPER,Return,spawn,${cfg.terminal}"
+          "SUPER,Return,spawn,${pkgs.alacritty}/bin/alacritty msg create-window"
           "SUPER,Comma,spawn,${cfg.screenLocker}"
           "SUPER,f,spawn,${pkgs.firefox}/bin/firefox"
 
