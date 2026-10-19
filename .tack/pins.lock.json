@@ -3,9 +3,9 @@
     "type": "github",
     "owner": "ryantm",
     "repo": "agenix",
-    "rev": "3daa710894355fa2fad8243380af373a2b4046ef",
-    "narHash": "sha256-n7wew722m1OTBT9DOIMxNX/NF4zfsSUABAO5eW3wikE=",
-    "lastModified": 1790734419
+    "rev": "847720f0e73a77ce6503b63fba6c357c742c28a7",
+    "narHash": "sha256-Ptf4Drj8JYQDpNGEo9o+Tc7+hyjYxe+zrYO3J4jrYT4=",
+    "lastModified": 1792369191
   },
   "git-hooks": {
     "type": "github",
