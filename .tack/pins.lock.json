@@ -3,9 +3,9 @@
     "type": "github",
     "owner": "ryantm",
     "repo": "agenix",
-    "rev": "847720f0e73a77ce6503b63fba6c357c742c28a7",
-    "narHash": "sha256-Ptf4Drj8JYQDpNGEo9o+Tc7+hyjYxe+zrYO3J4jrYT4=",
-    "lastModified": 1792369191
+    "rev": "5e5b88a0c8e56f291a108c2fe9934054d9745b2e",
+    "narHash": "sha256-8tKjSQajD3mUND1GaAuaWTcuyUpgcGsh5V+l4ibzC7U=",
+    "lastModified": 1792507013
   },
   "git-hooks": {
     "type": "github",
@@ -19,9 +19,9 @@
     "type": "github",
     "owner": "nix-community",
     "repo": "home-manager",
-    "rev": "5bf02bcfede52ca95f693069ac28ace376942c05",
-    "narHash": "sha256-l1aACVdR3Wm6V0MGoTKqUg2tPKVNKGAVoz22jJ4QDw4=",
-    "lastModified": 1792467281
+    "rev": "ec80131710bffcdf3b8498cf41f3a0579833b023",
+    "narHash": "sha256-TyoYH983Nsc++1scw0SoOEKshPSJWJDxK7tTmuZ974M=",
+    "lastModified": 1792495086
   },
   "lanzaboote": {
     "type": "github",
@@ -43,9 +43,9 @@
     "type": "github",
     "owner": "OldUser101",
     "repo": "mango",
-    "rev": "d9213c71efdb9cf33c8b70e5044e9e3188496764",
-    "narHash": "sha256-vjQKOD6EWk1crLudWmDT3AQU2mJYc8V0T4g69gv9y4U=",
-    "lastModified": 1792158257
+    "rev": "89b316dfb2ad7c800502eb355e4043bd73322fc6",
+    "narHash": "sha256-1pZrhVdLf2wVDI9TMR7JpvL/qhMEekQevTYFI8amgRo=",
+    "lastModified": 1792523305
   },
   "ngill_net": {
     "type": "git",
@@ -59,9 +59,9 @@
     "type": "github",
     "owner": "NixOS",
     "repo": "nixpkgs",
-    "rev": "7a6522c868711d06e3a520bbcdfafe9806f4337f",
-    "narHash": "sha256-mN15cwddbOOIzzXSSwYUeRfOYeizz47Vy6y3Hzq6DuY=",
-    "lastModified": 1792208399
+    "rev": "5adc50831c259f87faeb09ddf930d43597197473",
+    "narHash": "sha256-Q/8KLB6jNfpaUN1HAedE/u/Et9feE/zYSsutBLKrCFk=",
+    "lastModified": 1792506237
   },
   "nlock": {
     "type": "github",
