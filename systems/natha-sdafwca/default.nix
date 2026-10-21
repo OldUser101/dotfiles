@@ -52,7 +52,7 @@ let
 
   caddy = pkgs.caddy.withPlugins {
     plugins = [ "github.com/WeidiDeng/caddy-cloudflare-ip@v0.0.0-20231130002422-f53b62aa13cb" ];
-    hash = "sha256-PgFPKCdJOylY4S51JcJAetrEr9EbypKHM67kgwW0lws=";
+    hash = "sha256-CSftt8cS9BlIFg78ny6+52Wx+uaHdMFepFQukjOPotI=";
   };
 in
 {
