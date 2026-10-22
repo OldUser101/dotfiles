@@ -23,6 +23,13 @@
         inputs.wl-overlay.overlays.wl-overlay
         inputs.wl-overlay_cava.overlays.wl-overlay_cava
         inputs.nqdc.overlays.nqdc
+
+        # until #576063
+        (final: super: {
+          pyopenjtalk-plus = super.pyopenjtalk-plus.overrideAttrs (previousAttrs: {
+            doCheck = false;
+          });
+        })
       ]
       ++ (import ./overlays { inherit system inputs; });
 
