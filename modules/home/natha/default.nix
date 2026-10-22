@@ -30,7 +30,7 @@ let
         packages.type = "full";
 
         mango.autoStart = [
-          "${pkgs.swaybg}/bin/swaybg -i ${assets}/wallpapers/bars.jpg -m fill"
+          "${pkgs.swaybg}/bin/swaybg -i ${assets}/wallpapers/room.png -m fill"
         ];
       };
     };
@@ -55,7 +55,7 @@ let
         packages.type = "full";
 
         mango.autoStart = [
-          "${pkgs.swaybg}/bin/swaybg -i ${assets}/wallpapers/bars.jpg -m fill"
+          "${pkgs.swaybg}/bin/swaybg -i ${assets}/wallpapers/room.png -m fill"
         ];
       };
     };
