@@ -74,7 +74,7 @@ in
         gcc
 
         # Misc
-        calibre
+        #calibre
         delta
         firefoxpwa
         jujutsu
