@@ -74,6 +74,7 @@ in
         gcc
 
         # Misc
+        ascii
         #calibre
         delta
         firefoxpwa
