@@ -51,9 +51,9 @@
     "type": "git",
     "url": "https://git.ngill.net/personal-site.git",
     "ref": "HEAD",
-    "rev": "f59873578039cdf72f91ce6afa3aa9b7c43e9227",
-    "narHash": "sha256-SUOsSY+uf++lzcRJYRAXHPr9hVutCZ3K8t1QTm6pPMc=",
-    "lastModified": 1791473791
+    "rev": "8a85d1b787c82f69c9942f7df638092606d293a5",
+    "narHash": "sha256-2PWFtK1uos3VX8a0DAopjwb7jZ95UzV5p9b/dJvMWmw=",
+    "lastModified": 1793055054
   },
   "nixpkgs": {
     "type": "github",

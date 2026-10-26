@@ -49,11 +49,6 @@ let
     '';
 
   guestbook = inputs.ngill_net.packages.${system}.guestbook;
-
-  caddy = pkgs.caddy.withPlugins {
-    plugins = [ "github.com/WeidiDeng/caddy-cloudflare-ip@v0.0.0-20231130002422-f53b62aa13cb" ];
-    hash = "sha256-CSftt8cS9BlIFg78ny6+52Wx+uaHdMFepFQukjOPotI=";
-  };
 in
 {
   kernelPackage = pkgs.linuxPackages_latest;
@@ -185,36 +180,8 @@ in
         useRoutingFeatures = "server";
       };
 
-      services.phpfpm.pools.guestbook = {
-        user = "guestbook";
-        group = "guestbook";
-
-        phpPackage = pkgs.php;
-
-        settings = {
-          "listen" = "/run/phpfpm/guestbook.sock";
-          "listen.owner" = "caddy";
-          "listen.group" = "caddy";
-          "listen.mode" = "0660";
-
-          "pm" = "ondemand";
-          "pm.max_children" = 4;
-          "pm.process_idle_timeout" = "10s";
-          "pm.max_requests" = 500;
-        };
-      };
-
       services.caddy = {
         enable = true;
-        package = caddy;
-        globalConfig = ''
-          servers {
-            trusted_proxies cloudflare {
-              interval 1h
-            }
-            client_ip_headers CF-Connecting-IP
-          }
-        '';
         virtualHosts = {
           "obj.ngill.net".extraConfig = ''
             root * /data/obj
@@ -243,16 +210,11 @@ in
                 Access-Control-Allow-Methods "GET, POST, OPTIONS"
                 Access-Control-Allow-Headers "Content-Type"
             }
-
             @preflight method OPTIONS
             respond @preflight 204
-
-            root * ${guestbook}
-
-            @messages path /
-            rewrite @messages /guestbook.php
-
-            php_fastcgi unix//run/phpfpm/guestbook.sock
+            reverse_proxy 127.0.0.1:8088 {
+              header_up X-Real-IP {http.request.remote.host}
+            }
           '';
         };
       };
@@ -294,6 +256,26 @@ in
         };
         wantedBy = [ "multi-user.target" ];
       };
+
+      systemd.services."guestbook" = {
+        enable = true;
+        serviceConfig = {
+          WorkingDirectory = "/data/ngill";
+          ExecStart = "${guestbook}/bin/guestbook";
+          Restart = "always";
+          RemainAfterExit = true;
+        };
+        environment = {
+          NGILL_NET_GUESTBOOK_ADDR = "127.0.0.1";
+          NGILL_NET_GUESTBOOK_PORT = "8088";
+          NGILL_NET_GUESTBOOK_LOG_LEVEL = "trace";
+          NGILL_NET_GUESTBOOK_STORE = "/data/ngill";
+        };
+        wantedBy = [ "multi-user.target" ];
+      };
+
+      # i can't be bothered okay?
+      programs.nix-ld.enable = true;
     }
     ({ config, ... }: {
       environment.systemPackages = [
