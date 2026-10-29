@@ -132,7 +132,7 @@ sub UNLOAD {
 	mouse_disable();
 }
 
-if ($ENV{"TERM"} !~ /^rxvt|screen|xterm|tmux(-(256)?(color|kitty))?$/) {
+if ($ENV{"TERM"} !~ /^alacritty|rxvt|screen|xterm|tmux(-(256)?(color|kitty))?$/) {
 	die "Your terminal doesn't seem to support this.";
 }
 
