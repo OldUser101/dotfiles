@@ -99,6 +99,7 @@ in
         prismlauncher
         _nethack
         unnethack
+        brogue-ce
       ]
       ++ cfg.extraPackages;
 
