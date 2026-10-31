@@ -23,6 +23,7 @@ let
           ];
         };
 
+        irssi.enable = true;
         git.sshKey = sshKey;
         htop.showBattery = true;
         wl-overlay.battery = true;
