@@ -115,17 +115,17 @@
     "type": "git",
     "url": "https://git.ngill.net/wl-overlay.git",
     "ref": "HEAD",
-    "rev": "6fb72817722e90ab42f704fe28953acbc546eeb8",
-    "narHash": "sha256-+q9c85LwdtDp1qXopOiINPBzWAPqiOI0/wJ6AR5yqoI=",
-    "lastModified": 1788386734
+    "rev": "058a97f0be9d29ef61c9972ea83fe905dd6621de",
+    "narHash": "sha256-PqIVowj1qZr4d8xjQ7r3cLpy0M+8445OlsBx0ldyYww=",
+    "lastModified": 1793735761
   },
   "wl-overlay_cava": {
     "type": "git",
     "url": "https://git.ngill.net/wl-overlay_cava.git",
     "ref": "HEAD",
-    "rev": "ce4a54eca041cb5c52f396a4b4499e3b337fadc3",
-    "narHash": "sha256-UtXNt48+mCnjtO4AccC/zBRfsioqgI2XbOHF1u5HX+4=",
-    "lastModified": 1788946298,
+    "rev": "3769e4349106f54ea3b0ca2cc38accc5d0e5be15",
+    "narHash": "sha256-a094hETA2HIS385/p0S5JoRx/4OTvZB/6ODDGvG82xA=",
+    "lastModified": 1793735577,
     "submodules": true
   }
 }
