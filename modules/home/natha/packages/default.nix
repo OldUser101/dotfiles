@@ -75,6 +75,7 @@ in
 
         # Misc
         ascii
+        moreutils
         #calibre
         delta
         firefoxpwa
