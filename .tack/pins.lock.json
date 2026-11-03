@@ -59,17 +59,17 @@
     "type": "github",
     "owner": "NixOS",
     "repo": "nixpkgs",
-    "rev": "d357a2b54f0b6dc4aeb4e993190a52cf151b6f24",
-    "narHash": "sha256-Thn0OE71NF80ZfOMGCgJvKtbCcnnz0fToT/qsvb/Gtc=",
-    "lastModified": 1793494649
+    "rev": "f9887a8a434bfba06e20dfc77bc8e0628266af84",
+    "narHash": "sha256-yRzh4uc8uxFv5+5TROEIH1rUL2FF1/cvfc+uq5JGGHY=",
+    "lastModified": 1793645915
   },
   "nlock": {
     "type": "github",
     "owner": "OldUser101",
     "repo": "nlock",
-    "rev": "9edfaa8d82d7779b514bc28d594dfb652798b5ba",
-    "narHash": "sha256-aPm4uxjB3lhQuKJ+/888K4yr8iilVcNeHOUmLUr4UKQ=",
-    "lastModified": 1792704601
+    "rev": "7bcc1acb18e8341929b8d492279040ff9ed19cd0",
+    "narHash": "sha256-oWaZegw5Ex1ntiXXAcH5SS5Ki4X+FxK0UhpodfhUyKw=",
+    "lastModified": 1793636612
   },
   "nqdc": {
     "type": "git",
