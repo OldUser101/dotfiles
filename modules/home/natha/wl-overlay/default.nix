@@ -118,6 +118,80 @@ in
                   ];
                 };
               }
+              {
+                type = "box";
+                background = "#1e1e2e";
+                border-color = "#cba6f7";
+                border-width = 2;
+                padding-bottom = 5;
+                padding-left = 5;
+                padding-right = 5;
+                padding-top = 5;
+                child = {
+                  type = "panel";
+                  width = 300;
+                  height = 20;
+                  alignment = "center";
+                  background = "#1e1e2e";
+                  children = [
+                    {
+                      type = "memory";
+                      meter = {
+                        type = "meter";
+                        background = "#1e1e2e";
+                        prefix-format = "none";
+                        suffix-format = "percentage";
+                        bar = {
+                          type = "colored-bar";
+                          colors = [
+                            {
+                              min = 80;
+                              color = "#f38ba8";
+                            }
+                            {
+                              min = 60;
+                              color = "#f9e2af";
+                            }
+                            {
+                              color = "#a6e3a1";
+                            }
+                          ];
+                          bar = {
+                            type = "bar";
+                            background = "#1e1e2e";
+                            color = "#f38ba8";
+                            height = 20;
+                            width = 184;
+                          };
+                        };
+                        prefix = {
+                          type = "box";
+                          background = "#1e1e2e";
+                          padding-right = 5;
+                          child = {
+                            background = "#1e1e2e";
+                            color = "#f9e2af";
+                            size = 20.0;
+                            type = "text";
+                            text = "Mem";
+                          };
+                        };
+                        suffix = {
+                          type = "box";
+                          background = "#1e1e2e";
+                          padding-left = 5;
+                          child = {
+                            background = "#1e1e2e";
+                            color = "#f9e2af";
+                            size = 20.0;
+                            type = "text";
+                          };
+                        };
+                      };
+                    }
+                  ];
+                };
+              }
             ]
             ++ (optional cfg.battery {
               type = "box";
