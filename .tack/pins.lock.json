@@ -43,9 +43,9 @@
     "type": "github",
     "owner": "OldUser101",
     "repo": "mango",
-    "rev": "50d4455051b81046cf3e86ddd59c5067f958ac40",
-    "narHash": "sha256-Lyuf0FkjWPD9ZNsjG1rD4RMe4+FqZ2vWg6RGC4HlS5s=",
-    "lastModified": 1793288190
+    "rev": "ff46c03a9ab7feb99cbbffa2b7d53b973df668cd",
+    "narHash": "sha256-F+9flYd6vUrEMXPEyOZPUe0l6DoEFq9TUwWrn/02JzE=",
+    "lastModified": 1793789107
   },
   "ngill_net": {
     "type": "git",
@@ -59,9 +59,9 @@
     "type": "github",
     "owner": "NixOS",
     "repo": "nixpkgs",
-    "rev": "ea9e3ef341e11c193537f674f821a99f9f436729",
-    "narHash": "sha256-CE1GD35mj//AKYuLNbQJZDelQYWzef5GBpQno9uyNP0=",
-    "lastModified": 1793706278
+    "rev": "13e53762c5afaf384d4614e94527a9ccfafe41d0",
+    "narHash": "sha256-pgG/CO+txdf2sA2z6DsM+2G3F9ajfIp/3BMC4wfKMDY=",
+    "lastModified": 1793795574
   },
   "nlock": {
     "type": "github",
