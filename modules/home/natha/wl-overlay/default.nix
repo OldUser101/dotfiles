@@ -169,11 +169,19 @@ in
                           background = "#1e1e2e";
                           padding-right = 5;
                           child = {
+                            type = "panel";
+                            width = 53;
+                            alignment = "center";
                             background = "#1e1e2e";
-                            color = "#f9e2af";
-                            size = 20.0;
-                            type = "text";
-                            text = "CPU";
+                            children = [
+                              {
+                                background = "#1e1e2e";
+                                color = "#f9e2af";
+                                size = 20.0;
+                                type = "text";
+                                text = "CPU";
+                              }
+                            ];
                           };
                         };
                         suffix = {
@@ -181,10 +189,18 @@ in
                           background = "#1e1e2e";
                           padding-left = 5;
                           child = {
+                            type = "panel";
+                            width = 53;
+                            alignment = "end";
                             background = "#1e1e2e";
-                            color = "#f9e2af";
-                            size = 20.0;
-                            type = "text";
+                            children = [
+                              {
+                                background = "#1e1e2e";
+                                color = "#f9e2af";
+                                size = 20.0;
+                                type = "text";
+                              }
+                            ];
                           };
                         };
                       };
@@ -243,11 +259,19 @@ in
                           background = "#1e1e2e";
                           padding-right = 5;
                           child = {
+                            type = "panel";
+                            width = 53;
+                            alignment = "center";
                             background = "#1e1e2e";
-                            color = "#f9e2af";
-                            size = 20.0;
-                            type = "text";
-                            text = "Mem";
+                            children = [
+                              {
+                                background = "#1e1e2e";
+                                color = "#f9e2af";
+                                size = 20.0;
+                                type = "text";
+                                text = "Mem";
+                              }
+                            ];
                           };
                         };
                         suffix = {
@@ -255,10 +279,18 @@ in
                           background = "#1e1e2e";
                           padding-left = 5;
                           child = {
+                            type = "panel";
+                            width = 53;
+                            alignment = "end";
                             background = "#1e1e2e";
-                            color = "#f9e2af";
-                            size = 20.0;
-                            type = "text";
+                            children = [
+                              {
+                                background = "#1e1e2e";
+                                color = "#f9e2af";
+                                size = 20.0;
+                                type = "text";
+                              }
+                            ];
                           };
                         };
                       };
@@ -316,10 +348,18 @@ in
                         background = "#1e1e2e";
                         padding-right = 5;
                         child = {
+                          type = "panel";
+                          width = 53;
+                          alignment = "center";
                           background = "#1e1e2e";
-                          color = "#f9e2af";
-                          size = 20.0;
-                          type = "text";
+                          children = [
+                            {
+                              background = "#1e1e2e";
+                              color = "#f9e2af";
+                              size = 20.0;
+                              type = "text";
+                            }
+                          ];
                         };
                       };
                       suffix = {
@@ -327,10 +367,18 @@ in
                         background = "#1e1e2e";
                         padding-left = 5;
                         child = {
+                          type = "panel";
+                          width = 53;
+                          alignment = "end";
                           background = "#1e1e2e";
-                          color = "#f9e2af";
-                          size = 20.0;
-                          type = "text";
+                          children = [
+                            {
+                              background = "#1e1e2e";
+                              color = "#f9e2af";
+                              size = 20.0;
+                              type = "text";
+                            }
+                          ];
                         };
                       };
                     };

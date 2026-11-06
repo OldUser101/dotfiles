@@ -115,9 +115,9 @@
     "type": "git",
     "url": "https://git.ngill.net/wl-overlay.git",
     "ref": "HEAD",
-    "rev": "59ae68e3fe44bd6455328205f5efcda09ef40415",
-    "narHash": "sha256-4O3ZVBLYMzoIK1GKvACFCPiz7peFc48kT4SW8h+NOwc=",
-    "lastModified": 1793919593
+    "rev": "019d5f176267518027770a735cae98a6c9fef154",
+    "narHash": "sha256-wmMpwpp2BJMJxxtkIn4G8u2rpMFYY+l8yUqgLDDxDuY=",
+    "lastModified": 1793970176
   },
   "wl-overlay_cava": {
     "type": "git",
