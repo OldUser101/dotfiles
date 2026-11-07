@@ -161,7 +161,7 @@ in
                             background = "#1e1e2e";
                             color = "#f38ba8";
                             height = 20;
-                            width = 184;
+                            width = 180;
                           };
                         };
                         prefix = {
@@ -170,7 +170,7 @@ in
                           padding-right = 5;
                           child = {
                             type = "panel";
-                            width = 53;
+                            width = 55;
                             alignment = "center";
                             background = "#1e1e2e";
                             children = [
@@ -190,7 +190,7 @@ in
                           padding-left = 5;
                           child = {
                             type = "panel";
-                            width = 53;
+                            width = 55;
                             alignment = "end";
                             background = "#1e1e2e";
                             children = [
@@ -251,7 +251,7 @@ in
                             background = "#1e1e2e";
                             color = "#f38ba8";
                             height = 20;
-                            width = 184;
+                            width = 180;
                           };
                         };
                         prefix = {
@@ -260,7 +260,7 @@ in
                           padding-right = 5;
                           child = {
                             type = "panel";
-                            width = 53;
+                            width = 55;
                             alignment = "center";
                             background = "#1e1e2e";
                             children = [
@@ -280,7 +280,7 @@ in
                           padding-left = 5;
                           child = {
                             type = "panel";
-                            width = 53;
+                            width = 55;
                             alignment = "end";
                             background = "#1e1e2e";
                             children = [
@@ -340,7 +340,7 @@ in
                           background = "#1e1e2e";
                           color = "#f38ba8";
                           height = 20;
-                          width = 184;
+                          width = 180;
                         };
                       };
                       prefix = {
@@ -349,7 +349,7 @@ in
                         padding-right = 5;
                         child = {
                           type = "panel";
-                          width = 53;
+                          width = 55;
                           alignment = "center";
                           background = "#1e1e2e";
                           children = [
@@ -368,7 +368,7 @@ in
                         padding-left = 5;
                         child = {
                           type = "panel";
-                          width = 53;
+                          width = 55;
                           alignment = "end";
                           background = "#1e1e2e";
                           children = [
