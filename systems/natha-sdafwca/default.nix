@@ -143,6 +143,7 @@ in
         22
         80
         443
+        6697
       ];
       networking.networkmanager.enable = pkgs.lib.mkForce false;
 
@@ -216,7 +217,18 @@ in
               header_up X-Real-IP {http.request.remote.host}
             }
           '';
+          "znc.ngill.net".extraConfig = ''
+            reverse_proxy 127.0.0.1:5000
+          '';
         };
+      };
+
+      services.znc = {
+        enable = true;
+        mutable = true;
+        useLegacyConfig = false;
+        openFirewall = false;
+        config.LoadModule = [ "webadmin" ];
       };
 
       virtualisation.docker.enable = true;
