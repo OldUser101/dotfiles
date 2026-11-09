@@ -229,11 +229,14 @@ in
         useLegacyConfig = false;
         openFirewall = false;
         config.LoadModule = [ "webadmin" ];
+        modulePackages = with pkgs; [
+          zncModules.clientbuffer
+        ];
       };
 
       virtualisation.docker.enable = true;
-      environment.systemPackages = [
-        pkgs.docker-compose
+      environment.systemPackages = with pkgs; [
+        docker-compose
       ];
 
       systemd.services."multi-scrobbler" = {
