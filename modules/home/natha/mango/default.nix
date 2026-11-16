@@ -89,7 +89,7 @@ in
         sloppy_focus = 1;
         warp_cursor = 1;
         enable_floating_snap = 0;
-        cursor_size = 24;
+        cursor_size = 12;
         tag_gather = 1;
 
         repeat_rate = 25;
@@ -208,9 +208,9 @@ in
     home.pointerCursor = {
       enable = true;
       gtk.enable = true;
-      package = pkgs.miku-cursor-linux;
-      name = "miku-cursor-linux";
-      size = 24;
+      package = pkgs.niko-cursors;
+      name = "Niko";
+      size = 12;
     };
 
     home.file.".XCompose".source = ../sway/xcompose;
