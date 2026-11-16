@@ -76,7 +76,7 @@ in
         # Misc
         ascii
         moreutils
-        #calibre
+        calibre
         delta
         firefoxpwa
         jujutsu
