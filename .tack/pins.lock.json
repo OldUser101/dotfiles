@@ -19,9 +19,9 @@
     "type": "github",
     "owner": "nix-community",
     "repo": "home-manager",
-    "rev": "a1293da7dd8e497e08d26173f97e2976b36a31ea",
-    "narHash": "sha256-awkBBs5ctFKgEYjpNGpi3t/VqF589n5EWfdinRb2gNI=",
-    "lastModified": 1794715309
+    "rev": "9d7ba6bef3904a018d38b92f83132eaf01eb8ef3",
+    "narHash": "sha256-a3My+u9CEwEFmuGXb3PV9COj7Gd8o28b19TvtDiKPfg=",
+    "lastModified": 1794865930
   },
   "lanzaboote": {
     "type": "github",
