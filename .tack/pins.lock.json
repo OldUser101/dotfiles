@@ -51,17 +51,17 @@
     "type": "git",
     "url": "https://git.ngill.net/personal-site.git",
     "ref": "HEAD",
-    "rev": "8cf0d6a226b4f2a83972fc672a470529978edca3",
-    "narHash": "sha256-mRk+C9ErLEAYlr95B3jXeVgKZ+hfR3Cee8WabJgVK2k=",
-    "lastModified": 1794585105
+    "rev": "2e7aa019ce00559f12d01f7f5c2e97c43a1850c9",
+    "narHash": "sha256-MJ2jRd2bH1Hw4iMFNVqbAxFude1PZ0X1H/6Qn5r2vnE=",
+    "lastModified": 1795124201
   },
   "nixpkgs": {
     "type": "github",
     "owner": "NixOS",
     "repo": "nixpkgs",
-    "rev": "e21fec321d73511849707a7585e4ea155ee4bf40",
-    "narHash": "sha256-ySrWnmZB5UsZTYGHHnBjllT05O5iFjElCRS+mabtfP0=",
-    "lastModified": 1794840529
+    "rev": "19cfded70b91ca0981373973c5b1efffdd4d6647",
+    "narHash": "sha256-DOTZsOOoEtOY0ysY9L6JzyDHZm4lGBr6P1bt1mFXcRw=",
+    "lastModified": 1795095985
   },
   "nlock": {
     "type": "github",
