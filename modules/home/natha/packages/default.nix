@@ -97,6 +97,7 @@ in
         dhewm3
         rbdoom-3-bfg
         gzdoom
+        zandronum
         prismlauncher
         _nethack
         unnethack
