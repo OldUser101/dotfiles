@@ -24,6 +24,7 @@ final: prev: {
 
     nativeBuildInputs = with prev; [
       autoPatchelfHook
+      makeWrapper
     ];
 
     installPhase = ''
@@ -32,7 +33,7 @@ final: prev: {
       cp ./zandronum $out/lib/zandronum/
       cp ./*.so $out/lib/zandronum/
       cp ./*.pk3 $out/lib/zandronum/
-      ln -s $out/lib/zandronum/zandronum $out/bin/zandronum
+      makeWrapper $out/lib/zandronum/zandronum $out/bin/zandronum
 
       addAutoPatchelfSearchPath $out/lib/zandronum
     '';
