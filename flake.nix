@@ -28,7 +28,12 @@
 
       pkgs = import nixpkgs {
         inherit system overlays;
-        config.allowUnfree = true;
+        config = {
+          problems.handlers = {
+            "gtk+".broken = "ignore";
+          };
+          allowUnfree = true;
+        };
       };
 
       util = import ./lib {
