@@ -36,7 +36,7 @@ in
         "${pkgs.wl-overlay}/bin/wl-overlay"
       ];
       extraConfig = ''
-        bindoc=SUPER,Tab,spawn,${pkgs.wl-overlay}/bin/wl-overlayctl overlay show
+        bindnc=SUPER,Tab,spawn,${pkgs.wl-overlay}/bin/wl-overlayctl overlay show
         bindrc=SUPER,Tab,spawn,${pkgs.wl-overlay}/bin/wl-overlayctl overlay hide
       '';
     };

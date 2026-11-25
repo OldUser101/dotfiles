@@ -58,8 +58,6 @@ in
 
   config = mkIf cfg.enable {
     wayland.windowManager.mango = {
-      inherit (cfg) extraConfig;
-
       enable = true;
 
       autostart_sh = strings.join "\n" (map (c: "${c} &") cfg.autoStart);
@@ -186,10 +184,6 @@ in
           "ALT,Up,viewtoleft,0"
           "ALT,Down,viewtoright,0"
 
-          "SUPER,c,spawn,/usr/bin/env OUT_DIR=${cfg.recordingsDirectory} ${src}/record-output.sh"
-          "SUPER,s,spawn,/bin/sh -c '${grim} -g \"$(${slurp})\" ${cfg.screenshotDirectory}/Screenshot_$(date +%F_%T).png'"
-          "SUPER+SHIFT,s,spawn,/bin/sh -c '${grim} -g \"$(${slurp})\" - | ${wl-copy}'"
-
           "NONE,XF86AudioLowerVolume,spawn,${wpctl} set-volume @DEFAULT_AUDIO_SINK@ 5%-"
           "NONE,XF86AudioRaiseVolume,spawn,${wpctl} set-volume @DEFAULT_AUDIO_SINK@ 5%+"
           "NONE,XF86AudioMute,spawn,${wpctl} set-mute @DEFAULT_AUDIO_SINK@ toggle"
@@ -198,6 +192,13 @@ in
           "NONE,XF86MonBrightnessUp,spawn,${brightnessctl} set 5%+"
         ];
       };
+
+      extraConfig = ''
+        bindn=SUPER,c,spawn,/usr/bin/env OUT_DIR=${cfg.recordingsDirectory} ${src}/record-output.sh
+        bindn=SUPER,s,spawn,/bin/sh -c '${grim} -g \"$(${slurp})\" ${cfg.screenshotDirectory}/Screenshot_$(date +%F_%T).png'
+        bindn=SUPER+SHIFT,s,spawn,/bin/sh -c '${grim} -g \"$(${slurp})\" - | ${wl-copy}'
+      ''
+      + cfg.extraConfig;
     };
 
     home.packages = with pkgs; [
