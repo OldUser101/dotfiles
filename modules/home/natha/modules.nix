@@ -8,6 +8,7 @@
     ./dunst
     ./email
     ./fonts
+    ./fuzzel
     ./ghostty
     ./git
     ./gtk

@@ -66,7 +66,7 @@ in
     };
 
     extraConfig = mkOption {
-      type = types.str;
+      type = types.lines;
       default = "";
       description = "Extra configuration lines";
     };
@@ -195,8 +195,6 @@ in
             "${mod}+S" = "exec ${grim} -g \"$(${slurp})\" ${screenshot}";
 
             "${mod}+C" = "exec /usr/bin/env OUT_DIR=${cfg.recordingsDirectory} ${src}/helpers/record-output.sh";
-
-            "${mod}+space" = "exec ${pkgs.wofi}/bin/wofi --show drun";
 
             "XF86MonBrightnessUp" = "exec ${brightnessctl} set 5%+";
             "XF86MonBrightnessDown" = "exec ${brightnessctl} set 5%-";

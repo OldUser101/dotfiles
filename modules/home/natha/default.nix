@@ -105,11 +105,11 @@ let
         alacritty.enable = false;
         dunst.enable = false;
         fonts.enable = false;
+        fuzzel.enable = false;
         nlock.enable = false;
         qt.enable = false;
         gtk.enable = false;
         wlsunset.enable = false;
-        wofi.enable = false;
         zellij.enable = false;
         swayidle.enable = false;
         shells.bash.enable = false;
@@ -145,6 +145,7 @@ lib.attrsets.recursiveUpdate {
     direnv.enable = true;
     dunst.enable = true;
     fonts.enable = true;
+    fuzzel.enable = true;
     htop.enable = true;
     kak.enable = true;
     nlock.enable = true;
@@ -152,7 +153,6 @@ lib.attrsets.recursiveUpdate {
     gtk.enable = true;
     wl-overlay.enable = true;
     wlsunset.enable = true;
-    wofi.enable = true;
     zellij.enable = true;
 
     packages.type = "minimal";

@@ -12,7 +12,6 @@ let
   grim = "${pkgs.grim}/bin/grim";
   slurp = "${pkgs.slurp}/bin/slurp";
   wl-copy = "${pkgs.wl-clipboard}/bin/wl-copy";
-  wofi = "${pkgs.wofi}/bin/wofi";
   brightnessctl = "${pkgs.brightnessctl}/bin/brightnessctl";
   wpctl = "${pkgs.wireplumber}/bin/wpctl";
   src = ./.;
@@ -50,7 +49,7 @@ in
     };
 
     extraConfig = mkOption {
-      type = types.str;
+      type = types.lines;
       default = "";
       description = "Extra configuration lines";
     };
@@ -136,7 +135,6 @@ in
         bind = [
           "SUPER,r,reload_config"
 
-          "SUPER,Space,spawn,${wofi} --show drun"
           "SUPER,Return,spawn,${pkgs.alacritty}/bin/alacritty msg create-window"
           "SUPER,Comma,spawn,${cfg.screenLocker}"
           "SUPER,f,spawn,${pkgs.firefox}/bin/firefox"

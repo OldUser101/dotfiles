@@ -13,7 +13,7 @@ in
   options.olduser101.wofi = {
     enable = mkOption {
       type = types.bool;
-      default = true;
+      default = false;
       description = "Enable wofi";
     };
 
