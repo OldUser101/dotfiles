@@ -43,9 +43,9 @@
     "type": "github",
     "owner": "OldUser101",
     "repo": "mango",
-    "rev": "762578fd29d16a1c752e8ad6298ff453bd8f7ee5",
-    "narHash": "sha256-18JJYq3YjPS36cU2RDV9xFig+Ztq0Kwy5Vql11y92h0=",
-    "lastModified": 1795607053
+    "rev": "bdf374a73321d9ed4c1628818bd5550a47f18c45",
+    "narHash": "sha256-yvkL+mw8HvVQhWZxB0dvXAXDeuwep320ZFU/4knZcjM=",
+    "lastModified": 1795690907
   },
   "ngill_net": {
     "type": "git",
