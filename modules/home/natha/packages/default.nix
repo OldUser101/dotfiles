@@ -78,7 +78,6 @@ in
         moreutils
         calibre
         delta
-        firefoxpwa
         jujutsu
         mpv
         lic
@@ -104,8 +103,6 @@ in
         brogue-ce
       ]
       ++ cfg.extraPackages;
-
-    programs.firefox.nativeMessagingHosts = mkIf (cfg.type == "full") [ pkgs.firefoxpwa ];
 
     home.file."${config.home.homeDirectory}/.nethackrc".source = ./.nethackrc;
     home.file."${config.home.homeDirectory}/.unnethackrc".source = ./.unnethackrc;

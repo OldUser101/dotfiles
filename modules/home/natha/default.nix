@@ -133,11 +133,7 @@ lib.attrsets.recursiveUpdate {
 
   systemd.user.startServices = true;
 
-  programs.firefox = {
-    enable = true;
-    nativeMessagingHosts = [ pkgs.firefoxpwa ];
-  };
-
+  programs.firefox.enable = true;
   services.gnome-keyring.enable = true;
   home.packages = [ pkgs.gcr_3 ];
 
