@@ -192,9 +192,9 @@ in
       };
 
       extraConfig = ''
-        bindn=SUPER,c,spawn,/usr/bin/env OUT_DIR=${cfg.recordingsDirectory} ${src}/record-output.sh
-        bindn=SUPER,s,spawn,/bin/sh -c '${grim} -g "$(${slurp})" ${cfg.screenshotDirectory}/Screenshot_$(date +%F_%T).png'
-        bindn=SUPER+SHIFT,s,spawn,/bin/sh -c '${grim} -g "$(${slurp})" - | ${wl-copy}'
+        bindo=SUPER,c,spawn,/usr/bin/env OUT_DIR=${cfg.recordingsDirectory} ${src}/record-output.sh
+        bindo=SUPER,s,spawn,/bin/sh -c '${grim} -g \"$(${slurp})\" ${cfg.screenshotDirectory}/Screenshot_$(date +%F_%T).png'
+        bindo=SUPER+SHIFT,s,spawn,/bin/sh -c '${grim} -g \"$(${slurp})\" - | ${wl-copy}'
       ''
       + cfg.extraConfig;
     };

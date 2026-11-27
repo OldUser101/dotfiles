@@ -33,7 +33,7 @@ in
   config = mkIf cfg.enable {
     olduser101.mango = mkIf cfg.mango {
       extraConfig = ''
-        bindn=SUPER,Space,spawn,${pkgs.fuzzel}/bin/fuzzel
+        bindo=SUPER,Space,spawn,${pkgs.fuzzel}/bin/fuzzel
       '';
     };
 
