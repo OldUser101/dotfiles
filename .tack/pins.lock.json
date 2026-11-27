@@ -11,17 +11,17 @@
     "type": "github",
     "owner": "cachix",
     "repo": "git-hooks.nix",
-    "rev": "5c6bf7c418b4abf003e6d00d231e87f5e6ad5230",
-    "narHash": "sha256-CwC7f1DripMBQjB7BozobprSYiA8Cn9rz8vsBthWJwk=",
-    "lastModified": 1795608474
+    "rev": "26f3f17f0d64137a569aa30ad953a59ab6662be2",
+    "narHash": "sha256-ddfB/7u6gJk6VjxNOZit/MZssPhnFzC8BI5lfp6TuIk=",
+    "lastModified": 1795742716
   },
   "home-manager": {
     "type": "github",
     "owner": "nix-community",
     "repo": "home-manager",
-    "rev": "6a13737c0ed27c7c285f59e3be423ed972aa605f",
-    "narHash": "sha256-d9Osol//t6hqeo1xlspsYMbhTJK507h6t0EmPyF5Db0=",
-    "lastModified": 1795618997
+    "rev": "54f903fdaaf5d5720ed36706fe75332af69eb793",
+    "narHash": "sha256-J1iQ1QMnkFwZFXnlPt2t3Qx7TsGjw08/0L3QMqNt+Wg=",
+    "lastModified": 1795748630
   },
   "lanzaboote": {
     "type": "github",
